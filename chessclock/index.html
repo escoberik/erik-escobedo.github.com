@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Clock</title>
+<link href="application.css" media="screen" rel="stylesheet" type="text/css" />
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="4L75mUNCypVQ4LLsVpeavwfynPK2+uw5YQiWzWUjozw=" name="csrf-token" />
+</head>
+<body>
+<div class='wrapper'>
+<h1>Clock</h1>
+<div class='clock'>
+<div class='player player1'>
+<div class='name'>
+<span>Player1</span>
+
+</div>
+<div class='time'>00:00</div>
+<div class='button'><a href="#"></a></div>
+</div>
+<div class='player player2'>
+<div class='name'>
+<span>Player2</span>
+</div>
+<div class='time'>00:00</div>
+<div class='button'><a href="#"></a></div>
+</div>
+<div class='button pause'>
+<a href="#">PAUSE</a>
+
+</div>
+</div>
+
+</div>
+<script src="application.js" type="text/javascript"></script>
+<script>
+  //<![CDATA[
+    $(function() {
+      Clock.init();
+    });
+  //]]>
+</script>
+</body>
+</html>
