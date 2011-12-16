@@ -1,10 +1,178 @@
----
-layout: default
-title: Erik Escobedo
----
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Erik Escobedo</title>
+    <link type="text/css" rel="stylesheet" href="style.css"></link>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <h1>Érik Escobedo</h1>
+        <h2><strong>W</strong>eb <strong>D</strong>eveloper</h2>
 
-{% for post in site.posts limit:5 %}
-<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-{{ post.content }}
-<em>Posted on {{ post.date | date_to_long_string }}.</em>
-{% endfor %}
+        <section id="experience">
+          <h3>Experience</h3>
+          <div class="items">
+            <div class="item">
+              <div class="period">
+                December 2010
+                <br />
+                -
+                <br />
+                PRESENT
+              </div>
+              <div class="description">
+                <strong>MojoTech, LLC</strong>
+                Front to Back Ruby on Rails Development
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="period">
+                September 2010
+                <br />
+                -
+                <br />
+                January 2011
+              </div>
+              <div class="description">
+                <strong>iEvolutioned</strong>
+                Back-end Ruby on Rails Development
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="period">
+                January 2010
+                <br />
+                -
+                <br />
+                Julio 2010
+              </div>
+              <div class="description two-lines">
+                <strong>Servicios de Internet Mex24</strong><br />
+                Freelancer Ruby on Rails Developer
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="period">
+                September 2009
+                <br />
+                -
+                <br />
+                January 2010
+              </div>
+              <div class="description">
+                <strong>GAMOL</strong>
+                IT Submanager
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="skills">
+          <h3>Skills</h3>
+          <ul class="items">
+            <li>Ruby on Rails</li>
+            <li>jQuery</li>
+            <li>Backbone.js</li>
+            <li>git</li>
+            <li>CoffeScript</li>
+            <li>HAML</li>
+            <li>SASS</li>
+            <li>Cucumber</li>
+            <li>RSpec</li>
+            <li>PostgreSQL</li>
+            <li>MySQL</li>
+            <li>Heroku</li>
+            <li>Mac OS X</li>
+            <li>Ubuntu (Linux)</li>
+          </ul>
+        </section>
+
+        <section id="education">
+          <h3>Education</h3>
+          <div class="items">
+            <div class="item">
+              <div class="period">
+                September 2006
+                <br />
+                -
+                <br />
+                December 2010
+              </div>
+              <div class="description">
+                <strong>UNAM</strong>
+                Mechatronics Engineering
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="involvment">
+          <h3>Involment</h3>
+          <div class="items">
+            <div class="item">
+              <div class="period">
+                May 2010
+              </div>
+              <div class="description two-lines">
+                <strong>Google Code Jam</strong>
+                <br />
+                2nd eliminatory round
+                Rank 7th among mexican participants
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="period">
+                July 2008
+                <br />
+                -
+                <br />
+                December 2009
+              </div>
+              <div class="description two-lines">
+                <strong>LIDSOL</strong>
+                <em>Open Software Research &amp; Development Laboratory</em>
+                <br />
+                Worked with Linux, Solaris, C, C++, Python, etc.
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="period">
+                July 2008
+                <br />
+                -
+                <br />
+                December 2009
+              </div>
+              <div class="description two-lines">
+                <strong>LIDSOL</strong>
+                <em>Open Software Research &amp; Development Laboratory</em>
+                <br />
+                Worked with Linux, Solaris, C, C++, Python, etc.
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="period">
+                May 2004
+              </div>
+              <div class="description two-lines">
+                <strong>CAMS</strong>
+                <em>Annual Mathematics Contest of the Southeast</em>
+                <br />
+                Ranked <strong>1st</strong> between students from 5 states.
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="clearBoth"></div>
+      </div>
+    </div>
+  </body>
+</html>

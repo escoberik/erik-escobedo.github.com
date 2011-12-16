@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica,Arial,sans-serif;
+}
+
+body {
+  background: #929292;
+}
+
+.clearBoth {
+  clear: both;
+  height: 1px;
+}
+
+.container {
+  width: 800px;
+  margin: 5px auto 0;
+  background: #fff;
+  padding-top: 50px;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 35px;
+  text-align: center;
+  background: #222;
+  padding: 3px 0;
+  letter-spacing: 8px;
+  font-family: Georgia;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+h2 {
+  margin: 20px 0;
+  text-align: center;
+  color: #222;
+  font-weight: normal;
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+
+section {
+  margin-bottom: 10px;
+}
+
+section h3 {
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 5px 0;
+  font-size: 30px;
+  font-weight: normal;
+  font-family: 'Myriad Pro,Calibri,Lucida Grande,Helvetica,sans-serif';
+  letter-spacing: 2px;
+}
+
+.items {
+  padding-top: 25px;
+}
+
+.item div {
+  display: inline-block;
+}
+
+.item .period {
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 12px;
+  font-family: Helvetica,Arial,sans-serif;
+  padding: 10px;
+  margin: 5px 50px 5px 0;
+  width: 135px;
+  font-size: 15px;
+}
+
+.item .description {
+  width: 500px;
+  vertical-align: top;
+  font-family: Helvetica,Arial,sans-serif;
+  letter-spacing: 1px;
+  color: #666;
+  padding-top: 25px;
+}
+
+.item .description.two-lines {
+  padding-top: 13px;
+}
+
+.item .description strong {
+  color: #111;
+}
+section#experience {
+  background: #F9D9D8;
+}
+
+section#experience h3 {
+  background: #C52F24;
+}
+
+section#experience .item .period {
+  color: #C52F24;
+  border-left: solid 15px #C52F24;
+}
+
+section#education {
+  background: #D9F9D9;
+}
+
+section#education h3 {
+  background: #55AF03;
+}
+
+section#education .item .period {
+  color: #55AF03;
+  border-left: solid 15px #55AF03;
+}
+
+section#skills {
+  background: #EDEFF4;
+}
+
+section#skills h3 {
+  background: #3B5998;
+}
+
+section#skills .item .period {
+  color: #3B5998;
+  border-left: solid 15px #3B5998;
+}
+
+section#involvment {
+  background: #FFF9D8;
+}
+
+section#involvment h3 {
+  background: #F99106;
+}
+
+section#involvment .item .period {
+  color: #F99106;;
+  border-left: solid 15px #F99106;;
+}
+
+ul.items {
+  text-align: center;
+}
+
+ul.items li {
+  list-style: none;
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  font-size: 17px;
+}
