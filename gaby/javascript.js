@@ -27,8 +27,7 @@ $(document).ready(function() {
     var stepy = 350 / 60;
 
     var x = remaining * stepx;
-    var y = (remaining % 120) - 60;
-    console.log(y);
+    var y = Math.abs(remaining % 120) - 60;
 
     $('#erik').css({
       left: x,
