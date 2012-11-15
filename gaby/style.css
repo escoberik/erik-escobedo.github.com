@@ -1,0 +1,12 @@
+body {
+  font-family: "acta-display", Georgia, Times, serif;
+}
+
+#clock {
+  font-size: 100px;
+  height: 120px;
+  width: 500px;
+  text-align: center;
+  margin: 0 auto;
+  color: #C62A20;
+}
