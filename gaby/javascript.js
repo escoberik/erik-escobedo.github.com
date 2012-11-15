@@ -27,16 +27,16 @@ $(document).ready(function() {
     var stepy = 350 / 60;
 
     var x = remaining * stepx;
-    var y = Math.abs(remaining % 120) - 60;
+    var y = Math.abs((remaining % 120) - 60);
 
     $('#erik').css({
       left: x,
-      top: y * stepy + 350
+      top: 350 - y * stepy
     });
 
     $('#gaby').css({
       right: x,
-      bottom: y * stepy + 350
+      bottom: 350 - y * stepy
     });
   };
   
