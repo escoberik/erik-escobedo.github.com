@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var remainingTime = function() {
-    var goal = new Date(2012, 11, 15, 23);
+    var goal = new Date(2012, 11, 1, 23);
     var now = new Date();
     var sec = parseInt((goal - now) / 1000);
     var min = parseInt(sec / 60);
