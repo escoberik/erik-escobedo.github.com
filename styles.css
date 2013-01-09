@@ -264,6 +264,7 @@ body * {
 
 .trackable .item strong {
   text-decoration: underline !important;
+  color: #15c !important;
 }
 
 .trackable .item:hover {

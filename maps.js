@@ -6,6 +6,7 @@ function initialize() {
     zoom: 8,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
+  window.marker = new google.maps.Marker({ map: window.map });
 
   $(document).ready(function() {
     search('Google, Mountain View, California');
@@ -23,5 +24,9 @@ function search(address) {
   geocoder.geocode({ address: address }, function(results) {
     var box = results[0].geometry.viewport;
     window.map.fitBounds(box);
+
+    var center = results[0].geometry.location;
+    window.marker.setPosition(center);
+    window.map.setCenter(center);
   });
 }
