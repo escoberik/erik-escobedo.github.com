@@ -7,6 +7,10 @@ $(document).ready(function() {
     $('#map').css({
       width: $('#page').width() - $('#panel').outerWidth()
     });
+
+    $('#content').css({
+      height: $('#map').height() - $('#controls').outerHeight() - 10
+    });
   };
 
   handleResize();

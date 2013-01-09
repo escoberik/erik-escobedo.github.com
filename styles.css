@@ -139,7 +139,7 @@ body * {
 }
 
 #controls {
-  padding: 8px 28px;
+  padding: 8px 23px 8px 28px;
   border-bottom: 1px solid #ebebeb;
 }
 
@@ -183,4 +183,50 @@ body * {
 #link {
   background-image: url('link.png');
   background-position: 8px 7px;
+}
+
+#content {
+  padding-left: 44px;
+  overflow: auto;
+}
+
+#content h2 {
+  margin-top: 18px;
+  font-size: 11px;
+  font-weight: 700;
+  padding-bottom: 9px;
+  color: #666666;
+}
+
+#content h2, #content .item {
+  border-bottom: 1px solid #ebebeb;
+}
+
+#content .item {
+  padding: 7px 10px 7px 25px;
+  line-height: 16px;
+}
+
+#content .item .description {
+  font-size: 12px;
+  width: 250px;
+}
+
+#content .item .description strong {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+#content .item .description em {
+  font-style: italic;
+  font-size: 11px;
+}
+
+#content .item .period {
+  line-height: 10px;
+  text-align: center;
+  float: right;
+  font-size: 11px;
+  color: #666666;
+  width: 50px;
 }
