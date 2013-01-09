@@ -15,4 +15,13 @@ $(document).ready(function() {
 
   handleResize();
   $(window).bind('resize', handleResize);
+
+  $('#print').bind('click', function() {
+    window.open('http://erik-escobedo.github.com/plain-CV/');
+  });
+
+  $('#link').zclip({
+    path: 'http://zeroclipboard.googlecode.com/svn-history/r10/trunk/ZeroClipboard.swf',
+    copy: location.href
+  });
 });

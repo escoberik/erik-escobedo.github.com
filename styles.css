@@ -116,13 +116,25 @@ body * {
   padding: 6px 10px;
 }
 
+#personalinfo li.btn:hover {
+  border-color: #666666;
+}
+
 #personalinfo .email {
   padding-top: 8px;
   margin-right: 10px;
 }
 
-#personalinfo .contact {
-  font-weight: 400;
+#personalinfo li.btn.contact {
+  padding: 0;
+}
+
+#personalinfo .contact a {
+  font-weight: 700;
+  text-decoration: none;
+  color: #999999;
+  padding: 6px 10px;
+  display: inline-block;
 }
 
 #panel, #map {
@@ -141,6 +153,14 @@ body * {
 #controls {
   padding: 8px 23px 8px 28px;
   border-bottom: 1px solid #ebebeb;
+}
+
+#controls li {
+  cursor: pointer;
+}
+
+#controls li:hover, #functions:hover {
+  border-color: #666666;
 }
 
 #tabs, #functions {
@@ -229,4 +249,8 @@ body * {
   font-size: 11px;
   color: #666666;
   width: 50px;
+}
+
+#letter-content {
+  display: none;
 }
