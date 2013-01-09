@@ -205,7 +205,7 @@ body * {
   background-position: 8px 7px;
 }
 
-#content {
+#content { 
   padding-left: 44px;
   overflow: auto;
 }
@@ -251,6 +251,15 @@ body * {
   width: 50px;
 }
 
-#letter-content {
+#cv-content {
   display: none;
+}
+
+#letter-content {
+  padding: 5px 8px 25px 0;
+}
+
+#letter-content p {
+  margin: 25px 0;
+  line-height: 20px;
 }
