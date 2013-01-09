@@ -1,3 +1,8 @@
+html, body, #main {
+  height: 100%;
+  width: 100%;
+}
+
 body * {
   font-family: Arial,sans-serif;
   font-size: 13px;
@@ -114,4 +119,68 @@ body * {
 #personalinfo .email {
   padding-top: 8px;
   margin-right: 10px;
+}
+
+#personalinfo .contact {
+  font-weight: 400;
+}
+
+#panel, #map {
+  float: left;
+  height: 100%;
+}
+
+#panel {
+  width: 381px;
+}
+
+#map {
+  background: blue;
+}
+
+#controls {
+  padding: 8px 28px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+#tabs, #functions {
+  display: inline-block;
+}
+
+#tabs li {
+  padding: 8px;
+}
+
+#tabs li, #functions {
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #444444;
+  border: 1px solid #bbbbbb;
+  border-radius: 2px;
+  background-color: #f1f1f1;
+}
+
+#functions {
+  float: right;
+}
+
+#functions li {
+  float: left;
+  font-size: 0;
+  width: 34px;
+  height: 27px;
+  background-repeat: no-repeat;
+}
+
+#print {
+  background-image: url('print.png');
+  background-position: 10px 7px;
+  border-right: 1px solid #bbbbbb;
+}
+
+#link {
+  background-image: url('link.png');
+  background-position: 8px 7px;
 }
