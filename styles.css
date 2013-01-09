@@ -251,11 +251,9 @@ body * {
   width: 50px;
 }
 
-#cv-content {
-  display: none;
-}
 
 #letter-content {
+  display: none;
   padding: 5px 8px 25px 0;
 }
 
