@@ -146,10 +146,6 @@ body * {
   width: 381px;
 }
 
-#map {
-  background: blue;
-}
-
 #controls {
   padding: 8px 23px 8px 28px;
   border-bottom: 1px solid #ebebeb;
@@ -260,4 +256,16 @@ body * {
 #letter-content p {
   margin: 25px 0;
   line-height: 20px;
+}
+
+.trackable .item {
+  cursor: pointer;
+}
+
+.trackable .item strong {
+  text-decoration: underline !important;
+}
+
+.trackable .item:hover {
+  background-color: #f1f1f1;
 }
