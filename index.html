@@ -1,281 +1,162 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="reset.css">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-    <title>Érik Escobedo</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript" src="http://www.steamdev.com/zclip/js/jquery.zclip.min.js"></script>
-    <script type="text/javascript" src="main.js"></script>
-
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
-    <script type="text/javascript" src="maps.js"></script>
+    <title>Erik Escobedo</title>
+    <link type="text/css" rel="stylesheet" href="style.css"></link>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   </head>
-  <body onload="initialize()">
-    <div id="main">
-      <div id="topbar">
-        <ol>
-          <li>+Érik</li>
-          <li data-target="experience">Experience</li>
-          <li data-target="skills">Skills</li>
-          <li data-target="education">Education</li>
-          <li data-target="involvement">Involvement</li>
-        </ol>
-      </div>
+  <body>
+    <div class="container">
+      <div class="content">
+        <h1>Érik Escobedo</h1>
+        <h2><strong>W</strong>eb <strong>D</strong>eveloper</h2>
 
-      <div id="googlebar">
-        <a href="http://google.com/" target="_blank" id="logo" class="gsprite"></a>
-        <div id="searchbar">
-          <input type="text" />
-        </div>
-        <div id="searchbutton">
-          <div class="button">
-            <span class="gsprite"></span>
-          </div>
-        </div>
-
-        <ol id="personalinfo">
-          <li class="email">erik.escobedo.e@gmail.com</li>
-          <li class="notifications btn">
-            0
-          </li>
-          <li class="contact btn">
-            <a href="mailto:erik.escobedo.e@gmail.com">Contact</a>
-          </li>
-          <li class="picture">
-            <a href="https://coderwall.com/erik-escobedo">
-              <img src="me.jpg" width="27" height="27" />
-            </a>
-          </li>
-        </ol>
-      </div>
-
-      <div id="page">
-        <div id="panel">
-          <div id="controls">
-            <ul id="tabs">
-              <li id="cv">Curriculum Vitae</li>
-              <li id="letter">Cover Letter</li>
-            </ul>
-            <ul id="functions">
-              <li id="print">Print</li>
-              <li id="link">Link</li>
-            </ul>
-            <div style="clear:both;"></div>
-          </div>
-
-          <div id="content">
-            <div id="cv-content">
-              <h2 id="experience">EXPERIENCE</h2>
-              <ul class="items trackable">
-                <li class="item" data-address="Providence, Rhode Island, USA">
-                  <div class="period">
-                    Dec 2010
-                    <br />
-                    -
-                    <br />
-                    Present
-                  </div>
-                  <div class="description">
-                    <strong>MojoTech, LLC</strong>
-                    <br />
-                    Front to Back Ruby on Rails Development
-                  </div>
-                </li>
-                <li class="item" data-address="Santiago de Queretaro, Queretaro, Mexico">
-                  <div class="period">
-                    Sep 2010
-                    <br />
-                    -
-                    <br />
-                    Jan 2011
-                  </div>
-                  <div class="description">
-                    <strong>iEvolutioned</strong>
-                    <br />
-                    Back-end Ruby on Rails Development
-                  </div>
-                </li>
-                <li class="item" data-address="Merida, Yucatan, Mexico">
-                  <div class="period">
-                    Jan 2010
-                    <br />
-                    -
-                    <br />
-                    Sep 2010
-                  </div>
-                  <div class="description">
-                    <strong>Independent Freelancer</strong>
-                    <br />
-                     Freelancer Ruby on Rails Developer 
-                  </div>
-                </li>
-                <li class="item" data-address="DF, Mexico">
-                  <div class="period">
-                    Sep 2009
-                    <br />
-                    -
-                    <br />
-                    Jan 2010
-                  </div>
-                  <div class="description">
-                    <strong>GAMOL</strong>
-                    <br />
-                    IT Submanager
-                  </div>
-                </li>
-              </ul>
-
-              <h2 id="skills">SKILLS</h2>
-              <ul class="items">
-                <li class="item">
-                  <div class="description">
-                    <strong>Web Development</strong>
-                    <br />
-                    Ruby on Rails, jQuery, Backbone.js, git, CoffeScript, HAML, SASS
-                  </div>
-                </li>
-                <li class="item">
-                  <div class="description">
-                    <strong>Testing</strong>
-                    <br />
-                    Cucumber, RSpec
-                  </div>
-                </li>
-                <li class="item">
-                  <div class="description">
-                    <strong>Deploying and Maintenance</strong>
-                    <br />
-                    PostgreSQL, MySQL, Heroku
-                  </div>
-                </li>
-                <li class="item">
-                  <div class="description">
-                    <strong>Operative Systems</strong>
-                    <br />
-                    Mac OS X, Ubuntu (Linux)
-                  </div>
-                </li>
-              </ul>
-
-              <h2 id="education">EDUCATION</h2>
-              <ul class="items">
-                <li class="item">
-                  <div class="period">
-                    Sep 2006
-                    <br />
-                    -
-                    <br />
-                    Dec 2010
-                  </div>
-                  <div class="description">
-                    <strong>UNAM</strong>
-                    <br />
-                    Mechatronics Engineering
-                  </div>
-                </li>
-              </ul>
-
-              <h2 id="involvement">INVOLVEMENT</h2>
-              <ul class="items">
-                <li class="item">
-                  <div class="period">
-                    May 2010
-                  </div>
-                  <div class="description">
-                    <strong>Google Code Jam</strong>
-                    <br />
-                     2nd eliminatory round Rank 7th among mexican participants
-                  </div>
-                </li>
-                <li class="item">
-                  <div class="period">
-                    July 2008
-                    <br />
-                    -
-                    <br />
-                    Dec 2009
-                  </div>
-                  <div class="description">
-                    <strong>LIDSOL</strong>
-                    <br />
-                    <em>(Open Software Research &amp; Development Laboratory)</em>
-                    <br />
-                     Worked with Linux, Solaris, C, C++, Python, etc. 
-                  </div>
-                </li>
-                <li class="item">
-                  <div class="period">
-                    May 2004
-                  </div>
-                  <div class="description">
-                    <strong>CAMS</strong>
-                    <br />
-                    <em>Annual Mathematics Contest of the Southeast </em>
-                    <br />
-                    Ranked <strong>1st</strong> between students from 5 states.
-                  </div>
-                </li>
-              </ul>
+        <section id="experience">
+          <h3>Experience</h3>
+          <div class="items">
+            <div class="item">
+              <div class="period">
+                December 2010
+                <br />
+                -
+                <br />
+                PRESENT
+              </div>
+              <div class="description">
+                <strong>MojoTech, LLC</strong>
+                Front to Back Ruby on Rails Development
+              </div>
             </div>
 
-            <div id="letter-content">
-              <p>Hi.<br />My name is Érik Escobedo and I've been writing software for more than 7 years.</p>
-              <p>
-              I feel honored and excited that you are interested in reading my CV. I wanted to work at Google
-              since I started to get my hands dirty with code.
-              </p>
-              <p>I know you Googlers are very busy people, so I just want to tell you a couple of things about me:</p>
-              <p>
-              I'm a very competitive person. When I was in school, I received acknowledgments for participating in several
-              mathematics contests. My most important achievement was to get a first place on the "CAMS". This is an
-              interstate math contest consisting of math problems resolution in both a private and public way.
-              The public stage of this contest took place before a number of academic judges.
-              I always try to improve and excel in the activities that I love.
-              </p>
-              <p>
-              However, I can also be a very cooperative person. Actually, most of the projects I've worked on have been
-              big enough to require the participation of a multidisciplinary team, including Graphic Designers, User
-              Interface Designers, Copywritters and Account Managers. This interaction has helped me to develop strong
-              communication skills, especially with people outside my work field. I think a programmer capable of talking in
-              "customer language" can always become handy.
-              </p>
-              <p>
-              Finally, I'd like to point out that I've always been a fan of all the Google Services. I have worked with and
-              integrated services like Google Analytics, Google Ads and, in particular, Google Maps. This is my favorite
-              Google Service and that's the reason why I decided to use this layout in order to show my resumé in a
-              creative way. I hope you like it.
-              </p>
-              <p>
-              Since I promised to be brief, I'd like to conclude by thanking you for the time and attention given to
-              this letter. If you are interested, I'd love to talk more about my past projects and about the skills I got
-              and think you might find useful.
-              </p>
-              <p>
-              With respect
-              <br />
-              Érik Escobedo
-              </p>
+            <div class="item">
+              <div class="period">
+                September 2010
+                <br />
+                -
+                <br />
+                January 2011
+              </div>
+              <div class="description">
+                <strong>iEvolutioned</strong>
+                Back-end Ruby on Rails Development
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="period">
+                January 2010
+                <br />
+                -
+                <br />
+                Julio 2010
+              </div>
+              <div class="description two-lines">
+                <strong>Servicios de Internet Mex24</strong><br />
+                Freelancer Ruby on Rails Developer
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="period">
+                September 2009
+                <br />
+                -
+                <br />
+                January 2010
+              </div>
+              <div class="description">
+                <strong>GAMOL</strong>
+                IT Submanager
+              </div>
             </div>
           </div>
-        </div>
-        <div id="map">
-        </div>
-        <div style="clear:both;"></div>
+        </section>
+
+        <section id="skills">
+          <h3>Skills</h3>
+          <ul class="items">
+            <li>Ruby on Rails</li>
+            <li>jQuery</li>
+            <li>Backbone.js</li>
+            <li>git</li>
+            <li>CoffeScript</li>
+            <li>HAML</li>
+            <li>SASS</li>
+            <li>Cucumber</li>
+            <li>RSpec</li>
+            <li>PostgreSQL</li>
+            <li>MySQL</li>
+            <li>Heroku</li>
+            <li>Mac OS X</li>
+            <li>Ubuntu (Linux)</li>
+          </ul>
+        </section>
+
+        <section id="education">
+          <h3>Education</h3>
+          <div class="items">
+            <div class="item">
+              <div class="period">
+                September 2006
+                <br />
+                -
+                <br />
+                December 2010
+              </div>
+              <div class="description">
+                <strong>UNAM</strong>
+                Mechatronics Engineering
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="involvment">
+          <h3>Involvment</h3>
+          <div class="items">
+            <div class="item">
+              <div class="period">
+                May 2010
+              </div>
+              <div class="description two-lines">
+                <strong>Google Code Jam</strong>
+                <br />
+                2nd eliminatory round
+                Rank 7th among mexican participants
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="period">
+                July 2008
+                <br />
+                -
+                <br />
+                December 2009
+              </div>
+              <div class="description two-lines">
+                <strong>LIDSOL</strong>
+                <em>Open Software Research &amp; Development Laboratory</em>
+                <br />
+                Worked with Linux, Solaris, C, C++, Python, etc.
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="period">
+                May 2004
+              </div>
+              <div class="description two-lines">
+                <strong>CAMS</strong>
+                <em>Annual Mathematics Contest of the Southeast</em>
+                <br />
+                Ranked <strong>1st</strong> between students from 5 states.
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="clearBoth"></div>
       </div>
     </div>
-
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-37518519-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
   </body>
 </html>
