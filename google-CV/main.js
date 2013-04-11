@@ -21,7 +21,7 @@ $(document).ready(function() {
   });
 
   $('#link').zclip({
-    path: 'http://zeroclipboard.googlecode.com/svn-history/r10/trunk/ZeroClipboard.swf',
+    path: 'http://erik-escobedo.github.io/google-CV/ZeroClipboard.swf',
     copy: location.href
   });
 
