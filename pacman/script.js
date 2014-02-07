@@ -34,6 +34,7 @@ $(function() {
     var x = $(this).data('x');
     var y = $(this).data('y');
     moveSprite(lucero, x, y);
+    return false;
   });
 });
 
@@ -51,8 +52,32 @@ function generateTile(x, y, tile) {
 };
 
 function moveSprite(sprite, x, y) {
+  var delta_x = x - sprite.x;
+  var delta_y = y - sprite.y;
+  var time = 1000 / sprite.speed;
+
+  if (Math.abs(delta_x) >= Math.abs(delta_y)) {
+    if (delta_x < 0) { // LEFT
+      sprite.x -= 1;
+    } else if (delta_x > 0) {           // RIGHT
+      sprite.x += 1;
+    }
+  } else {
+    if (delta_y < 0) { // UP
+      sprite.y -= 1;
+    } else {           // DOWN
+      sprite.y += 1;
+    }
+  }
+
   sprite.$el.animate({
-    top: y * tile_width,
-    left: x * tile_height
-  })
+    top: sprite.y * tile_width,
+    left: sprite.x * tile_height
+  }, time);
+
+  if (delta_x == 0 && delta_y == 0) {
+    return true;
+  } else {
+    setTimeout(function() { moveSprite(sprite, x, y) }, time);
+  }
 };
