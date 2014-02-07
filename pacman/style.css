@@ -20,3 +20,16 @@ body {
   height: 98px;
   border: solid white 1px;
 }
+
+.sprite {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+
+#lucero {
+  top: 900px;
+  left: 400px;
+  border-radius: 50px;
+  background: red;
+}
