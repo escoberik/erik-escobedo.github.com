@@ -1,11 +1,22 @@
 body {
+  margin: 0;
+  padding: 0;
 }
 
 #map {
   position: fixed;
   background: black;
-  top: 5px;
-  left: 5px;
-  right: 5px;
-  bottom: 5px;
+  left: 50%;
+  top: 50%;
+  width: 900px;
+  margin-left: -450px;
+  height: 1100px;
+  margin-top: -550px;
+}
+
+.tile {
+  position: absolute;
+  width: 98px;
+  height: 98px;
+  border: solid white 1px;
 }
