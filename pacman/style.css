@@ -18,7 +18,27 @@ body {
   position: absolute;
   width: 98px;
   height: 98px;
-  border: solid white 1px;
+  border: solid transparent 1px;
+}
+
+.walls-1, .walls-3, .walls-5, .walls-7,
+.walls-9, .walls-11, .walls-13, .walls-15 {
+  border-top-color: white;
+}
+
+.walls-2, .walls-3, .walls-6, .walls-7,
+.walls-10, .walls-11, .walls-14, .walls-15 {
+  border-right-color: white;
+}
+
+.walls-4, .walls-5, .walls-6, .walls-7,
+.walls-12, .walls-13, .walls-14, .walls-15 {
+  border-bottom-color: white;
+}
+
+.walls-8, .walls-9, .walls-10, .walls-11,
+.walls-12, .walls-13, .walls-14, .walls-15 {
+  border-left-color: white;
 }
 
 .sprite {
