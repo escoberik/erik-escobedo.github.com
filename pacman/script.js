@@ -15,13 +15,23 @@ $(function() {
       [12, 5, 5, 4, 5, 4, 5, 5, 6]
     ]
   };
+  window.score = 0;
 
-  var lucero = {
+  window.lucero = {
     $el: $('#lucero'),
     x: 4,
     y: 9,
     speed: 4
   };
+
+  var ladrones = [
+    { $el: $('#ladron0'),
+      x: 3,
+      y: 4,
+      speed: 3,
+      direction: 'left'
+    }
+  ];
 
   $(map.tiles).each(function(y, row) {
     $(row).each(function(x, tile) {
@@ -36,13 +46,17 @@ $(function() {
     moveSprite(lucero, x, y);
     return false;
   });
+
+  $(ladrones).each(function(index, ladron) {
+    setInterval(function() { moverLadron(ladron) }, 1000 / ladron.speed);
+  });
 });
 
 var tile_width = 100;
 var tile_height = 100;
 
 function generateTile(x, y, tile) {
-  return $('<div />').attr({ class: 'tile walls-' + tile }).data({
+  return $('<div />').attr({ class: 'tile candy walls-' + tile }).data({
     x: x,
     y: y
   }).css({
@@ -75,6 +89,12 @@ function moveSprite(sprite, x, y) {
     }
   }
 
+  $tile = $('.tile').eq(sprite.y * 9 + sprite.x);
+  if ($tile.hasClass('candy')) {
+    $tile.removeClass('candy');
+    window.score += 1;
+  }
+
   sprite.$el.animate({
     top: sprite.y * tile_width,
     left: sprite.x * tile_height
@@ -100,4 +120,65 @@ function wall(direction, x, y) {
     case 'left':
       return tile >= 8;
   };
+};
+
+function moverLadron(ladron) {
+  var delta_x = lucero.x - ladron.x;
+  var delta_y = lucero.y - ladron.y;
+
+  newDirection = function(ladron) {
+    switch(ladron.direction) {
+      case 'up':
+        if (delta_x > 0 && !wall('right', ladron.x, ladron.y)) return 'right';
+        if (delta_x < 0 && !wall('left', ladron.x, ladron.y)) return 'left';
+        if (wall('up', ladron.x, ladron.y)) {
+          return wall('right', ladron.x, ladron.y) ? 'left' : 'right';
+        }
+        break;
+      case 'right':
+        if (delta_y > 0 && !wall('down', ladron.x, ladron.y)) return 'down';
+        if (delta_y < 0 && !wall('up', ladron.x, ladron.y)) return 'up';
+        if (wall('right', ladron.x, ladron.y)) {
+          return wall('down', ladron.x, ladron.y) ? 'up' : 'down';
+        }
+        break;
+      case 'down':
+        if (delta_x < 0 && !wall('left', ladron.x, ladron.y)) return 'left';
+        if (delta_x > 0 && !wall('right', ladron.x, ladron.y)) return 'right';
+        if (wall('down', ladron.x, ladron.y)) {
+          return wall('left', ladron.x, ladron.y) ? 'right' : 'left';
+        }
+        break;
+      case 'left':
+        if (delta_y < 0 && !wall('up', ladron.x, ladron.y)) return 'up';
+        if (delta_y > 0 && !wall('down', ladron.x, ladron.y)) return 'down';
+        if (wall('left', ladron.x, ladron.y)) {
+          return wall('up', ladron.x, ladron.y) ? 'down' : 'up';
+        }
+        break;
+    }
+    return ladron.direction;
+  };
+
+  ladron.direction = newDirection(ladron);
+
+  switch(ladron.direction) {
+    case 'up':
+      ladron.y -= 1;
+      break;
+    case 'right':
+      ladron.x += 1;
+      break;
+    case 'down':
+      ladron.y += 1;
+      break;
+    case 'left':
+      ladron.x -= 1;
+      break;
+  }
+
+  ladron.$el.animate({
+    top: ladron.y * tile_width,
+    left: ladron.x * tile_height
+  }, 1000 / ladron.speed);
 };
