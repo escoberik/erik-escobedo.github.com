@@ -2,17 +2,15 @@ $(function() {
   window.map = {
     $el: $('#map'),
     tiles: [
-      [9, 5, 5, 1, 5, 1, 5, 5, 3],
-      [10, 9, 5, 4, 1, 4, 5, 3, 10],
-      [10, 10, 9, 5, 0, 5, 3, 10, 10],
-      [8, 0, 6, 9, 0, 3, 12, 0, 2],
-      [10, 8, 1, 6, 10, 12, 1, 2, 10],
-      [10, 10, 8, 5, 0, 5, 2, 10, 10],
-      [10, 8, 4, 3, 10, 9, 4, 2, 10],
-      [8, 0, 3, 12, 0, 6, 9, 0, 2],
-      [10, 10, 12, 5, 0 , 5, 6, 10, 10],
-      [10, 12, 5, 1, 4, 1, 5, 6, 10],
-      [12, 5, 5, 4, 5, 4, 5, 5, 6]
+      [9, 5, 5, 1, 5, 5, 3],
+      [10, 9, 5, 0, 5, 3, 10],
+      [10, 10, 9, 0, 3, 10, 10],
+      [8, 4, 6, 10, 12, 4, 2],
+      [10, 9, 5, 0, 5, 3, 10],
+      [8, 0, 3, 10, 9, 0, 2],
+      [10, 10, 12, 0, 6, 10, 10],
+      [10, 12, 1, 4, 1, 6, 10],
+      [12, 5, 4, 5, 4, 5, 6]
     ]
   };
   window.score = 0;
@@ -24,7 +22,7 @@ $(function() {
   window.ladrones = [
     {
       $el: $('#ladron0'),
-      speed: 2
+      speed: 2.5
     },
     {
       $el: $('#ladron1'),
@@ -32,10 +30,6 @@ $(function() {
     },
     {
       $el: $('#ladron2'),
-      speed: 1.5
-    },
-    {
-      $el: $('#ladron3'),
       speed: 1
     }
   ];
@@ -57,8 +51,8 @@ $(function() {
   });
 });
 
-var tile_width = 30;
-var tile_height = 30;
+var tile_width = 40;
+var tile_height = 40;
 
 function generateTile(x, y, tile) {
   return $('<div />').attr({ class: 'tile candy walls-' + tile }).data({
@@ -71,25 +65,21 @@ function generateTile(x, y, tile) {
 };
 
 function start() {
-  window.lucero.x = 4;
-  window.lucero.y = 9;
+  window.lucero.x = 3;
+  window.lucero.y = 7;
   window.lucero.stop = false;
 
   window.ladrones[0].x = 3;
   window.ladrones[0].y = 4;
-  window.ladrones[0].direction = 'left';
+  window.ladrones[0].direction = 'up';
 
-  window.ladrones[1].x = 5;
-  window.ladrones[1].y = 4;
-  window.ladrones[1].direction = 'right';
+  window.ladrones[1].x = 2;
+  window.ladrones[1].y = 3;
+  window.ladrones[1].direction = 'left';
 
-  window.ladrones[2].x = 3;
-  window.ladrones[2].y = 6;
-  window.ladrones[2].direction = 'left';
-
-  window.ladrones[3].x = 5;
-  window.ladrones[3].y = 6;
-  window.ladrones[3].direction = 'right';
+  window.ladrones[2].x = 4;
+  window.ladrones[2].y = 3;
+  window.ladrones[2].direction = 'right';
 
   lucero.$el.css({
     top: lucero.y * tile_width,
@@ -131,7 +121,7 @@ function moveSprite(sprite, x, y) {
     }
   }
 
-  $tile = $('.tile').eq(sprite.y * 9 + sprite.x);
+  $tile = $('.tile').eq(sprite.y * 7 + sprite.x);
   if ($tile.hasClass('candy')) {
     $tile.removeClass('candy');
     window.score += 1;
