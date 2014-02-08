@@ -33,6 +33,11 @@ $(function() {
       speed: 1
     }
   ];
+  window.candies = [];
+  while (candies.length < 10) {
+    var candy = parseInt(Math.random() * 63);
+    if (candies.indexOf(candy) < 0) candies.push(candy);
+  }
 
   $(map.tiles).each(function(y, row) {
     $(row).each(function(x, tile) {
@@ -41,9 +46,13 @@ $(function() {
     });
   });
 
+  $(candies).each(function(index, candy) {
+    $('.tile').eq(candy).addClass('candy');
+  });
+
   start();
 
-  map.$el.on('click', '.tile', function() {
+  $('.tile').click(function() {
     var x = $(this).data('x');
     var y = $(this).data('y');
     moveSprite(lucero, x, y);
@@ -55,7 +64,7 @@ var tile_width = 40;
 var tile_height = 40;
 
 function generateTile(x, y, tile) {
-  return $('<div />').attr({ class: 'tile candy walls-' + tile }).data({
+  return $('<div />').attr({ class: 'tile walls-' + tile }).data({
     x: x,
     y: y
   }).css({
@@ -132,6 +141,8 @@ function moveSprite(sprite, x, y) {
     top: sprite.y * tile_width,
     left: sprite.x * tile_height
   }, time);
+
+  if (window.score == 10 && !window.erik.$el) return cambio();
 
   if (delta_x == 0 && delta_y == 0) {
     return true;
@@ -218,16 +229,21 @@ function moverLadron(ladron) {
 };
 
 function checkmap() {
-  var dead = false;
-  $(ladrones).each(function(index, ladron) {
-    if (ladron.x == lucero.x && ladron.y == lucero.y)
-      dead = true;
-  });
-  if (!dead) return false;
+  if (window.erik.$el) {
+    if (erik.x == lucero.x && erik.y == lucero.y)
+      ganar();
+  } else {
+    var dead = false;
+    $(ladrones).each(function(index, ladron) {
+      if (ladron.x == lucero.x && ladron.y == lucero.y)
+        dead = true;
+    });
+    if (!dead) return false;
 
-  stop();
-  setTimeout(start, 1000);
-  return true;
+    stop();
+    setTimeout(start, 1000);
+    return true;
+  }
 };
 
 function stop() {
@@ -236,4 +252,40 @@ function stop() {
   });
   clearTimeout(lucero.engine);
   lucero.stop = true;
+}
+
+function cambio() {
+  $(ladrones).each(function(index, ladron) {
+    clearInterval(ladron.engine);
+    ladron.$el.hide();
+  });
+  window.erik = {
+    $el: $('#erik'),
+    speed: 3,
+    x: 3,
+    y: 4,
+    direction: 'down'
+  };
+  erik.$el.css({
+    top: erik.y * tile_width,
+    left: erik.x * tile_height
+  });
+  erik.$el.show();
+  erik.engine = setInterval(function() { moverLadron(erik) }, 1000 / erik.speed);
+}
+
+function ganar() {
+  stop();
+  clearInterval(erik.engine);
+  setTimeout(corazon, 2500);
+}
+
+function corazon() {
+  $('#map').hide();
+  $('#corazon').animate({
+    width: 280,
+    height: 360,
+    marginTop: -180,
+    marginLeft: -140
+  });
 }

@@ -72,3 +72,17 @@ body {
 #ladron2 {
   background: white;
 }
+
+#erik {
+  background: green;
+  display: none;
+}
+
+#corazon {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: red;
+}
