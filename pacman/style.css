@@ -59,9 +59,22 @@ body {
   background: pink;
 }
 
-#ladron0 {
-  top: 400px;
-  left: 300px;
+.ladron {
   border-radius: 50px;
+}
+
+#ladron0 {
   background: red;
+}
+
+#ladron1 {
+  background: blue;
+}
+
+#ladron2 {
+  background: white;
+}
+
+#ladron3 {
+  background: yellow;
 }

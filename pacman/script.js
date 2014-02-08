@@ -19,17 +19,24 @@ $(function() {
 
   window.lucero = {
     $el: $('#lucero'),
-    x: 4,
-    y: 9,
     speed: 4
   };
-
-  var ladrones = [
-    { $el: $('#ladron0'),
-      x: 3,
-      y: 4,
-      speed: 3,
-      direction: 'left'
+  window.ladrones = [
+    {
+      $el: $('#ladron0'),
+      speed: 2
+    },
+    {
+      $el: $('#ladron1'),
+      speed: 1.5
+    },
+    {
+      $el: $('#ladron2'),
+      speed: 1.5
+    },
+    {
+      $el: $('#ladron3'),
+      speed: 1
     }
   ];
 
@@ -40,15 +47,13 @@ $(function() {
     });
   });
 
+  start();
+
   map.$el.on('click', '.tile', function() {
     var x = $(this).data('x');
     var y = $(this).data('y');
     moveSprite(lucero, x, y);
     return false;
-  });
-
-  $(ladrones).each(function(index, ladron) {
-    setInterval(function() { moverLadron(ladron) }, 1000 / ladron.speed);
   });
 });
 
@@ -65,7 +70,44 @@ function generateTile(x, y, tile) {
   });
 };
 
+function start() {
+  window.lucero.x = 4;
+  window.lucero.y = 9;
+  window.lucero.stop = false;
+
+  window.ladrones[0].x = 3;
+  window.ladrones[0].y = 4;
+  window.ladrones[0].direction = 'left';
+
+  window.ladrones[1].x = 5;
+  window.ladrones[1].y = 4;
+  window.ladrones[1].direction = 'right';
+
+  window.ladrones[2].x = 3;
+  window.ladrones[2].y = 6;
+  window.ladrones[2].direction = 'left';
+
+  window.ladrones[3].x = 5;
+  window.ladrones[3].y = 6;
+  window.ladrones[3].direction = 'right';
+
+  lucero.$el.css({
+    top: lucero.y * tile_width,
+    left: lucero.x * tile_height
+  });
+  clearTimeout(lucero.engine);
+  $(ladrones).each(function(index, ladron) {
+    ladron.$el.css({
+      top: ladron.y * tile_width,
+      left: ladron.x * tile_height
+    });
+    clearInterval(ladron.engine);
+    ladron.engine = setInterval(function() { moverLadron(ladron) }, 1000 / ladron.speed);
+  });
+};
+
 function moveSprite(sprite, x, y) {
+  if (sprite.stop) return;
   clearTimeout(sprite.engine);
   var delta_x = x - sprite.x;
   var delta_y = y - sprite.y;
@@ -95,6 +137,7 @@ function moveSprite(sprite, x, y) {
     window.score += 1;
   }
 
+  if (checkmap()) return;
   sprite.$el.animate({
     top: sprite.y * tile_width,
     left: sprite.x * tile_height
@@ -177,8 +220,30 @@ function moverLadron(ladron) {
       break;
   }
 
+  if (checkmap()) return;
   ladron.$el.animate({
     top: ladron.y * tile_width,
     left: ladron.x * tile_height
   }, 1000 / ladron.speed);
 };
+
+function checkmap() {
+  var dead = false;
+  $(ladrones).each(function(index, ladron) {
+    if (ladron.x == lucero.x && ladron.y == lucero.y)
+      dead = true;
+  });
+  if (!dead) return false;
+
+  stop();
+  setTimeout(start, 1000);
+  return true;
+};
+
+function stop() {
+  $(ladrones).each(function(index, ladron) {
+    clearInterval(ladron.engine);
+  });
+  clearTimeout(lucero.engine);
+  lucero.stop = true;
+}
