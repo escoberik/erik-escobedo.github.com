@@ -8,16 +8,16 @@ body {
   background: black;
   left: 50%;
   top: 50%;
-  width: 900px;
-  margin-left: -450px;
-  height: 1100px;
-  margin-top: -550px;
+  width: 270px;
+  margin-left: -135px;
+  height: 330px;
+  margin-top: -165px;
 }
 
 .tile {
   position: absolute;
-  width: 98px;
-  height: 98px;
+  width: 28px;
+  height: 28px;
   border: solid transparent 1px;
 }
 
@@ -47,20 +47,18 @@ body {
 
 .sprite {
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 30px;
+  height: 30px;
   z-index: 2;
 }
 
 #lucero {
-  top: 900px;
-  left: 400px;
-  border-radius: 50px;
+  border-radius: 15px;
   background: pink;
 }
 
 .ladron {
-  border-radius: 50px;
+  border-radius: 15px;
 }
 
 #ladron0 {

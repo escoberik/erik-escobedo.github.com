@@ -57,8 +57,8 @@ $(function() {
   });
 });
 
-var tile_width = 100;
-var tile_height = 100;
+var tile_width = 30;
+var tile_height = 30;
 
 function generateTile(x, y, tile) {
   return $('<div />').attr({ class: 'tile candy walls-' + tile }).data({
