@@ -275,8 +275,8 @@ function cambio() {
 }
 
 function ganar() {
-  stop();
   clearInterval(erik.engine);
+  stop();
   setTimeout(corazon, 2500);
 }
 
@@ -287,5 +287,5 @@ function corazon() {
     height: 360,
     marginTop: -180,
     marginLeft: -140
-  });
+  }, 3500);
 }
