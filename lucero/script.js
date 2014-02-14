@@ -1,4 +1,5 @@
 $(function() {
+  FastClick.attach(document.body);
   window.map = {
     $el: $('#map'),
     tiles: [
