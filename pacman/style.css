@@ -1,11 +1,11 @@
 body {
   margin: 0;
   padding: 0;
+  background: #bde2a6;
 }
 
 #map {
   position: fixed;
-  background: black;
   left: 50%;
   top: 50%;
   width: 280px;
@@ -19,30 +19,31 @@ body {
   width: 38px;
   height: 38px;
   border: solid transparent 1px;
+  background: #7bc64d;
 }
 
 .tile.candy {
-  background: gray;
+  background: #7bc64d url('ferrero.png') no-repeat 9px 11px;
 }
 
 .walls-1, .walls-3, .walls-5, .walls-7,
 .walls-9, .walls-11, .walls-13, .walls-15 {
-  border-top-color: white;
+  border-top-color: #ffdf00;
 }
 
 .walls-2, .walls-3, .walls-6, .walls-7,
 .walls-10, .walls-11, .walls-14, .walls-15 {
-  border-right-color: white;
+  border-right-color: #ffdf00;
 }
 
 .walls-4, .walls-5, .walls-6, .walls-7,
 .walls-12, .walls-13, .walls-14, .walls-15 {
-  border-bottom-color: white;
+  border-bottom-color: #ffdf00;
 }
 
 .walls-8, .walls-9, .walls-10, .walls-11,
 .walls-12, .walls-13, .walls-14, .walls-15 {
-  border-left-color: white;
+  border-left-color: #ffdf00;
 }
 
 .sprite {
@@ -53,34 +54,32 @@ body {
 }
 
 #lucero {
-  background: pink;
+  background: url('lucero.png');
 }
 
 .ladron {
-}
-
-#ladron0 {
-  background: red;
-}
-
-#ladron1 {
-  background: blue;
-}
-
-#ladron2 {
-  background: white;
+  background: url('ladron.png');
 }
 
 #erik {
-  background: green;
+  background: url('erik.png');
   display: none;
 }
 
 #corazon {
-  position: fixed;
-  top: 50%;
-  left: 50%;
   width: 0;
+  position: absolute;
   height: 0;
-  background: red;
+  display: none;
+  z-index: 2;
+}
+
+#mensaje {
+  color: #fff;
+  font-size: 35px;
+  font-family: cursive;
+  display: none;
+  z-index: 2;
+  width: 250px;
+  position: absolute;
 }

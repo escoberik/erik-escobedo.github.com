@@ -276,16 +276,26 @@ function cambio() {
 
 function ganar() {
   clearInterval(erik.engine);
+  setTimeout(function() {
+    erik.$el.animate({
+      top: erik.y * tile_width,
+      left: erik.x * tile_height + tile_height / 2
+    })
+  }, 1000 / erik.speed);
   stop();
-  setTimeout(corazon, 2500);
+  setTimeout(corazon, 1500);
 }
 
 function corazon() {
-  $('#map').hide();
+  $('#corazon').show()
+  $('#corazon').css({
+    top: erik.y * tile_width + tile_height /2,
+    left: erik.x * tile_height + tile_height / 2
+  });
   $('#corazon').animate({
-    width: 280,
-    height: 360,
-    marginTop: -180,
-    marginLeft: -140
-  }, 3500);
+    width: 421,
+    height: 458,
+    top: -50,
+    left: -75
+  }, 4500, function() { $('#mensaje').show() });
 }
