@@ -23,7 +23,7 @@ $(function() {
   window.ladrones = [
     {
       $el: $('#ladron0'),
-      speed: 2.5
+      speed: 2
     },
     {
       $el: $('#ladron1'),
@@ -35,7 +35,7 @@ $(function() {
     }
   ];
   window.candies = [];
-  while (candies.length < 10) {
+  while (candies.length < 8) {
     var candy = parseInt(Math.random() * 63);
     if (candies.indexOf(candy) < 0) candies.push(candy);
   }
@@ -143,7 +143,7 @@ function moveSprite(sprite, x, y) {
     left: sprite.x * tile_height
   }, time);
 
-  if (window.score == 10 && !window.erik.$el) return cambio();
+  if (window.score == 8 && !window.erik.$el) return cambio();
 
   if (delta_x == 0 && delta_y == 0) {
     return true;
