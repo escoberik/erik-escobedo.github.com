@@ -17,7 +17,7 @@ $(document).ready(function() {
   $(window).bind('resize', handleResize);
 
   $('#print').bind('click', function() {
-    window.open('http://erik-escobedo.github.com/plain-CV/');
+    window.open('http://erik-escobedo.github.com/');
   });
 
   $('#link').zclip({
