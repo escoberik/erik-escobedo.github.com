@@ -1,0 +1,241 @@
+@import "../../../../common/css/colors.less";
+@import "../../../../common/css/fonts.less";
+@import "../../../../common/css/constants.less";
+
+//this should match numberline.DEFAULT_HEIGHT and numberline.DEFAULT_MARGIN in constants.js
+@numberlineHeight: 200px;
+@numberlineMargin: 40px;
+
+.mt-numberline {
+  
+    .mt-numberline-container {
+      .setSize (100%; 100%);
+        background-color: transparent;
+    }
+    .mt-numberline-svg-container {
+        height: inherit;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-touch-callout: none;
+        .unselectable;
+
+    }
+}
+.mt-fraction-div {
+    display: inline;
+}
+.hideSpinnerButtons;
+.mt-partition-range-vert-center{
+    position: relative;
+    top: 50%;
+    margin-top: -30px;
+}
+
+.mt-partition-selector {
+    position: absolute;
+    width: 250px;
+    height: 30px;
+    line-height: 30px;
+    background-color: white;
+    border-radius: 5px;
+    z-index: 1000;
+    padding: 25px;
+    border-color: grey;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.mt-partition-text {
+    padding-top: 10px;
+}
+
+.mt-partition-selector-dd {
+    width: 60px;
+}
+
+.mt-numberline-arrow-down {
+    .arrow ("down"; 20px);
+    position: absolute;
+    bottom: -10px;
+    left: -webkit-calc(~'50% - 5px');
+    border-top-color: grey;
+}
+
+.mt-x-axis-partition-block {
+  fill-opacity: 0.1;
+}
+
+.mt-y-axis-partition-block {
+  fill-opacity: 0.1;
+  // fill: @selectionOrangeLite;
+  // stroke: @numberlineColor;
+}
+
+.mt-percent-bar-container {
+  .mt-x-axis-partition-block {
+    fill-opacity: 0.3;
+  }
+
+  .mt-y-axis-partition-block {
+    fill-opacity: 0.3;
+  }
+}
+
+.mt-x-axis-partition-handles {
+  fill-opacity: 0.0;
+}
+
+.mt-y-axis-partition-handles-round, .mt-y-axis-partition-handles-sqr {
+  fill-opacity: 1;
+  // fill: @numberlineColor;
+  // stroke: @numberlineColor;
+}
+
+.mt-interval-menu {
+    position: absolute;
+    left: -webkit-calc(~'50% - 100px');
+    color: white;
+    padding: 0 10px;
+    background-color: gray;
+    border-width: 1px;
+    border-color: gray;
+    border-style: solid;
+}
+
+.mt-interval-menu-ok {
+    width: 50px;
+    height: 100%;
+    position: absolute;
+    top: -1px;
+    right: -50px;
+    background-color: white;
+    border-width: 1px;
+    border-color: gray;
+    border-style: solid;
+}
+
+@rangeTouchWidth: 25px;
+@rangeTouchHeight: 25px;
+@rangeTouchMargin: 5px;
+
+.mt-range-touch {
+    width: @rangeTouchWidth;
+    height: @rangeTouchHeight;
+    position: absolute;
+    z-index: 9;
+}
+
+.mt-range-touch-inner {
+    width: @rangeTouchWidth;
+    height: @rangeTouchHeight;
+    position: absolute;
+    //range touch color with transparency
+    background-color: fade(@selectionOrangeLite, 30%);
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: @numberlineColor;
+    border-style: solid;
+}
+
+.mt-range-touch:active {
+  .mt-range-touch-inner {
+    background-color: rgba(158, 196, 228, 0.7);
+  }
+}
+
+.mt-range-touch-top {
+  top: @rangeTouchHeight*2 + 10;
+}
+
+.mt-range-touch-bottom {
+  top: @rangeTouchHeight*2 + 110;
+}
+
+.mt-range-touch-left {
+  left: 21px;
+  .mt-range-touch-inner {
+    margin-left: @rangeTouchMargin;
+  }
+}
+
+.mt-range-touch-right {
+  right: 28px;
+  .mt-range-touch-inner {
+    margin-right: @rangeTouchMargin;
+  }
+}
+
+@rangeMenuWidth: 130px;
+.mt-range-menu {
+  display: none;
+  font-size: 1em;
+  font-family: amplifyFont;
+  color: white;
+  background-color: gray;
+  .setSize(@rangeMenuWidth;auto);
+  .setBorderRadius(3px);
+  text-align: center;
+  padding: 15px 0 0 0;
+  border: solid gray 1px;
+  .mt-button-holder{
+    position: relative;
+    .setSize(100%;50px);
+    background-color: white;
+    .setBorderRadius(0,0, 3px, 3px);
+  }
+  &.mt-left {
+    display: block;
+    position:absolute;
+    left: -@rangeMenuWidth - 2px;
+    top: -webkit-calc(~'50% - 51px');
+  }
+  &.mt-right {
+    display: block;
+    position:absolute;
+    right: -@rangeMenuWidth - 2px;
+    top: -webkit-calc(~'50% - 51px');
+  }
+}
+
+//numberline specific svg classes
+.mt-numberline-svg {
+  .mt-y-axis, .mt-x-axis, .mt-y-axis-arrow, .mt-x-axis-arrow, .mt-y-axis-minor-grid-line, .mt-x-axis-minor-grid-line {
+    stroke: @blackTeal;
+    stroke-width: 1;
+  }
+
+  .mt-y-axis-minor-grid-line.mt-origin-tick, .mt-x-axis-minor-grid-line.mt-origin-tick  {
+    stroke-width: 3;
+  }
+
+  .mt-y-axis, .mt-x-axis, .mt-y-axis-arrow, .mt-x-axis-arrow {
+    stroke-width: 3;
+  }
+
+  .mt-x-axis-tick-label-divider, .mt-y-axis-tick-label-divider {
+    stroke-width: 1;
+    stroke: black;
+  }
+
+  .mt-point-label-stem {
+    stroke-width: 0;
+    fill: @warmGray;
+  }
+
+  .mt-point-label-stem.mt-graph-selected {
+    stroke-width: 4;
+    stroke: @selectionOrange;
+    fill: @selectionOrange;
+  }
+
+  .mt-point-label-box {
+    stroke-width: 1;
+    stroke: @warmGray;
+    fill: @warmGrayLite;
+  }
+
+  .mt-point-label-box.mt-graph-selected {
+    fill: @selectionOrangeLite;
+    stroke: @selectionOrange;
+  }
+}
+

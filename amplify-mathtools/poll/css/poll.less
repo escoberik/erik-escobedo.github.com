@@ -1,0 +1,92 @@
+@import "../../../../common/css/lessLibrary.less";
+
+.mt-modal-background {
+    background-color: #13B5EA;
+}
+.modal-body {
+    background-color: #F9F9F9;
+    .mt-poll-container {
+        margin:0;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-touch-callout: none;
+        .setSize (100%);
+        .unselectable;
+        max-width: 500px;
+    }
+    .mt-poll-font {
+        display: block;
+        font-family: amplifyFontLight;
+        color: #6B6B6B;
+        text-align: center;
+    }
+    .mt-poll-question {
+        font-weight:100;
+    }
+    .mt-icon-position {
+        vertical-align: top;
+        padding: 5px;
+        display: block;
+        margin: inherit auto;
+    }
+    .mt-icon-loading {
+        margin-left: 10px;
+        padding: 20px;
+        .setSize (140px; 140px);
+    }
+    .mt-custom-radio {
+        vertical-align: top;
+        padding: 5px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        .setSize (45px; 45px);
+    }
+    .mt-custom-radio-color {
+        .setFill (rgb(243, 115, 33));
+    }
+    /* temporary class until radio buttons are customized */
+    .mt-custom-radio-color-inactive {
+        .setFill (#f9bc95);
+    }
+    .mt-custom-radio-color:active {
+        .setFill (white);
+        .setStroke (1px; white);
+    }
+}
+.mt-close {
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #fff;
+    text-shadow: 0 1px 0 #ffffff;
+    .setOpacity;
+}
+.mt-close:hover {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    .setOpacity (0.6);
+}
+.mt-header-font {
+    color: #fff;
+}
+
+.mt-poll-options {
+    margin-left: -10px;
+    text-align: center;
+    height: 20px;
+}
+
+.mt-question-text {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.mt-poll-option-span {
+    vertical-align: top;
+    display: inline-block;
+    width: 80px;
+    margin-left: 10px;
+}

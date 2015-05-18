@@ -1,0 +1,525 @@
+/* start copy over of bootstap 3.0 */
+
+#splitterApp .navbar-nav {
+        float: left;
+        margin: 0
+}
+
+#splitterApp .navbar-nav>li {
+    float: left
+}
+
+#splitterApp .navbar-nav>li>a {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}
+
+#splitterApp .navbar-nav.navbar-right:last-child {
+    margin-right: -15px
+}
+
+
+#splitterApp .nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none
+}
+
+#splitterApp .nav:before, #splitterApp .nav:after {
+    display: table;
+    content: " "
+}
+
+#splitterApp .nav:after {
+    clear: both
+}
+
+#splitterApp .nav:before, #splitterApp .nav:after {
+    display: table;
+    content: " "
+}
+
+#splitterApp .nav:after {
+    clear: both
+}
+
+#splitterApp .nav>li {
+    position: relative;
+    display: block
+}
+
+#splitterApp .nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px
+}
+
+#splitterApp .nav>li>a:hover, #splitterApp .nav>li>a:focus {
+    text-decoration: none;
+    background-color: #eee
+}
+
+#splitterApp .nav>li.disabled>a {
+    color: #999
+}
+
+#splitterApp .nav>li.disabled>a:hover, #splitterApp .nav>li.disabled>a:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: not-allowed;
+    background-color: transparent
+}
+
+#splitterApp .nav .open>a, #splitterApp .nav .open>a:hover, #splitterApp .nav .open>a:focus {
+    background-color: #eee;
+    border-color: #428bca
+}
+
+#splitterApp .navbar-default
+{
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+
+}
+
+
+#splitterApp *, #splitterApp *:before, #splitterApp *:after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+/* end copy over of bootstap 3.0*/
+
+/* And so the epic battle against Bootstap begins... */
+
+#splitterApp
+{
+    font-family: bentonSansBook!important;
+    font-size: 14px !important;
+
+    line-height: 1.428571429; /* from bootstap new */
+    color: #333; /* from bootstap new */
+}
+#splitterApp #reset
+{
+margin-left: 25px!important;
+}
+
+
+#splitterApp .navbar-default .navbar-nav>li>a {
+    font-size: 16px !important;
+    color: #13b5ea !important;
+}
+
+#splitterApp .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+    color: #13b5ea !important;
+    background-color: transparent;
+}
+
+#splitterApp .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover,
+#splitterApp .navbar-default .navbar-nav>.active>a:focus {
+    color: #13b5ea !important;
+    background-color: #e7e7e7
+}
+
+
+#splitterApp .selected-item{
+    border: 2px solid black !important;
+}
+
+#splitterApp #menuBar
+{
+    display: block;
+    padding: 10px;
+    width: 100%;
+    height: 0px;
+}
+
+#splitterApp #menuBar ul li {
+    cursor: pointer;
+    -webkit-transition: padding .05s linear;
+    -moz-transition: padding .05s linear;
+    -ms-transition: padding .05s linear;
+    -o-transition: padding .05s linear;
+    transition: padding .05s linear;
+
+}
+
+#splitterApp .navbar-default .navbar-nav>li>a {
+
+}
+
+
+#splitterApp #surface
+{
+    display:inline-block;
+    background: rgb(230, 230, 230);
+    touch-action: none;
+}
+
+#splitterApp.nav,#splitterApp .pagination,#splitterApp .carousel, #splitterApp .panel-title a { cursor: pointer; }
+
+
+#splitterApp .li { position:relative; padding:5px; display: inline-block; width: 31%; cursor: pointer; }
+
+#splitterApp .op2{
+          display:block;
+          font-size:14px;
+          text-align: center;
+
+  }
+
+#splitterApp .op3{  position:relative; text-align: right; margin-right: 10px; display:block;}
+
+#splitterApp .nav-tabs, .nav-pills
+{
+    width:300px;
+}
+
+#splitterApp .graphicButton{
+    max-width:48px;
+    max-height:48px;
+    margin: 0px;
+    background-color:transparent;
+    border:0px transparent;
+    outline: 0;
+}
+
+#splitterApp hr{
+    padding:0px;
+    margin:0px;
+    border-color:#b3b3b3;
+}
+
+#splitterApp .tab-buttons {
+    padding: 7px 15px !important;
+
+}
+
+/*
+#splitterApp .tab-btn
+{
+    width: 80px;
+    height: 40px;
+    text-align: center;
+}
+*/
+
+#splitterApp .tab-buttons .btn{
+    border: 1px #e2e2e2 solid;
+    color: #666;
+    font-weight: bold;
+}
+
+#splitterApp .tab-buttons .btn.active, #splitterApp .tab-buttons .btn:active, #splitterApp .tab-buttons .btn:hover , #splitterApp .tab-buttons .btn:visited
+{
+    color: #666;
+    box-shadow:         none;
+    -moz-box-shadow:    none;
+    -webkit-box-shadow: none;
+    border: 1px #e2e2e2 solid;
+
+}
+#splitterApp .tab-buttons .btn:active,#splitterApp .tab-buttons .btn.active {
+    background: #efeff4;
+    border: 1px #e2e2e2 solid;
+
+}
+#splitterApp .tab-buttons .btn:hover {
+    background: rgba(240,240,245,0.3);
+    color: #666;
+}
+#splitterApp .tab-buttons .active:hover {
+    background: #efeff4;
+    color: #666;
+}
+
+
+#splitterApp .popover
+{
+    max-width: 320px !important;
+    width: 320px !important;
+    padding: 0px !important;
+
+}
+#splitterApp .popover-section
+{
+    border-bottom: 1px solid #CCCCCC !important;
+
+}
+#splitterApp .popover-section:last-child
+{
+    border-bottom: none !important;
+
+}
+#splitterApp .well {
+    border-radius: 0px !important;
+}
+#splitterApp .well-sm{
+    margin-bottom:  7px !important;
+}
+
+#splitterApp .popover-content
+{
+    padding: 0px !important;
+}
+
+#splitterApp .tab-pane
+{
+    margin:0px !important;
+}
+
+#splitterApp .color-pane
+{
+    width: 100%;
+    height: auto;
+    text-align: center;
+
+    padding: 0px 10px 7px 10px;
+}
+
+#splitterApp .list-section {
+
+    height: 43px;
+    margin-left: 15px;
+    padding-right: 15px;
+    border-bottom: 1px solid #CCCCCC ;
+    display: table;
+    width: 300px;
+}
+
+#splitterApp .list-section-last {
+
+
+    border-bottom: none !important ;
+
+}
+
+#splitterApp .list-section label {
+    /* float: left; */
+    /*
+vertical-align: middle!important;
+    font-family: bentonSansBook !important;
+*/
+    /* display: inline-block; */
+
+ /*
+ position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+*/  display: table-cell;
+    vertical-align: middle!important;
+    margin-bottom: 0px!important;
+    font-weight: normal!important;
+}
+#splitterApp .list-section input {
+
+    width: 80%;
+    height: 28px!important;
+    background: #f8f8f8!important;
+    border: none!important;
+    border-radius: 6px!important;
+    margin:7px 0px 0px 0px!important;
+    color: #636363!important;
+    float: right;
+    box-shadow: none!important;
+    outline: none !important;rl
+}
+
+
+#splitterApp .list-section:focus
+{
+    outline: 0!important;
+    box-shadow: none!important;
+}
+
+
+
+#splitterApp .shape-buttons {
+  padding: 7px 24px;
+  text-align: justify;
+  font-size: 0px !important; /* IE 9/10 don't like font-size: 0; */
+  line-height:0px!important;
+  /* min-width: 320px; */
+}
+#splitterApp .shape-buttons div {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+}
+#splitterApp .shape-buttons:after {
+  content: '';
+  width: 100%; /* Ensures there are at least 2 lines of text, so justification works */
+  display: inline-block;
+}
+
+
+
+#splitterApp .color-btn
+{
+   position: relative !important;
+   margin: 2px !important;
+   padding: 0px !important;
+   border: solid thin gray;
+   height: 43px !important;
+   width: 43px !important;
+   cursor:pointer !important;
+}
+
+/*
+#splitterApp .shapeGap{
+    margin-right: 45px !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+*/
+#splitterApp .styleTitle_div{
+    width:100%;
+    height: 43px;
+    display: table;
+    text-align:center;
+}
+#splitterApp .styleTitle_span{
+    display: table-cell;
+    vertical-align: middle;
+    font-weight:bold;
+
+
+    border-bottom: 1px solid #CCCCCC ;
+    float: none !important;
+
+    margin: 0px !important ;
+}
+#splitterApp .styleTitleInfo{
+    background-color:#e3e3e3 !important;
+    height:50px !important;
+    line-height: 50px !important;
+    margin-bottom:10px;
+}
+#splitterApp .square-btn{
+    position: relative;
+    border: solid thin gray;
+    height: 48px;
+    width: 48px;
+    cursor:pointer;
+    outline:0;
+}
+#splitterApp .rectLandscape-btn{
+    position: relative;
+    margin: 2px;
+    border: solid thin gray;
+    height: 24px;
+    width: 48px;
+    cursor:pointer;
+    outline:0;
+}
+.rectRoundCorner-btn{
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    position: relative;
+    margin: 2px;
+    border: solid thin gray;
+    height: 40px;
+    width: 40px;
+    cursor:pointer;
+    outline:0;
+}
+#splitterApp .circle-btn{
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    position: relative;
+    margin: 2px;
+    border: solid thin gray;
+    height:48px;
+    width:48px;
+    cursor:pointer;
+    outline:0;
+}
+#splitterApp .rectPortrait-btn{
+    position: relative;
+    margin: 2px;
+    border: solid thin gray;
+    height: 48px;
+    width: 24px;
+    cursor:pointer;
+    outline:0;
+}
+
+#splitterApp .div_border{
+    border-top-color: #CCC;
+    border-top-style: solid;
+    border-top-width: 1px;
+
+    border-bottom-color: #CCC;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+/*
+#splitterApp .row_tableborder{
+    border-bottom-color: #CCC;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+#splitterApp .column_tablepadding{
+    font-size:14px;
+    padding-top:2px;
+    padding-bottom:2px;
+    padding-right:5px;
+}
+#splitterApp .textfield_border{
+    outline: 0;
+    border:none;
+    text-align:left;
+    border-style: none;
+    border-color: Transparent;
+    color:#999;
+    background-color:#f2f2f2;
+    font-size:14px;
+    height:25px;
+    padding-left:5px;
+    padding-right:5px;
+}
+*/
+
+#splitterApp .AddButton-pane{
+
+}
+#splitterApp #toggleBtn {
+    margin-top: 8px!important;
+}
+
+#splitterApp .addShape-btn{
+    position: relative;
+    width:100%;
+    height: 44px;
+    text-align:center;
+    vertical-align: middle;
+    -webkit-border-radius: 0px;
+    background:none;
+    border:none;
+    outline: none;
+    font-size:16px;
+    color: #13b5ea !important;
+    font-weight: bold;
+
+}
+
+#splitterApp .popover-title { display: none; }
+
+#splitterApp .textfield-bin{
+    margin-top:5px;
+    width:100%;
+    -webkit-border-radius: 2px;
+}
+
+/*
+.popover .arrow{
+    left: 220px !important;
+}
+
+.popover
+{
+    left: 300px !important;
+}
+*/

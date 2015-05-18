@@ -1,0 +1,274 @@
+@import "../../../../common/css/colors.less";
+@import "../../../../common/css/constants.less";
+@import "../../../../common/css/fonts.less";
+
+// TODO a lot of this is taken directly from grid.less, which should disappear soon
+// make sure only what is needed remains at the end
+
+@tableDefaultColWidth: 72px;
+@tableDefaultRowHeight: 35px;
+@tableDefaultHeaderRowHeight: 40px;
+
+@tableBorderWidth: 1px;
+@tableBorder: @tableBorderWidth solid #858C93;
+@tableOrange: #01c4fc; //no longer orange
+@lockedCellColor: #ffe2d3;
+@lockedHeaderColor: #ffad84;
+@aggregateNewCellColor: #39E8FF;
+
+@tableFontSize: 14px;
+@tableCellFont: amplifyFont; //was bentonSansBook;
+@tableCellFill: #FFF;
+
+@tableHeaderFont: amplifyFont; //was bentonSansMedium;
+@tableHeaderFill: #D7DCE0;
+
+@selectorBarThickness: 18px;
+@selectorBarBorderColor: #D8DDE3;
+@selectorBarFillColor: @blackTeal; //was #F2F3F4
+@selectorBarHandleLength: 20px;
+@selectorBarHandleIconSize: 15px;
+@selectorBarHandleMargin: 7px;
+@selectorBarBorderRadius: 6px;
+@selectorBarOffset: -34px;
+
+@axisLabelHeight: 18px;
+@axisLabelWidth: 25px;
+@axisLabelMargin: -webkit-calc(~"25% - 1px - " @axisLabelWidth/2);
+
+@cellSelectorHandleTouchSize: 40px;
+@cellSelectorHandleGripSize: 10px;
+@cellSelectorHandleOffset: -@cellSelectorHandleTouchSize / 2;
+@cellSelectorHandleHalfway: -webkit-calc(~"50% -" @cellSelectorHandleOffset);
+
+@tableSpaceFromSelectorBar: 12px;
+//@tableMargin: @selectorBarThickness + @tableSpaceFromSelectorBar;
+@tableMargin: 40px; //this needed to be increased from the above
+
+
+.mt-cell-font {
+  font-family: @tableCellFont;
+  font-size: @tableFontSize;
+}
+
+.mt-header-cell-font {
+  font-family: @tableHeaderFont;
+  font-size: @tableFontSize;
+}
+
+
+.mt-table {
+  padding: @tableMargin;
+  * {
+     box-sizing: border-box;
+  }
+}
+
+.mt-table-frame {
+  position: relative;
+  display: block;
+  border: @tableBorder;
+  .setSize (100%; 100%);
+}
+
+.mt-upper-header-block {
+  height: @tableDefaultHeaderRowHeight;
+}
+
+.mt-column {
+  display: inline-block;
+  width: @tableDefaultColWidth; //default col width - generally overridden
+  border-right: @tableBorder;
+  vertical-align: top;
+
+  .mt-cell {
+    display: block;
+  }
+}
+
+.mt-column-wrapper {
+  display: inline-block;
+  vertical-align: top;
+
+  &.mt-last-column-wrapper {
+    .mt-column:last-child {
+      border-right: none;
+    }
+  }
+}
+
+.mt-dependent-column {
+  .mt-cell:last-child {
+    border-bottom: @tableBorder;
+  }
+}
+
+.mt-dependent-column-spacer, .mt-dependent-column-completer {
+  height: @tableDefaultRowHeight / 2;
+  background-color: #E4E9ED;
+}
+
+.mt-dependent-column-spacer {
+  border-bottom: @tableBorder;
+}
+
+.mt-cell {
+  display: inline-block;
+  text-align: center;
+  border-bottom: @tableBorder;
+
+  line-height: @tableDefaultRowHeight;
+  height: @tableDefaultRowHeight;
+
+  background-color: @tableCellFill;
+
+  width: 100%;
+
+  .mathquill-rendered-math {
+    .mt-cell-font;
+    .text { //mathquill class
+      .mt-cell-font;
+    }
+  }
+
+
+}
+
+.mt-last-cell-in-column {
+  .mt-cell {
+    border-bottom: none;
+  }
+}
+
+.mt-header-cell, .mt-upper-header-cell {
+  display: inline-block;
+}
+
+.mt-header-cell, .mt-upper-header-cell, .mt-row-header {
+  vertical-align: top;
+  width: 100%;
+
+  .mt-cell {
+    .mt-header-cell-font;
+
+    line-height: @tableDefaultHeaderRowHeight;
+    height: @tableDefaultHeaderRowHeight;
+
+    background-color: @tableHeaderFill;
+
+    .mathquill-rendered-math, .mt-cell-input {
+      .mt-header-cell-font;
+      .text { //mathquill class
+        .mt-header-cell-font;
+      }
+    }
+  }
+
+  .mt-locked-cell {
+    background-color: @lockedHeaderColor;
+  }
+
+  &.mt-header-placeholder {
+    .mt-cell {
+      background-color: #FFF;
+    }
+  }
+}
+
+.mt-row-header {
+  .mt-cell {
+    line-height: @tableDefaultRowHeight;
+    height: @tableDefaultRowHeight;
+  }
+}
+
+.mt-locked-cell {
+  background-color: @lockedCellColor;
+}
+
+.mt-aggregate-new {
+  background-color: @aggregateNewCellColor;
+}
+
+
+.mt-cell-input {
+  .mt-cell-font;
+
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+
+  border: 0;
+  text-align: center;
+
+  padding: 0;
+}
+
+.mt-header-cell-container {
+    position: relative;
+
+    .mt-axis-labels {
+        position: absolute;
+        top: -@axisLabelHeight/2;
+        left: 0px;
+        width: 100%;
+        height: @axisLabelHeight;
+
+        .mt-axis-label {
+            height: 100%;
+            line-height: 100%;
+            width: @axisLabelWidth;
+            margin-left:@axisLabelMargin;
+            margin-right:@axisLabelMargin;
+            border-radius:@axisLabelHeight/2;
+            background-color: white;
+            border-style: solid;
+            border-color: black;
+            border-width: 1px;
+            text-align: center;
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+}
+
+.mt-upper-header-cell {
+  .mt-cell {
+    border-right: @tableBorder;
+  }
+
+  &:last-child {
+    .mt-cell {
+      border-right: none;
+    }
+  }
+}
+
+.mt-column-link-label {
+  height: 6px;
+  width: 60%;
+  background-color: transparent;
+  position: absolute;
+  bottom: 4px;
+  left: 20%;
+  border-radius:3px;
+}
+
+.mt-submit-table {
+  position: absolute;
+  bottom: -50px;
+  left: 10px;
+}
+
+.mt-row-header-block {
+  display: inline-block;
+  border-right: @tableBorder;
+}
+
+.mt-contingency-table {
+  .mt-correctness-indicator {
+    position: absolute;
+    left: @tableMargin;
+    top: 0px;
+}
+}

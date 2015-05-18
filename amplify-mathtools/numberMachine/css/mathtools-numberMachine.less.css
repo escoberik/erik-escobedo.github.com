@@ -1,0 +1,639 @@
+.setCentered {
+  vertical-align: middle;
+  text-align: center;
+}
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.noOutline {
+  outline-color: transparent;
+  outline-style: none;
+  outline: none;
+}
+.alignVertically {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.hideSpinnerButtons {
+  /* hide the spinner buttons on the number inputs */
+}
+.hideSpinnerButtons input::-webkit-outer-spin-button,
+.hideSpinnerButtons input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+.muted {
+  color: #999 !important;
+}
+.text-replacement {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+.mt-number-machine {
+  width: 770px;
+  height: 540px;
+  background-color: #f2f2ed;
+}
+.mt-number-machine .mt-number-machine-svg {
+  width: 685px;
+  height: 500px;
+  background-color: white;
+}
+.mt-number-machine .mt-machine-title {
+  font-size: 40px;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  margin-bottom: 16px;
+}
+.mt-number-machine .mt-machine-cube-table {
+  width: 685px;
+}
+.mt-number-machine .mt-machine-cube-table .mt-machine-cube-table {
+  height: 65px;
+}
+.mt-number-machine .mt-machine-cube-table .mt-machine-cube {
+  display: inline-block;
+  vertical-align: top;
+  background-color: black;
+  box-sizing: border-box;
+  color: white;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  width: 59px;
+  height: 59px;
+  margin: 4px;
+}
+.mt-number-machine .mt-machine-cube-table .mt-machine-cube.mt-highlight {
+  background-color: lightblue;
+}
+.mt-number-machine .mt-machine-cube-table .mt-machine-cube.mt-outline {
+  border: solid 2px red;
+}
+.mt-number-machine .mt-machine-cube-table .mt-machine-cube.mt-number-one,
+.mt-number-machine .mt-machine-cube-table .mt-machine-cube.mt-no-status {
+  background-color: #d3f8f7;
+  color: #999;
+  line-height: 59px;
+}
+.mt-number-machine .mt-machine-cube-table .mt-machine-cube.mt-number-one {
+  background-color: #999;
+  color: #d3f8f7;
+}
+.mt-number-machine .mt-machine-cube-table .mt-machine-cube .mt-machine-cube-click {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.mt-number-machine .mt-machine-cube-table .mt-machine-cube .mt-machine-cube-click .mt-machine-value {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+.mt-number-machine .mt-machine-cube-table .mt-machine-cube .mt-machine-cube-click .mt-machine-status {
+  text-align: center;
+  margin: 2px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: -2px;
+  top: -2px;
+}
+.mt-number-machine .mt-machine-cube-table .mt-machine-cube .mt-machine-cube-click .mt-machine-status * {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.mt-number-machine .mt-machine-cube-table .mt-machine-cube .mt-machine-cube-click .mt-machine-status .mt-correct {
+  background-color: limegreen;
+}
+.mt-number-machine .mt-machine-cube-table .mt-machine-cube .mt-machine-cube-click .mt-machine-status .mt-incomplete {
+  background-color: gray;
+}
+.mt-number-machine .mt-machine-cube-table .mt-machine-cube .mt-machine-cube-click .mt-machine-status .mt-error {
+  background-color: red;
+}
+.mt-number-machine .mt-machine-cube-table .mt-machine-cube .mt-machine-cube-click .mt-machine-parts {
+  position: absolute;
+  width: 65px;
+  top: 17px;
+}
+.mt-number-machine .mt-machine-cube-table .mt-machine-cube .mt-part-row {
+  height: 14px;
+}
+.mt-number-machine .mt-machine-cube-table .mt-machine-cube .mt-part {
+  margin: 2.5px;
+  font-size: 14px;
+  line-height: 14px;
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+.mt-number-machine .mt-machine-cube-table .mt-machine-cube .mt-part * {
+  color: black;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.mt-number-machine .mt-machine-cube-table .mt-machine-cube .mt-part .mt-plus {
+  font-weight: bold;
+  font-size: 16px;
+  background-color: white;
+}
+.mt-number-machine .mt-number-machine-container {
+  position: relative;
+  width: -webkit-calc(100% - 80px);
+  height: 100%;
+  background: url('../img/nm_left_crucher.svg') -91px 56px / auto 375px no-repeat, url('../img/nm_right_cruncher.svg') 542px 63px / auto 375px no-repeat;
+}
+.mt-number-machine .mt-number-machine-container.mt-selected {
+  background-color: darkgray;
+}
+.mt-number-machine .mt-machine-part {
+  background-color: lightgray;
+  width: 80px;
+  height: 80px;
+  position: relative;
+  float: left;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 80px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.mt-number-machine .mt-machine-part input {
+  text-align: center;
+  width: 78px;
+  height: 78px;
+  border: 0;
+  background-color: transparent;
+}
+.mt-number-machine .mt-machine-part.mt-new-machine-part {
+  background-color: lightgray;
+  float: none;
+  width: 80px !important;
+}
+.mt-number-machine .mt-machine-part-arrow {
+  width: 0;
+  height: 0;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-left: 20px solid #d3d3d3;
+  position: relative;
+  float: left;
+  top: 25px;
+}
+.mt-number-machine .mt-machine-part-highlight {
+  position: absolute;
+}
+.mt-number-machine .mt-machine-part-highlight .mt-machine-part {
+  background-color: lightblue;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  width: 96px;
+  height: 96px;
+  top: -8px;
+  left: -8px;
+}
+.mt-number-machine .mt-machine-part-highlight .mt-machine-part-arrow {
+  position: absolute;
+  border-top: 22px solid transparent;
+  border-bottom: 22px solid transparent;
+  border-left: 28px solid #add8e6;
+  left: 84px;
+  top: 17px;
+}
+.mt-number-machine ::-webkit-scrollbar {
+  display: none;
+}
+.mt-number-machine .mt-inventory {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 84px;
+  background-color: white;
+  height: 540px;
+  overflow: scroll;
+}
+.mt-number-machine .mt-inventory .mt-machine-inventory-viewport {
+  width: 84px;
+  min-height: 540px;
+  overflow: auto;
+}
+.mt-number-machine .mt-inventory .mt-machine-inventory-viewport .mt-machine-inventory-content {
+  position: relative;
+  left: 0;
+  top: 0;
+  text-align: center;
+  padding-bottom: 50px;
+}
+.mt-number-machine .mt-inventory .mt-machine-inventory-viewport .mt-total-value-inventory-text {
+  font-size: .9em;
+}
+.mt-number-machine .mt-inventory .mt-inventory-item {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  margin: 6px auto;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.mt-number-machine .mt-inventory .mt-resize-fix {
+  width: 100%;
+  height: 6px;
+}
+.mt-number-machine .mt-tune-up-button {
+  background-image: url('../img/tuneUpButton.svg');
+  background-color: white;
+  background-position: center center;
+  background-size: 100%;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  right: 16px;
+}
+.mt-number-machine .mt-tune-up-button.mt-selected {
+  background-image: url('../img/tuneUpButtonSelected.svg');
+}
+.mt-number-machine .mt-delete-button {
+  background-image: url('../img/deleteButton.svg');
+  background-position: center center;
+  background-size: 100%;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 36px;
+  left: 70px;
+}
+.mt-number-machine .mt-delete-button.mt-selected {
+  background-image: url('../img/deleteButtonSelected.svg');
+}
+.mt-number-machine .mt-back-button {
+  background-image: url('../img/backButton.svg');
+  background-position: center center;
+  background-size: 100%;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 36px;
+  left: 10px;
+}
+.mt-number-machine .mt-build-button {
+  background-image: url('../img/buildButton.svg');
+  background-position: center center;
+  background-size: 100%;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 345px;
+  left: 561px;
+}
+.mt-number-machine .mt-machine-number {
+  color: black;
+  font-size: 28px;
+  position: absolute;
+  left: 426px;
+  top: 399px;
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 70px;
+}
+.mt-number-machine .mt-machine-totals {
+  position: absolute;
+  left: 93px;
+  font-size: 13px;
+  color: white;
+}
+.mt-number-machine .mt-machine-totals span {
+  display: inline-block;
+  margin-left: 4px;
+  width: 50px;
+  text-align: center;
+  color: black;
+  font-size: 16px;
+}
+.mt-number-machine .mt-machine-correct {
+  top: 437px;
+}
+.mt-number-machine .mt-new-machine-button.mt-add-part-keypad {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.mt-number-machine .mt-new-machine-button div {
+  background-color: #0085DB;
+  color: white;
+  text-transform: uppercase;
+  height: 95%;
+  width: 95%;
+  -webkit-border-radius: 8.33333333px;
+  -moz-border-radius: 8.33333333px;
+  border-radius: 8.33333333px;
+  font-size: 28px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.mt-number-machine .mt-conveyor-belt {
+  background-image: url('../img/nm_main_machine.svg');
+  width: 690px;
+  height: 500px;
+  position: absolute;
+  top: 187px;
+  left: -17px;
+}
+.mt-number-machine .mt-part-click {
+  width: 100%;
+  height: 100%;
+}
+.mt-number-machine .mt-new-machine-inventory-button {
+  background-color: lightblue;
+  color: white;
+}
+.mt-number-machine .mt-parts-holder {
+  position: absolute;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  background-color: white;
+  left: 63px;
+  top: 200px;
+  width: 540px;
+  height: 106px;
+  padding: 10px;
+}
+.mt-number-machine .mt-parts-holder .mt-machine-status {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-family: bentonSansBook;
+  font-size: 48px;
+  line-height: 128px;
+}
+.mt-number-machine .mt-parts-holder .mt-machine-status.mt-correct {
+  background-color: #95ff04;
+}
+.mt-number-machine .mt-parts-holder .mt-machine-status.mt-error {
+  background-color: #feff45;
+}
+.mt-number-machine .mt-parts-holder .mt-machine-status.mt-incomplete {
+  background-color: white;
+}
+.mt-number-machine .mt-parts-holder .mt-current-part {
+  width: 100px;
+  display: inline-block;
+  vertical-align: top;
+}
+.mt-number-machine .mt-parts-holder .mt-current-value-holder {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: lightblue;
+  width: 36px;
+  height: 36px;
+  position: relative;
+  left: 22px;
+  top: -60px;
+  z-index: 2;
+}
+.mt-number-machine .mt-parts-holder .mt-current-value-holder .mt-current-value {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 36px;
+  text-align: center;
+  vertical-align: middle;
+}
+.mt-number-machine .mt-parts-holder .mt-current-value-holder .mt-current-value-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: -18px;
+  left: 6px;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 18px solid #add8e6;
+}
+.mt-number-machine .mt-machine-table-viewport {
+  background-color: #dafeff;
+  width: 685px;
+  height: 335px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.mt-number-machine .mt-machine-table-viewport .mt-machine-table-content {
+  position: relative;
+  left: 0;
+  top: 0;
+}
+.mt-number-machine .mt-machine-table-viewport .mt-machine-table-content .mt-mass-produce-funnel-container {
+  width: 100%;
+  height: 67px;
+}
+.mt-number-machine .mt-machine-table-viewport .mt-machine-table-content .mt-mass-produce-funnel-container .mt-mass-produce-funnel {
+  float: right;
+  background-color: lightblue;
+  border: solid black 1px;
+  width: 65px;
+  height: 65px;
+}
+.mt-number-machine .mt-machine-table-viewport .mt-machine-table-content .mt-mass-produce-funnel-container .mt-mass-produce-funnel.mt-selected {
+  background-color: dodgerblue;
+}
+.mt-number-machine .mt-total-value {
+  background-color: #808080;
+  color: white;
+  display: inline-block;
+  margin-top: 3px;
+  margin-right: 10px;
+  padding: 8px;
+  font-size: 16px;
+}
+.mt-number-machine .mt-total-value span {
+  padding: 2px 12px;
+  display: inline-block;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+.mt-number-machine .mt-total-value.mt-correct span {
+  background-color: darkgreen;
+}
+.mt-number-machine .mt-total-value.mt-error span {
+  background-color: darkred;
+}
+.mt-number-machine .mt-total-value.mt-inventory {
+  position: absolute;
+  right: 22px;
+  margin-right: 0px;
+}
+.mt-resize-dialog {
+  left: 10%;
+  top: 10%;
+  width: 80%;
+  margin-left: inherit;
+}
+.mt-resize-dialog .mt-resizable-cubes {
+  color: white;
+  width: 10px;
+  height: 10px;
+  font-size: 8px;
+  line-height: 10px;
+  text-align: center;
+  vertical-align: middle;
+  margin: 2px;
+  display: inline-block;
+  background-color: blue;
+  position: relative;
+  z-index: 1;
+}
+.mt-resize-dialog .mt-handle {
+  background-color: orange;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  right: -10px;
+  bottom: -10px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+.mt-add-part-keypad {
+  z-index: 1;
+  left: 50%;
+  margin-left: -145.83333333px;
+  position: absolute;
+  width: 291.66666667px;
+  height: 175px;
+  background-color: gainsboro;
+  -webkit-border-top-left-radius: 0;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 8.33333333px;
+  -webkit-border-bottom-left-radius: 8.33333333px;
+  -moz-border-radius-topleft: 0;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 8.33333333px;
+  -moz-border-radius-bottomleft: 8.33333333px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 8.33333333px;
+  border-bottom-left-radius: 8.33333333px;
+  padding: 4.16666667px;
+}
+.mt-add-part-keypad .mt-add-part-button {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 8.33333333px;
+  -moz-border-radius: 8.33333333px;
+  border-radius: 8.33333333px;
+  line-height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: darkgray;
+  margin: 4.16666667px;
+}
+.mt-add-part-keypad .mt-add-part-enter-button {
+  width: 166.66666667px;
+  height: 50px;
+  color: white;
+  background-color: gray;
+  font-weight: bold;
+}
+.mt-add-part-keypad .mt-add-part-cancel-button {
+  width: 108.33333333px;
+  height: 50px;
+  font-weight: bold;
+}
+.mt-try-again .mt-try-again-message {
+  font-size: 30px;
+}
+.mt-button-holder {
+  margin-right: 6px;
+  margin-bottom: 3px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  display: inline-block;
+  vertical-align: top;
+  width: 180px;
+  height: 80px;
+  background-color: #808080;
+}
+.mt-button-holder.mt-selected {
+  background-color: lightblue;
+}
+.mt-button-holder .mt-button-text {
+  display: inline-block;
+  color: white;
+  width: 98px;
+  height: 80px;
+}
+.mt-button-holder .mt-button-text.mt-two-line-text-middle {
+  top: 20px;
+  position: relative;
+}
+.mt-button-holder .mt-button-text.mt-one-line-text-middle {
+  line-height: 80px;
+  vertical-align: middle;
+}
+.mt-button-holder .mt-button {
+  display: inline-block;
+  vertical-align: top;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  width: 81px;
+  height: 81px;
+}
+.mt-button-holder .mt-resize-button {
+  background: transparent url('../img/nm_resize.png') no-repeat;
+}
+.mt-button-holder .mt-mass-produce-button {
+  background: transparent url('../img/nm_mass_produce.png') no-repeat;
+}
+.mt-button-holder .mt-fit-button {
+  background: transparent url('../img/nm_fit_screen.png') no-repeat;
+}
+.mt-right-button-holder {
+  margin-right: 0;
+  float: right;
+}

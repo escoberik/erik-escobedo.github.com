@@ -1,0 +1,157 @@
+@import "../../../common/css/colors.less";
+@import "../../../common/css/constants.less";
+@import "../../../common/css/fonts.less";
+
+.mt-page-indicator {
+    height: @pageIndicatorHeight;
+    border: 1px solid @pageIndicatorBorderColor;
+    border-radius: 4px;
+    position: fixed;
+    right: @pageIndicatorRightOffset;
+    bottom: @pageIndicatorBottomOffset;
+    background-color: @pageIndicatorBgColor;
+    z-index: 10;
+    display: table-cell;
+
+    .mt-page-view-toggle {
+        display: inline-block;
+        height: @navigatorHeight + 3px; //outline
+        width: @pageIndicatorViewToggleWidth;
+        vertical-align: middle;
+        margin: 2px;
+
+        &:hover {
+            background-color: @pageIndicatorHoverBtn;
+
+            svg path {
+                fill: @pageIndicatorHoverIcon;
+            }
+        }
+
+        &:active {
+            background-color: @pageIndicatorActiveBtn;
+
+            svg path {
+                fill: @pageIndicatorActiveIcon;
+            }
+        }
+    }
+
+    .mt-page-view-port {
+        .setTransition(width 0.5s ease-in-out);
+        display: inline-block;
+        overflow: hidden;
+        position: relative;
+        height: @navigatorHeight + 6px;
+        max-width: 910px; //equivalent to 7 pages
+        vertical-align: middle;
+        //fixes pixelation from alignVertically mixin
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+
+        .mt-page-container {
+            .setTransition(left 0.5s ease-in-out);
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: @pageIndicatorContainerWidth;
+            vertical-align: middle;
+
+            .mt-page-indicator-page {
+                width: @navigatorWidth;
+                height: @navigatorHeight + 4px; //account for outline
+                display: inline-block;
+                margin: 0 2px;
+
+                &.mt-active-page {
+                    .mt-nav-indicator {
+                        outline: 2px solid @navigatorBorderColor;
+                        background-color: @navigatorActiveBgColor;
+                    }
+                }
+
+                .mt-nav-indicator {
+                    width: @navigatorWidth;
+                    height: @navigatorHeight;
+                    background-color: @navigatorBgColor;
+                    overflow: hidden;
+                    margin: 2px 0;
+                    .alignVertically;
+
+                    &-inner {
+                        position: relative;
+                        width: @navigatorInnerWidth;
+                        height: @navigatorInnerHeight;
+                        background-color: @navigatorInnerBgColor;
+                        z-index: 11;
+                        border: 1px solid @navigatorInnerBorderColor;
+                    }
+
+                    &-tool {
+                        box-sizing: border-box;
+                        position: absolute;
+                        border: 1px solid @navigatorInactiveToolBorderColor;
+                        background-color: @navigatorInactiveToolBgColor;
+                        z-index: 12;
+                
+                        &.mt-active-tool {
+                            border: 1px solid @navigatorActiveToolBorderColor;
+                            background-color: @navigatorActiveToolBgColor;
+                            z-index: 13;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .mt-add-page-btn {
+        display: inline-block;
+        width: @pageIndicatorAddBtnWidth;
+        height: @navigatorHeight - 13px;
+        margin: 2px 3px;
+        padding: 10px 0 2px;
+        vertical-align: middle;
+
+        .mt-page-num {
+            .setFontProps(bentonSansMedium, 20px, @pageIndicatorBlue);
+            height: 20px;
+            line-height: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .mt-page-num-of {
+            .setFontProps(bentonSansMedium, 12px, @pageIndicatorOfTextColor);
+            height: 16px;
+            line-height: 16px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .mt-add-icon {
+            margin-top: 6px;
+            &:hover {
+                .mt-add-page-icon-path {
+                    fill: @pageIndicatorHoverIcon;
+                }
+
+                .mt-add-page-container-rect {
+                    fill: @pageIndicatorHoverBtn;
+                }
+            }
+
+            &:active {
+                .mt-add-page-icon-path {
+                    fill: @pageIndicatorActiveIcon;
+                }
+
+                .mt-add-page-container-rect {
+                    fill: @pageIndicatorActiveBtn;
+                }
+            }
+        }
+    }
+}
+

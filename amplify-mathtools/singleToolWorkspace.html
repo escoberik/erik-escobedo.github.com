@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+
+    <title>Math App</title>
+
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap.css/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="lib/mathquill/css/mathquill.css" />
+
+    <link rel="stylesheet" href="css/mathtools-common.debug.css"/>
+    <link rel="stylesheet" href="css/mathtools-workspace.debug.css"/>
+    <link rel="stylesheet" href="css/mathtools-mathApp.debug.css"/>
+    <link rel="stylesheet" href="numberLine/css/mathtools-numberLine.debug.css"/>
+    <link rel="stylesheet" href="graph/css/mathtools-graph.debug.css"/>
+    <link rel="stylesheet" href="table/css/mathtools-table.debug.css"/>
+    <link rel="stylesheet" href="poll/css/mathtools-poll.debug.css"/>
+    <link rel="stylesheet" href="numberMachine/css/mathtools-numberMachine.debug.css"/>
+    <link rel="stylesheet" href="daisyChain/css/mathtools-daisyChain.debug.css"/>
+    <link rel="stylesheet" href="classBand/css/mathtools-classBand.debug.css"/>
+    <link rel="stylesheet" href="lemons/css/mathtools-lemons.debug.css"/>
+    <link rel="stylesheet" href="ratioTable/css/mathtools-ratioTable.debug.css"/>
+    <link rel="stylesheet" href="stats/css/mathtools-stats.debug.css"/>
+    <link rel="stylesheet" href="lib/externalTools/prime/css/main.css">
+    <link rel="stylesheet" href="lib/externalTools/splitter/css/main.css" />
+
+    <script src="bower_components/underscore/underscore-min.js"></script>
+    <script src="bower_components/underscore.string/dist/underscore.string.min.js"></script>
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
+    <script src="bower_components/jqueryui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/hammerjs/hammer.min.js"></script>
+    <script src="bower_components/hammerjs/plugins/hammer.fakemultitouch.js"></script>
+    <script src="bower_components/hammerjs/plugins/hammer.showtouches.js"></script>
+    <script src="bower_components/bootstrap.css/js/bootstrap.min.js"></script>
+    <script src="bower_components/d3/d3.min.js"></script>
+    <script src="lib/jquery/js/jquery.i18n.properties-min-1.0.9.js"></script>
+    <script src="lib/bootstrap/js/ui-bootstrap-tpls-0.1.0.js"></script>
+    <script src="lib/mathquill/js/mathquill.min.js"></script>
+    <script src="lib/lru-cache/lru-cache.js"></script>
+    <script src="lib/soundjs/js/soundjs-0.5.2.min.js"></script>
+    <script src="lib/raphaeljs/raphael-min.js"></script>
+    <script src="lib/raphaeljs/raphael.free_transform.js"></script>
+    <script src="lib/kinetic/kinetic-v5.1.0.min.js"></script>
+    <script src="lib/scroller/animate.js"></script>
+    <script src="lib/scroller/scroller.js"></script>
+    <script src="bower_components/tether/tether.min.js"></script>
+    <script src="bower_components/shepherd.js/shepherd.min.js"></script>
+    <script src="bower_components/socket.io-client/socket.io.js"></script>
+
+    <!-- common js -->
+    <script src="js/mathtools-common.debug.js"></script>
+
+    <!-- table js -->
+    <script src="table/js/mathtools-table.debug.js"></script>
+
+    <!-- number line js -->
+    <script src="numberLine/js/mathtools-numberLine.debug.js"></script>
+
+    <!-- graph js -->
+    <script src="graph/js/mathtools-graph.debug.js"></script>
+
+    <!-- numberMachine js -->
+    <script src="numberMachine/js/mathtools-numberMachine.debug.js"></script>
+
+    <!-- daisy chain js -->
+    <script src="daisyChain/js/mathtools-daisyChain.debug.js"></script>
+
+    <!-- lemons js -->
+    <script src="lemons/js/mathtools-lemons.debug.js"></script>
+
+    <!-- ratioTable js -->
+    <script src="ratioTable/js/mathtools-ratioTable.debug.js"></script>
+
+    <!-- stats js -->
+    <script src="stats/js/mathtools-stats.debug.js"></script>
+
+    <!-- prime js -->
+    <script src="lib/externalTools/prime/js/mathtools-prime.debug.js"></script>
+
+    <!-- resize rectangle js -->
+    <script src="lib/externalTools/Rectangle/js/mathtools-rectangle.debug.js"></script>
+
+    <!-- splitter js -->
+    <script src="lib/externalTools/splitter/js/mathtools-splitter.debug.js"></script>
+
+    <!-- workspace js -->
+    <script src="js/mathtools-workspace.debug.js"></script>
+
+    <!-- mathApp js -->
+    <script src="js/mathtools-mathApp.debug.js"></script>
+
+</head>
+<body mt-deselector ng-app="mtWorkspace">
+    <mt-single-tool-workspace></mt-single-tool-workspace>
+
+    <!-- singleton directives used by code - maybe we could bootstrap these from common? -->
+    <popup-menu></popup-menu>
+    <mt-modal-alert></mt-modal-alert>
+    <keypad-menu></keypad-menu>
+</body>
+</html>

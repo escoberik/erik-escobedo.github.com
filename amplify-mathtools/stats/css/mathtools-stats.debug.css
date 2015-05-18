@@ -1,0 +1,790 @@
+.setCentered {
+  vertical-align: middle;
+  text-align: center;
+}
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.noOutline {
+  outline-color: transparent;
+  outline-style: none;
+  outline: none;
+}
+.alignVertically {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.hideSpinnerButtons {
+  /* hide the spinner buttons on the number inputs */
+}
+.hideSpinnerButtons input::-webkit-outer-spin-button,
+.hideSpinnerButtons input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+.muted {
+  color: #999 !important;
+}
+.text-replacement {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+@font-face {
+  src: local('‚ò∫');
+  font-family: amplifyBrandFont;
+  src: url('../font/amplify-light-web/AmplifyLightLight.woff') format('woff'), url('../font/amplify-light-web/AmplifyLightLight.ttf') format('truetype');
+}
+@font-face {
+  font-family: amplifyFont;
+  src: url('../font/proxima-nova-regular/webfonts/proxima-nova-regular.woff') format('woff'), url('../font/proxima-nova-regular/webfonts/proxima-nova-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: amplifyFontLight;
+  src: url('../font/proxima-nova-light/webfonts/proxima-nova-light.woff') format('woff'), url('../font/proxima-nova-light/webfonts/proxima-nova-light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  src: local('‚ò∫');
+  font-family: amplifyFontNumbers;
+  src: url('../font/amplify-numbers-web/AmplifyNumbersLight.woff') format('woff'), url('../font/amplify-numbers-web/AmplifyNumbersLight.ttf') format('truetype');
+}
+@font-face {
+  font-family: bentonSansLight;
+  src: url('../font/bentonSans/BentonSans-Light.woff') format('woff'), url('../font/bentonSans/BentonSans-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: bentonSansMedium;
+  src: url('../font/bentonSans/BentonSans-Medium.woff') format('woff'), url('../font/bentonSans/BentonSans-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: bentonSansBook;
+  src: url('../font/bentonSans/BentonSans-Book.woff') format('woff'), url('../font/bentonSans/BentonSans-Book.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.mt-stats-waiting {
+  position: absolute;
+  left: 30px;
+  top: 30px;
+}
+.mt-stats-tool {
+  width: 490px;
+  height: 410px;
+}
+.mt-stats-container {
+  vertical-align: top;
+  display: inline-block;
+}
+.mt-stats-case-data {
+  white-space: nowrap;
+  border: 1px solid darkgrey;
+  font-size: 0;
+  margin: 10px;
+  margin-right: 5px;
+  overflow: scroll;
+}
+.mt-stats-header-row {
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+}
+.mt-stats-data-rows {
+  overflow: scroll;
+  max-height: -webkit-calc(364px);
+}
+.mt-stats-case.mt-even .mt-stats-cell {
+  background-color: #eee;
+}
+.mt-stats-case.mt-active .mt-stats-cell {
+  background-color: lightsteelblue;
+}
+.mt-stats-cell {
+  display: inline-block;
+  width: 70px;
+  height: 25px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 12px;
+  border-radius: 0px;
+  line-height: 25px;
+  padding: 2px;
+  border: 0;
+  background-color: transparent;
+}
+.mt-stats-cell.mt-invalid {
+  color: red;
+  font-weight: bold;
+}
+.mt-stats-index-cell {
+  width: 30px;
+}
+.mt-stats-cell-header {
+  height: 40px;
+  overflow: scroll;
+  cursor: move;
+}
+.mt-stats-cell-header.mt-resize {
+  cursor: col-resize;
+}
+.mt-stats-cell-header.mt-dragging {
+  color: white;
+  background-color: steelblue;
+}
+.mt-stats-cell-header.mt-drag-over {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: blue;
+}
+.mt-stats-cell-header.mt-vert-center {
+  line-height: 40px;
+}
+.mt-stats-index-header {
+  display: inline-block;
+  width: 70px;
+  height: 25px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 12px;
+  border-radius: 0px;
+  line-height: 25px;
+  padding: 2px;
+  border: 0;
+  background-color: transparent;
+  width: auto;
+  height: 40px;
+  cursor: default;
+}
+.mt-stats-index-header.mt-invalid {
+  color: red;
+  font-weight: bold;
+}
+.mt-stats-index-header.mt-active {
+  background-color: steelblue;
+}
+.mt-stats-draggable-attribute {
+  display: inline-block;
+  width: 70px;
+  height: 25px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 12px;
+  border-radius: 0px;
+  line-height: 25px;
+  padding: 2px;
+  border: 0;
+  background-color: transparent;
+  height: 40px;
+  overflow: scroll;
+  cursor: move;
+  position: absolute;
+  color: white;
+  background-color: darkorange;
+  opacity: 0.5;
+  line-height: 40px;
+}
+.mt-stats-draggable-attribute.mt-invalid {
+  color: red;
+  font-weight: bold;
+}
+.mt-stats-draggable-attribute.mt-resize {
+  cursor: col-resize;
+}
+.mt-stats-draggable-attribute.mt-dragging {
+  color: white;
+  background-color: steelblue;
+}
+.mt-stats-draggable-attribute.mt-drag-over {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: blue;
+}
+.mt-stats-draggable-attribute.mt-vert-center {
+  line-height: 40px;
+}
+.mt-stats-graph {
+  border: 1px solid darkgrey;
+  width: 470px;
+  height: 410px;
+  margin: 10px;
+  margin-left: 5px;
+}
+.mt-case-data-points {
+  stroke: black;
+  stroke-width: 1px;
+}
+.mt-case-data-points.mt-active {
+  stroke-width: 3px;
+}
+.mt-stats-graph-targets {
+  border: 1px solid darkgrey;
+  width: 470px;
+  height: 410px;
+  margin: 10px;
+  margin-left: 5px;
+  border: 0;
+  display: block;
+  margin-top: -405px;
+  margin-left: 0px;
+}
+.mt-stats-graph-axis-targets {
+  position: relative;
+  bottom: 75px;
+}
+.mt-stats-graph-axis-targets .mt-stats-axis-x {
+  height: 70px;
+  width: 405px;
+  left: 65px;
+  position: absolute;
+}
+.mt-stats-graph-axis-targets .mt-stats-axis-x:hover,
+.mt-stats-graph-axis-targets .mt-stats-axis-x.mt-active {
+  background-color: rgba(176, 196, 222, 0.65);
+}
+.mt-stats-graph-axis-targets .mt-stats-axis-y {
+  height: 340px;
+  width: 65px;
+  bottom: 0px;
+  position: absolute;
+}
+.mt-stats-graph-axis-targets .mt-stats-axis-y:hover,
+.mt-stats-graph-axis-targets .mt-stats-axis-y.mt-active {
+  background-color: rgba(176, 196, 222, 0.65);
+}
+.mt-stats-graph-target {
+  width: 100%;
+  opacity: 0;
+  text-align: center;
+}
+.mt-stats-graph-target.mt-active {
+  background-color: rgba(176, 196, 222, 0.65);
+  opacity: 1;
+}
+.mt-stats-graph-target.mt-active .mt-message {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 125%;
+}
+.mt-stats-graph-target-case {
+  display: inline-block;
+  vertical-align: top;
+  width: 380px;
+  height: 320px;
+}
+.mt-stats-graph-target-case .mt-message {
+  line-height: 320px;
+}
+.mt-stats-graph-target-x {
+  display: block;
+  height: 90px;
+}
+.mt-stats-graph-target-x .mt-message {
+  line-height: 90px;
+}
+.mt-stats-graph-target-y {
+  display: inline-block;
+  vertical-align: top;
+  width: 90px;
+  height: 320px;
+}
+.mt-stats-graph-target-y .mt-message {
+  -webkit-transform-origin: 0 0;
+  -webkit-transform: rotate(-90deg) translate(-320px, 0);
+  line-height: 90px;
+  width: 320px;
+}
+.mt-color-icon-list {
+  position: relative;
+  height: 6px;
+  bottom: 2px;
+  line-height: 6px;
+}
+.mt-color-icon {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0px 3px;
+}
+.mt-color-range-icon {
+  position: relative;
+  height: 6px;
+  width: 50%;
+  bottom: 2px;
+  left: 25%;
+}
+.mt-stats-arrow-up {
+  border-style: solid;
+  border-color: #000000 transparent;
+  border-width: 0 10px 10px 10px;
+  position: absolute;
+  top: -10px;
+  left: -webkit-calc(50% - 5px);
+  border-top-color: grey;
+}
+.mt-axes-adjuster {
+  position: absolute;
+  width: 450px;
+  height: 100px;
+  line-height: 20px;
+  background-color: white;
+  border-radius: 5px;
+  z-index: 1000;
+  padding: 0px 10px 30px 0px;
+  border-color: grey;
+  border-width: 2px;
+  border-style: solid;
+  font-size: 12px;
+}
+.mt-axes-adjuster input {
+  width: 95%;
+  margin-bottom: 5px;
+  color: black;
+  font-weight: normal;
+}
+.mt-axes-adjuster input.mt-invalid,
+.mt-axes-adjuster input.mt-invalid-add {
+  color: red;
+  font-weight: bold;
+}
+.mt-axes-adjuster input.mt-invalid-remove {
+  color: black;
+  font-weight: normal;
+}
+.mt-stats-check-box {
+  display: inline-block;
+  height: 22px;
+  background-color: white;
+  border: solid 1px black;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+.mt-stats-check-box-label {
+  padding-left: 5px;
+  padding-right: 5px;
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: top;
+}
+.mt-stats-arrow-right {
+  border-style: solid;
+  border-color: transparent #000000;
+  border-width: 5px 0 5px 10px;
+  position: absolute;
+  right: -10px;
+  top: -webkit-calc(50% - 5px);
+  border-left-color: grey;
+}
+.mt-probs-tool {
+  padding: 10px;
+}
+.mt-probs-sim-trials,
+.mt-probs-sim-start {
+  display: inline-block;
+  width: 50%;
+  vertical-align: middle;
+  text-align: center;
+}
+.mt-probs-sim-trials label > input,
+.mt-probs-sim-start label > input {
+  vertical-align: baseline;
+}
+.mt-probs-clear-output {
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+}
+.mt-probs-clear-output:hover {
+  text-decoration: none;
+}
+.mt-probs-sim-start {
+  display: inline-block;
+  width: 50%;
+  vertical-align: middle;
+  text-align: center;
+}
+.mt-probs-sim-start .btn {
+  width: 100px;
+  height: 100px;
+  padding: 0;
+  font-size: 2rem;
+}
+.mt-probs-sim-start .mt-probs-sim-go-button {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+}
+.mt-replacement {
+  font-size: 12px;
+}
+.mt-probs-sim-inputs {
+  padding: 15px 15px 0;
+}
+.mt-col {
+  height: 100%;
+  width: 700px;
+}
+.mt-col .mt-left-col {
+  padding: 0px 20px 0px 20px;
+  width: 200px;
+  float: left;
+}
+.mt-col .mt-right-col {
+  padding: 0px 20px 0px 20px;
+  width: 400px;
+  float: left;
+}
+.mt-col hr {
+  padding: 1px;
+  margin: 5px;
+}
+.mt-small-input {
+  width: 80px;
+}
+.mt-single-input {
+  width: 28px;
+}
+.mt-item-config {
+  margin: 0;
+}
+.mt-item-config .mt-circle {
+  margin: 0px;
+  vertical-align: text-bottom;
+  display: inline-block;
+}
+.mt-color-picker {
+  width: 20px;
+}
+.mt-remove-item {
+  cursor: pointer;
+  margin-left: 10px;
+}
+.mt-skip-anis {
+  float: right;
+  margin: 10px;
+  font-size: 12px;
+  display: flex;
+}
+.mt-speed-slider {
+  width: 100px;
+  float: right;
+  margin: 4px 10px 10px 10px;
+  padding-left: 5px;
+}
+.mt-speed-slider .mt-slider {
+  float: right;
+  width: 100px;
+}
+/*****************************************************************/
+/*                       WHEEL                                   */
+/*****************************************************************/
+/* Sets the background image for the wheel */
+.mt-sum-error {
+  text-align: center;
+}
+.mt-spinner {
+  height: 280px;
+  text-align: center;
+}
+.mt-the-canvas {
+  margin-top: 75px;
+  height: 434px;
+  width: 434px;
+}
+.mt-preview {
+  height: 150px;
+  width: 150px;
+  border: 1px black solid;
+}
+/*****************/
+/* Playing Cards */
+/*****************/
+.mt-probs-sim-output {
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 145px;
+  max-width: 300px;
+  padding: 5px;
+  overflow: scroll;
+}
+.mt-card-thumb {
+  margin: 0 1px -20px 1px;
+  width: 28px;
+  height: 41px;
+  float: left;
+}
+/* probability simulator config panel */
+.mt-probs-config-container {
+  height: 300px;
+  width: 200px;
+  position: absolute;
+  top: 16px;
+  right: -190px;
+  overflow: hidden;
+}
+.mt-probs-config {
+  height: 300px;
+  width: 200px;
+  position: relative;
+  background-color: lightgray;
+  left: -200px;
+  transition: left 200ms;
+  -webkit-backface-visibility: hidden;
+}
+.mt-probs-config-header {
+  max-height: 34px;
+  line-height: 34px;
+  padding: 5px;
+  margin: 0;
+  border-bottom: 3px solid black;
+}
+.mt-probs-config-body {
+  height: 174px;
+  padding: 10px;
+  background-color: white;
+  overflow: scroll;
+}
+.mt-probs-config-footer {
+  padding: 5px;
+  margin: 0;
+  border-top: 3px solid black;
+}
+.mt-probs-config-footer .btn {
+  margin: 8px;
+}
+.mt-probs-config-open {
+  width: 44px;
+  height: 44px;
+  right: -34px;
+  top: 16px;
+  position: absolute;
+  background-color: white;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 44px;
+  cursor: default;
+  box-shadow: 2px 4px 11px rgba(0, 0, 0, 0.4);
+  box-shadow-left: none;
+  transition: right 200ms;
+}
+.mt-config-slide-right {
+  left: 0;
+}
+.mt-config-btn-slide-right {
+  right: -234px;
+}
+.mt-probs-slice-btns {
+  width: 100%;
+  padding: 0 10px;
+}
+.mt-probs-slice-btns button {
+  margin: 0 5px 5px;
+}
+/* entire container, keeps perspective */
+.mt-flip-container {
+  margin: 0px;
+  perspective: 1000;
+  -webkit-perspective: 1000;
+}
+.mt-probs-sim-container {
+  width: 300px;
+  height: 310px;
+  background-color: white;
+  border: 1px solid black;
+  overflow: scroll;
+}
+.mt-probs-text {
+  text-align: center;
+  line-height: 125px;
+  font-style: italic;
+  color: white;
+}
+.mt-flip-it {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+.mt-flip-container,
+.mt-front,
+.mt-back {
+  width: 300px;
+  height: 155px;
+}
+/* flip speed goes here */
+.mt-flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  -webkit-transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+  position: relative;
+}
+/* hide back of pane during swap */
+.mt-front,
+.mt-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* front pane, placed above back */
+.mt-front {
+  z-index: 2;
+  background: url("../../img/probability/cardback.png") 0 0 no-repeat;
+  background-size: 25%;
+  background-position: 50%;
+}
+/* back, initially hidden pane */
+.mt-back {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+.mt-card {
+  display: inline-block;
+}
+/**********************************/
+/*   COIN                         */
+/**********************************/
+.mt-coin {
+  display: inline-block;
+  width: 20%;
+  margin: 7px;
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms;
+}
+.mt-flip-up {
+  transform: scale(1.5, 1.5) rotateX(360deg);
+  -ms-transform: scale(1.5, 1.5) rotateX(360deg);
+  /* IE 9 */
+  -webkit-transform: scale(1.5, 1.5) rotateX(360deg);
+  /* Safari and Chrome */
+  -o-transform: scale(1.5, 1.5) rotateX(360deg);
+  /* Opera */
+  -moz-transform: scale(1.5, 1.5) rotateX(360deg);
+  /* Firefox */
+}
+/**********************************/
+/*   MARBLES                      */
+/**********************************/
+.mt-throwing-canvas-marble {
+  width: 300px;
+  height: 155px;
+}
+.mt-throwing-canvas-dice {
+  width: 300px;
+  height: 300px;
+}
+.mt-ball-holder {
+  display: inline-block;
+}
+.mt-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin: 0 0 -15px;
+}
+/**********************************/
+/*   DICE                         */
+/**********************************/
+.mt-face-input {
+  width: 12px;
+  margin: 0 1px;
+}
+.mt-roll {
+  transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  /* IE 9 */
+  -webkit-transform: rotate(180deg);
+  /* Safari and Chrome */
+  -o-transform: rotate(180deg);
+  /* Opera */
+  -moz-transform: rotate(180deg);
+  /* Firefox */
+}
+.mt-stats-wizard {
+  margin: 10px;
+}
+.mt-stats-wizard .mt-stats-wizard-opts-container {
+  width: 480px;
+  line-height: 320px;
+  padding-top: 50px;
+}
+.mt-stats-wizard .mt-stats-wizard-file-container {
+  width: 480px;
+  line-height: 320px;
+  padding-top: 50px;
+  line-height: 125px;
+}
+.mt-stats-wizard .mt-wizard-opts-svg {
+  display: block;
+  margin: 10px auto 0;
+}
+.mt-stats-wizard .mt-stats-wizard-opt {
+  position: relative;
+  height: 120px;
+  line-height: 120px;
+  margin-left: 27px;
+  background-color: #3a4646;
+  color: white;
+  width: 120px;
+  border-radius: 15px;
+  border: solid black 1px;
+  text-align: center;
+  display: inline-block;
+}
+.mt-stats-wizard .mt-stats-wizard-opt h5 {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+.mt-stats-wizard .mt-stats-wizard-msg {
+  color: #3a4646;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+  width: 70%;
+  margin: 0 auto;
+}
+.mt-stats-wizard .mt-stats-wizard-back {
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  height: 40px;
+  width: 30px;
+  border-radius: 5px;
+  background-color: #3a4646;
+  background-image: url('../../img/chevronLeftWhite.svg');
+  background-repeat: no-repeat;
+  background-size: 80% 80%;
+  background-position: center center;
+  border: 1px solid #3a4646;
+}
+.mt-stats-wizard .mt-stats-wizard-files {
+  height: 75px;
+  line-height: 75px;
+  margin-left: 60px;
+  background-color: #3a4646;
+  color: white;
+  width: 75px;
+  border-radius: 15px;
+  border: solid black 1px;
+  display: inline-block;
+  text-align: center;
+}

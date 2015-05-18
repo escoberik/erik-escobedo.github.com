@@ -1,0 +1,305 @@
+<div>
+	<div id="splitterApp"  style="width:1023px; height:768px;">
+
+	    <!-- Toolbar-->
+	    <div class="navbar-default" style="width:100% !important; height:50px !important; float:left;">
+			<ul class="nav navbar-nav" style="width:100%; margin-bottom:5px;">
+
+				<li id="reset"><a ng-click="templateRunner.reset()">Reset</a></li>
+	            <li id="undo"><a ng-click="Undo()">Undo</a></li>
+
+	            <li id="Style_Shape" style="margin-left:60%!important" ng-show="isSelectedSO">
+	            	<a data-placement="bottom" pop-over contentid="shapestyle-popover-content" parent-scope='templateRunner.scope' data-toggle="Style_Shape" ng-click="templateRunner.hideOther(1)">Style</a>
+	            </li>
+	            <li id="Style_Bin" style="margin-left:60%!important" ng-show="isSelectedBO">
+	            	<a data-placement="bottom" pop-over contentid="binstyle-popover-content" parent-scope='templateRunner.scope' data-toggle="Style_Bin" ng-click="templateRunner.hideOther(2)">Style</a>
+	            </li>
+	            <!--  Sub Menu which is going to open -->
+	            <li style="position:absolute; left:770px; top:20px; z-index:-1;" id="subMenu">
+	            	<a data-placement="bottom" pop-over contentid="binsubstyle-popover-content" parent-scope='templateRunner.scope' data-toggle="SubStyle_Bin"></a>
+	            </li>
+	            <li id="Style" style="margin-left:60%!important;" ng-show="!isSelectedSO && !isSelectedBO">
+	            	<a data-placement="bottom" pop-over contentid="style-popover-content" parent-scope='templateRunner.scope' data-toggle="Style" ng-click="templateRunner.hideOther(3)">Style</a>
+	            </li>
+	            <li id="splitter_app_add_li">
+	            	<a data-placement="bottom" pop-over contentid="add-popover-content" parent-scope='templateRunner.scope' data-toggle="Add" ng-click="templateRunner.hideOther(4)">Add</a>
+	            </li>
+	          	<li>
+	            	<button  type="button" class="btn btn-normal" data-toggle="button" id="toggleBtn" ng-click="toggleLasso()" ng-bind="LassoLabel"> </button>
+	            </li>
+			</ul>
+	    </div>
+	    <!-- Shape Style -->
+	    <div class="hide" id="shapestyle-popover-content">
+	    	<ul class="nav nav-pills"></ul>
+	        <div class="styleTitle_div"><span class="styleTitle_span" ng-bind="styleObject"></span></div>
+	        <div class="styleTitle_div styleTitleInfo"><span class="styleTitle_span" style="font-weight:normal;" ng-bind="styleObjectInfo"></span></div>
+	        <div class="color-pane" style="margin-bottom:20px;">
+
+	            <button id='1' ng-click="templateRunner.changeSOShapeColor('1', '#69B3DC')" class="color-btn" style="background-color:#69B3DC"></button>
+                <button id='2'  ng-click="templateRunner.changeSOShapeColor('2', '#9DE05F')" class="color-btn" style="background-color:#9DE05F"></button>
+                <button id='3'  ng-click="templateRunner.changeSOShapeColor('3', '#FDDF69')" class="color-btn" style="background-color:#FDDF69"></button>
+                <button id='4' ng-click="templateRunner.changeSOShapeColor('4', '#FDC077')" class="color-btn" style="background-color:#FDC077"></button>
+                <button id='5' ng-click="templateRunner.changeSOShapeColor('5', '#FC6161')" class="color-btn" style="background-color:#FC6161"></button>
+                <button id='6' ng-click="templateRunner.changeSOShapeColor('6', '#9D48B6')" class="color-btn" style="background-color:#9D48B6"></button>
+                <button id='7' ng-click="templateRunner.changeSOShapeColor('7', '#4F9BC6')" class="color-btn" style="background-color:#4F9BC6"></button>
+                <button id='8' ng-click="templateRunner.changeSOShapeColor('8', '#6FBF40')" class="color-btn" style="background-color:#6FBF40"></button>
+                <button id='9' ng-click="templateRunner.changeSOShapeColor('9', '#EFD03E')" class="color-btn" style="background-color:#EFD03E"></button>
+                <button id='10' ng-click="templateRunner.changeSOShapeColor('10', '#FCA944')" class="color-btn" style="background-color:#FCA944"></button>
+                <button id='11' ng-click="templateRunner.changeSOShapeColor('11', '#FC312B')" class="color-btn" style="background-color:#FC312B"></button>
+                <button id='12' ng-click="templateRunner.changeSOShapeColor('12', '#6C2384')" class="color-btn" style="background-color:#6C2384"></button>
+                <button id='13' ng-click="templateRunner.changeSOShapeColor('13', '#3B7DA1')" class="color-btn" style="background-color:#3B7DA1"></button>
+                <button id='14' ng-click="templateRunner.changeSOShapeColor('14', '#79AD43')" class="color-btn" style="background-color:#79AD43"></button>
+                <button id='15' ng-click="templateRunner.changeSOShapeColor('15', '#E0B724')" class="color-btn" style="background-color:#E0B724"></button>
+                <button id='16' ng-click="templateRunner.changeSOShapeColor('16', '#EA9F3A')" class="color-btn" style="background-color:#EA9F3A"></button>
+                <button id='17' ng-click="templateRunner.changeSOShapeColor('17', '#CC272F')" class="color-btn" style="background-color:#CC272F"></button>
+                <button id='18' ng-click="templateRunner.changeSOShapeColor('18', '#55176B')" class="color-btn" style="background-color:#55176B"></button>
+                <button id='19' ng-click="templateRunner.changeSOShapeColor('19', '#1E5777')" class="color-btn" style="background-color:#1E5777"></button>
+                <button id='20' ng-click="templateRunner.changeSOShapeColor('20', '#57862B')" class="color-btn" style="background-color:#57862B"></button>
+                <button id='21' ng-click="templateRunner.changeSOShapeColor('21', '#C4931B')" class="color-btn" style="background-color:#C4931B"></button>
+                <button id='22' ng-click="templateRunner.changeSOShapeColor('22', '#CF7F24')" class="color-btn" style="background-color:#CF7F24"></button>
+                <button id='23' ng-click="templateRunner.changeSOShapeColor('23', '#AC1C1D')" class="color-btn" style="background-color:#AC1C1D"></button>
+                <button id='24' ng-click="templateRunner.changeSOShapeColor('24', '#3C0D48')" class="color-btn" style="background-color:#3C0D48"></button>
+	        </div>
+	    </div>
+	    <!-- Bin Style -->
+	    <div class="hide" id="binstyle-popover-content">
+	    	<div class="styleTitle_div"><span class="styleTitle_span" ng-bind="styleObject"></span></div>
+
+	    	<div class="tab-pane" id="bin-content">
+                     <div class="shape-buttons">
+                        <button id='b1' ng-click='templateRunner.changeBinShape("b1", {name: "square", class: "square-btn shapeGap"})' class='square-btn shapeGap'></button>
+                        <button id='b2' ng-click='templateRunner.changeBinShape("b2", {name: "rectRoundCorner", class: "rectRoundCorner-btn shapeGap"})' class='rectRoundCorner-btn shapeGap'></button>
+                        <button id='b3' ng-click='templateRunner.changeBinShape("b3", {name: "circle", class: "circle-btn"})' class='circle-btn'></button>
+					</div>
+					<div class="well well-sm"></div>
+                    <div class="popover-section">
+
+                        	<div class="list-section">
+	                        	<label >Name</label>
+	                            <input ng-keyup="templateRunner.changeBinTitle()" type="text" placeholder="Name" id="newBinTitle" name="BinName" />
+                        	</div>
+                            <div class="list-section">
+	                        	<label >Description</label>
+	                            <input style="width: 180px !important;" placeholder="Description" id="newBinDescription" name="BinDesc" />
+                            </div>
+							<div class="list-section list-section-last">
+	                        	<label  style="height:25px !important">Icon</label>
+	                            <a ng-click="templateRunner.openSubMenu()"> > </a>
+                            </div>
+                    </div>
+			   </div>
+	    </div>
+	    <!-- Bin Sub Style -->
+	    <div class="hide" id="binsubstyle-popover-content">
+	    	<!-- Nav tabs -->
+	        <ul class="nav nav-pills" style="height: 30px;">
+	        	<li style="background:url(img/arrow1.JPG) top left no-repeat; color: blue;margin: 5px;/* margin-bottom: 5px; */margin-left: 10px;" ng-click="templateRunner.hideSubMenu()">Setup</li>
+	            <li style="margin-left: 90px; margin-top: 3px;font-weight: bolder; font-size: 16px;">Icon</li>
+	        </ul>
+	        <hr/>
+	        <ul class="nav nav-pills" style="margin-top:5px; margin-bottom:5px;">
+	          <li class="active" style="margin-left: 80px;"> <a class="tab-btn" data-target="#shape-content" data-toggle="tab">Shape</a></li>
+	          <li> <a class="tab-btn" data-target="#graphic-content" data-toggle="tab">Graphic</a></li>
+	        </ul>
+	        <hr/>
+	        <!-- Tab panes -->
+	        <div class="tab-content">
+				<!-- Shape Tab Content -->
+	            <div class="tab-pane active" id="shape-content">
+	                <div class="well well-lg">
+
+	                	<button id="binIconShape1" ng-click='templateRunner.changeBinIconShape($event, {name: "square", class: "square-btn"})' class='square-btn splitterShapes' style="background-color:{{selectedColor}}"></button>
+	                    <button id="binIconShape2" ng-click='templateRunner.changeBinIconShape($event, {name: "rectLandscape", class: "rectLandscape-btn"})' class='rectLandscape-btn splitterShapes' style="background-color:{{selectedColor}}"></button>
+	                    <button id="binIconShape3" ng-click='templateRunner.changeBinIconShape($event, {name: "circle", class: "circle-btn"})' class='circle-btn splitterShapes' style="background-color:{{selectedColor}}"></button>
+	                    <button id="binIconShape4" ng-click='templateRunner.changeBinIconShape($event, {name: "rectPortrait", class: "rectPortrait-btn"})' class='rectPortrait-btn splitterShapes' style="background-color:{{selectedColor}}"></button>
+
+	                </div>
+	                <div class="color-pane" >
+
+	                    <button id="binIconColor1" ng-click="templateRunner.changeBinIconColor($event, '#69B3DC')" class="color-btn" style="background-color:#69B3DC"></button>
+		                <button id="binIconColor2" ng-click="templateRunner.changeBinIconColor($event, '#9DE05F')" class="color-btn" style="background-color:#9DE05F"></button>
+		                <button id="binIconColor3" ng-click="templateRunner.changeBinIconColor($event, '#FDDF69')" class="color-btn" style="background-color:#FDDF69"></button>
+		                <button id="binIconColor24" ng-click="templateRunner.changeBinIconColor($event, '#FDC077')" class="color-btn" style="background-color:#FDC077"></button>
+		                <button id="binIconColor4" ng-click="templateRunner.changeBinIconColor($event, '#FC6161')" class="color-btn" style="background-color:#FC6161"></button>
+		                <button id="binIconColor5" ng-click="templateRunner.changeBinIconColor($event, '#9D48B6')" class="color-btn" style="background-color:#9D48B6"></button>
+		                <button id="binIconColor6" ng-click="templateRunner.changeBinIconColor($event, '#4F9BC6')" class="color-btn" style="background-color:#4F9BC6"></button>
+		                <button id="binIconColor7" ng-click="templateRunner.changeBinIconColor($event, '#6FBF40')" class="color-btn" style="background-color:#6FBF40"></button>
+		                <button id="binIconColor8" ng-click="templateRunner.changeBinIconColor($event, '#EFD03E')" class="color-btn" style="background-color:#EFD03E"></button>
+		                <button id="binIconColor9" ng-click="templateRunner.changeBinIconColor($event, '#FCA944')" class="color-btn" style="background-color:#FCA944"></button>
+		                <button id="binIconColor10" ng-click="templateRunner.changeBinIconColor($event, '#FC312B')" class="color-btn" style="background-color:#FC312B"></button>
+		                <button id="binIconColor11" ng-click="templateRunner.changeBinIconColor($event, '#6C2384')" class="color-btn" style="background-color:#6C2384"></button>
+		                <button id="binIconColor12" ng-click="templateRunner.changeBinIconColor($event, '#3B7DA1')" class="color-btn" style="background-color:#3B7DA1"></button>
+		                <button id="binIconColor13" ng-click="templateRunner.changeBinIconColor($event, '#79AD43')" class="color-btn" style="background-color:#79AD43"></button>
+		                <button id="binIconColor14" ng-click="templateRunner.changeBinIconColor($event, '#E0B724')" class="color-btn" style="background-color:#E0B724"></button>
+		                <button id="binIconColor15" ng-click="templateRunner.changeBinIconColor($event, '#EA9F3A')" class="color-btn" style="background-color:#EA9F3A"></button>
+		                <button id="binIconColor16" ng-click="templateRunner.changeBinIconColor($event, '#CC272F')" class="color-btn" style="background-color:#CC272F"></button>
+		                <button id="binIconColor17" ng-click="templateRunner.changeBinIconColor($event, '#55176B')" class="color-btn" style="background-color:#55176B"></button>
+		                <button id="binIconColor18" ng-click="templateRunner.changeBinIconColor($event, '#1E5777')" class="color-btn" style="background-color:#1E5777"></button>
+		                <button id="binIconColor19" ng-click="templateRunner.changeBinIconColor($event, '#57862B')" class="color-btn" style="background-color:#57862B"></button>
+		                <button id="binIconColor20" ng-click="templateRunner.changeBinIconColor($event, '#C4931B')" class="color-btn" style="background-color:#C4931B"></button>
+		                <button id="binIconColor21" ng-click="templateRunner.changeBinIconColor($event, '#CF7F24')" class="color-btn" style="background-color:#CF7F24"></button>
+		                <button id="binIconColor22" ng-click="templateRunner.changeBinIconColor($event, '#AC1C1D')" class="color-btn" style="background-color:#AC1C1D"></button>
+		                <button id="binIconColor23" ng-click="templateRunner.changeBinIconColor($event, '#3C0D48')" class="color-btn" style="background-color:#3C0D48"></button>
+
+	                    	                </div>
+	                <hr />
+	            </div>
+	            <!-- Graphic Tab Content -->
+	            <div class="tab-pane" id="graphic-content">
+
+	            	<div class="shape-buttons">
+					<input id="graphic1" type="image" ng-click='templateRunner.changeBinIconGraphic($event, {image:"lib/externalTools/splitter/img/land.png", name:"square"})' src="lib/externalTools/splitter/img/land.png" class='graphicButton'/>
+					<input id="graphic2" type="image" ng-click='templateRunner.changeBinIconGraphic($event, {image:"lib/externalTools/splitter/img/hotdog.png", name: "rectLandscape"})' src="lib/externalTools/splitter/img/hotdog.png" class='graphicButton'/>
+					<input id="graphic3" type="image" ng-click='templateRunner.changeBinIconGraphic($event, {image:"lib/externalTools/splitter/img/pizza.png", name: "circle"})' src="lib/externalTools/splitter/img/pizza.png" class='graphicButton'/>
+					<input id="graphic4" type="image" ng-click='templateRunner.changeBinIconGraphic($event, {image:"lib/externalTools/splitter/img/water.png", name: "rectPortrait"})' src="lib/externalTools/splitter/img/water.png" class='graphicButton'/>
+	            	</div>
+					<!--
+<input type="image" ng-click='templateRunner.changeBinIconGraphic({image:"lib/externalTools/splitter/img/land.png", name:"square"})' src="lib/externalTools/splitter/img/land.png" class='graphicButton'/>
+					<input type="image" ng-click='templateRunner.changeBinIconGraphic({image:"lib/externalTools/splitter/img/hotdog.png", name: "rectLandscape"})' src="lib/externalTools/splitter/img/hotdog.png" class='graphicButton'/>
+					<input type="image" ng-click='templateRunner.changeBinIconGraphic({image:"lib/externalTools/splitter/img/pizza.png", name: "circle"})' src="lib/externalTools/splitter/img/pizza.png" class='graphicButton'/>
+					<input type="image" ng-click='templateRunner.changeBinIconGraphic({image:"lib/externalTools/splitter/img/water.png", name: "rectPortrait"})' src="lib/externalTools/splitter/img/water.png" class='graphicButton'/>
+					<input type="image" ng-click='templateRunner.changeBinIconGraphic({image:"lib/externalTools/splitter/img/land.png", name:"square"})' src="lib/externalTools/splitter/img/land.png" class='graphicButton'/>
+					<input type="image" ng-click='templateRunner.changeBinIconGraphic({image:"lib/externalTools/splitter/img/hotdog.png", name: "rectLandscape"})' src="lib/externalTools/splitter/img/hotdog.png" class='graphicButton'/>
+					<input type="image" ng-click='templateRunner.changeBinIconGraphic({image:"lib/externalTools/splitter/img/pizza.png", name: "circle"})' src="lib/externalTools/splitter/img/pizza.png" class='graphicButton'/>
+					<input type="image" ng-click='templateRunner.changeBinIconGraphic({image:"lib/externalTools/splitter/img/water.png", name: "rectPortrait"})' src="lib/externalTools/splitter/img/water.png" class='graphicButton'/>
+					<input type="image" ng-click='templateRunner.changeBinIconGraphic({image:"lib/externalTools/splitter/img/land.png", name:"square"})' src="lib/externalTools/splitter/img/land.png" class='graphicButton'/>
+					<input type="image" ng-click='templateRunner.changeBinIconGraphic({image:"lib/externalTools/splitter/img/hotdog.png", name: "rectLandscape"})' src="lib/externalTools/splitter/img/hotdog.png" class='graphicButton'/>
+					<input type="image" ng-click='templateRunner.changeBinIconGraphic({image:"lib/externalTools/splitter/img/pizza.png", name: "circle"})' src="lib/externalTools/splitter/img/pizza.png" class='graphicButton'/>
+					<input type="image" ng-click='templateRunner.changeBinIconGraphic({image:"lib/externalTools/splitter/img/water.png", name: "rectPortrait"})' src="lib/externalTools/splitter/img/water.png" class='graphicButton'/>
+-->
+
+	            </div>
+			</div>
+	    </div>
+	    <!-- Unknown Selection -->
+	    <div class="hide" id="style-popover-content">
+	    	<ul class="nav nav-pills"></ul>
+	    	<div class="well">Please Select Shape or Bin</div>
+	    </div>
+		<!-- Normal Add shape/graphics/bin Menu -->
+	    <div class="hide" id="add-popover-content">
+	        <!-- Nav tabs -->
+	       <!--  <div class="popover-section"> -->
+	        <div class="popover-section tab-buttons">
+
+				<div  class=" btn-group btn-group-justified" >
+					<a id="radio1" href="#shape-content" class="btn btn-default active" data-toggle="tab" ng-click="templateRunner.setRadioActive('radio1')">Shapes </a>
+					<a id="radio2" href="#graphic-content" class="btn btn-default" data-toggle="tab" ng-click="templateRunner.setRadioActive('radio2')">Graphic</a>
+					<a id="radio3" href="#bin-content" class="btn btn-default" data-toggle="tab" ng-click="templateRunner.setRadioActive('radio3')">Bin</a>
+				</div>
+	        </div>
+
+	        <!-- Tab panes -->
+	        <div class="tab-content">
+				<!-- Shape Tab Content -->
+	            <div class="tab-pane  active" id="shape-content">
+	                <div class="shape-buttons">
+
+	                    <button id="shapetype1" ng-click='templateRunner.selectShape($event, {name: "square", class: "square-btn"})' class='square-btn splitterShapes selected-item' style="background-color:{{selectedColor}}"></button>
+	                    <button id="shapetype2" ng-click='templateRunner.selectShape($event, {name: "rectLandscape", class: "rectLandscape-btn"})' class='rectLandscape-btn splitterShapes' style="background-color:{{selectedColor}}"></button>
+	                    <button id="shapetype3" ng-click='templateRunner.selectShape($event, {name: "circle", class: "circle-btn"})' class='circle-btn splitterShapes' style="background-color:{{selectedColor}}"></button>
+	                    <button id="shapetype4" ng-click='templateRunner.selectShape($event, {name: "rectPortrait", class: "rectPortrait-btn"})' class='rectPortrait-btn splitterShapes' style="background-color:{{selectedColor}}"></button>
+					</div>
+	                <div class="well well-sm"></div>
+	                <div class="popover-section">
+		                <div class="color-pane">
+
+		                    <button id="shape1" ng-click="templateRunner.selectColor($event,'#69B3DC')" class="color-btn selected-item" style="background-color:#69B3DC"></button>
+			                <button id="shape2" ng-click="templateRunner.selectColor($event, '#9DE05F')" class="color-btn" style="background-color:#9DE05F"></button>
+			                <button id="shape3" ng-click="templateRunner.selectColor($event,'#FDDF69')" class="color-btn" style="background-color:#FDDF69"></button>
+			                <button id="shape4" ng-click="templateRunner.selectColor($event,'#FDC077')" class="color-btn" style="background-color:#FDC077"></button>
+			                <button id="shape5" ng-click="templateRunner.selectColor($event,'#FC6161')" class="color-btn" style="background-color:#FC6161"></button>
+			                <button id="shape6" ng-click="templateRunner.selectColor($event,'#9D48B6')" class="color-btn" style="background-color:#9D48B6"></button>
+			                <button id="shape7" ng-click="templateRunner.selectColor($event,'#4F9BC6')" class="color-btn" style="background-color:#4F9BC6"></button>
+			                <button id="shape8" ng-click="templateRunner.selectColor($event,'#6FBF40')" class="color-btn" style="background-color:#6FBF40"></button>
+			                <button id="shape9" ng-click="templateRunner.selectColor($event,'#EFD03E')" class="color-btn" style="background-color:#EFD03E"></button>
+			                <button id="shape10" ng-click="templateRunner.selectColor($event,'#FCA944')" class="color-btn" style="background-color:#FCA944"></button>
+			                <button id="shape11" ng-click="templateRunner.selectColor($event,'#FC312B')" class="color-btn" style="background-color:#FC312B"></button>
+			                <button id="shape12" ng-click="templateRunner.selectColor($event,'#6C2384')" class="color-btn" style="background-color:#6C2384"></button>
+			                <button id="shape13" ng-click="templateRunner.selectColor($event,'#3B7DA1')" class="color-btn" style="background-color:#3B7DA1"></button>
+			                <button id="shape14" ng-click="templateRunner.selectColor($event,'#79AD43')" class="color-btn" style="background-color:#79AD43"></button>
+			                <button id="shape15" ng-click="templateRunner.selectColor($event,'#E0B724')" class="color-btn" style="background-color:#E0B724"></button>
+			                <button id="shape16" ng-click="templateRunner.selectColor($event,'#EA9F3A')" class="color-btn" style="background-color:#EA9F3A"></button>
+			                <button id="shape17" ng-click="templateRunner.selectColor($event,'#CC272F')" class="color-btn" style="background-color:#CC272F"></button>
+			                <button id="shape18" ng-click="templateRunner.selectColor($event,'#55176B')" class="color-btn" style="background-color:#55176B"></button>
+			                <button id="shape19" ng-click="templateRunner.selectColor($event,'#1E5777')" class="color-btn" style="background-color:#1E5777"></button>
+			                <button id="shape20" ng-click="templateRunner.selectColor($event,'#57862B')" class="color-btn" style="background-color:#57862B"></button>
+			                <button id="shape21" ng-click="templateRunner.selectColor($event,'#C4931B')" class="color-btn" style="background-color:#C4931B"></button>
+			                <button id="shape22" ng-click="templateRunner.selectColor($event,'#CF7F24')" class="color-btn" style="background-color:#CF7F24"></button>
+			                <button id="shape23" ng-click="templateRunner.selectColor($event,'#AC1C1D')" class="color-btn" style="background-color:#AC1C1D"></button>
+			                <button id="shape24" ng-click="templateRunner.selectColor($event,'#3C0D48')" class="color-btn" style="background-color:#3C0D48"></button>
+
+
+		                </div>
+	                </div>
+	                <div class="AddButton-pane">
+	                    <button ng-click="templateRunner.addShape()" class="addShape-btn">New Shape</button>
+	                </div>
+	            </div>
+	            <!-- Graphic Tab Content -->
+	            <div class="tab-pane" id="graphic-content">
+	            	<div class="popover-section">
+		            	<div class="shape-buttons">
+			                <input id="addGraphic1" type="image" ng-click='templateRunner.selectGraphic($event, {image:"lib/externalTools/splitter/img/land.png", name:"square"})' src="lib/externalTools/splitter/img/land.png" class='graphicButton selected-item'/>
+							<input id="addGraphic2" type="image" ng-click='templateRunner.selectGraphic($event, {image:"lib/externalTools/splitter/img/hotdog.png", name: "rectLandscape"})' src="lib/externalTools/splitter/img/hotdog.png" class='graphicButton'/>
+							<input id="addGraphic3" type="image" ng-click='templateRunner.selectGraphic($event, {image:"lib/externalTools/splitter/img/pizza.png", name: "circle"})' src="lib/externalTools/splitter/img/pizza.png" class='graphicButton'/>
+							<input id="addGraphic4" type="image" ng-click='templateRunner.selectGraphic($event, {image:"lib/externalTools/splitter/img/water.png", name: "rectPortrait"})' src="lib/externalTools/splitter/img/water.png" class='graphicButton'/>
+		            	</div>
+					<!--
+		<input type="image" ng-click='templateRunner.selectGraphic({image:"lib/externalTools/splitter/img/land.png", name:"square"})' src="lib/externalTools/splitter/img/land.png" class='graphicButton'/>
+						<input type="image" ng-click='templateRunner.selectGraphic({image:"lib/externalTools/splitter/img/hotdog.png", name: "rectLandscape"})' src="lib/externalTools/splitter/img/hotdog.png" class='graphicButton'/>
+						<input type="image" ng-click='templateRunner.selectGraphic({image:"lib/externalTools/splitter/img/pizza.png", name: "circle"})' src="lib/externalTools/splitter/img/pizza.png" class='graphicButton'/>
+						<input type="image" ng-click='templateRunner.selectGraphic({image:"lib/externalTools/splitter/img/water.png", name: "rectPortrait"})' src="lib/externalTools/splitter/img/water.png" class='graphicButton'/>
+						<input type="image" ng-click='templateRunner.selectGraphic({image:"lib/externalTools/splitter/img/land.png", name:"square"})' src="lib/externalTools/splitter/img/land.png" class='graphicButton'/>
+						<input type="image" ng-click='templateRunner.selectGraphic({image:"lib/externalTools/splitter/img/hotdog.png", name: "rectLandscape"})' src="lib/externalTools/splitter/img/hotdog.png" class='graphicButton'/>
+						<input type="image" ng-click='templateRunner.selectGraphic({image:"lib/externalTools/splitter/img/pizza.png", name: "circle"})' src="lib/externalTools/splitter/img/pizza.png" class='graphicButton'/>
+						<input type="image" ng-click='templateRunner.selectGraphic({image:"lib/externalTools/splitter/img/water.png", name: "rectPortrait"})' src="lib/externalTools/splitter/img/water.png" class='graphicButton'/>
+						<input type="image" ng-click='templateRunner.selectGraphic({image:"lib/externalTools/splitter/img/land.png", name:"square"})' src="lib/externalTools/splitter/img/land.png" class='graphicButton'/>
+						<input type="image" ng-click='templateRunner.selectGraphic({image:"lib/externalTools/splitter/img/hotdog.png", name: "rectLandscape"})' src="lib/externalTools/splitter/img/hotdog.png" class='graphicButton'/>
+						<input type="image" ng-click='templateRunner.selectGraphic({image:"lib/externalTools/splitter/img/pizza.png", name: "circle"})' src="lib/externalTools/splitter/img/pizza.png" class='graphicButton'/>
+						<input type="image" ng-click='templateRunner.selectGraphic({image:"lib/externalTools/splitter/img/water.png", name: "rectPortrait"})' src="lib/externalTools/splitter/img/water.png" class='graphicButton'/>
+	-->
+	            	</div>
+
+	                <div class="AddButton-pane">
+	                    <button ng-click="templateRunner.addGraphics()" class="addShape-btn">New Graphic</button>
+	                </div>
+	            </div>
+	            <!-- Bin Tab Content -->
+	          	<div class="tab-pane" id="bin-content">
+
+                     <div class="shape-buttons">
+
+                        <button id="addBin1" ng-click='templateRunner.selectBinShape($event, {name: "square", class: "square-btn shapeGap"})' class='square-btn shapeGap selected-item'></button>
+                    	<button id="addBin2" ng-click='templateRunner.selectBinShape($event, {name: "rectRoundCorner", class: "rectRoundCorner-btn shapeGap"})' class='rectRoundCorner-btn shapeGap'></button>
+                    	<button id="addBin3" ng-click='templateRunner.selectBinShape($event, {name: "circle", class: "circle-btn"})' class='circle-btn'></button>
+					</div>
+					<div class="well well-sm"></div>
+                    <div class="popover-section">
+
+                        	<div class="list-section">
+	                        	<label >Name</label>
+	                            <input type="text" placeholder="Name" id="newBinTitle" name="BinName" />
+                        	</div>
+                            <div class="list-section">
+	                        	<label >Description</label>
+	                            <input style="width: 180px !important;" type="text" type="text" placeholder="Description" id="newBinDescription" name="BinDesc" />
+                            </div>
+							<div class="list-section list-section-last">
+	                        	<label  >Icon</label>
+                            </div>
+                     </div>
+
+                     <div class="AddButton-pane">
+                        <button ng-click="templateRunner.addBin()" class="addShape-btn">New Bin</button>
+                    </div>
+
+	          	</div>
+			</div>
+	    </div>
+
+	    <div id="splitter_surface" style="float:left"></div>
+
+	</div>
+</div>

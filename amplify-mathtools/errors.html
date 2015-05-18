@@ -1,0 +1,28 @@
+<!doctype html>
+
+<html>
+  <head>
+    <script>
+        function showErrors(){
+
+            var localErrors = localStorage.getItem('errors');
+            var storedErrors = [];
+            if (localErrors !== null && localErrors !== undefined) {
+                var displayedText = JSON.stringify(JSON.parse(localErrors), null, '&emsp;');
+                displayedText = displayedText.replace(/(\r\n|\n|\r)/gm, '<br/>');
+                document.getElementById('errors').innerHTML = displayedText;
+            }
+            
+        }
+    </script>
+  </head>
+
+  <body onload="showErrors()">
+
+    Recent Local Errors (stores 10 latest errors)
+    <div id="errors">
+
+    </div>
+  </body>
+
+</html>

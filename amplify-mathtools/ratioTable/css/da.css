@@ -1,0 +1,131 @@
+.mt-wrapper-ratio-table {
+    width: 740px;
+	position: relative;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+.mt-wrapper-ratio-table .mt-left-input-container {
+    height: 100%;
+    width: 230px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.mt-wrapper-ratio-table .mt-left-input-container input {
+    border-bottom-left-radius:20px;
+    border-top-left-radius:20px;
+}
+.mt-wrapper-ratio-table .mt-left-input-container button {
+    border-bottom-right-radius:20px;
+    border-top-right-radius:20px;
+}
+
+
+.mt-wrapper-ratio-table .mt-right-input-container {
+	position: absolute;
+	top: 0;
+    right: 0;
+    height: 100%;
+    width: 230px;
+}
+
+.mt-wrapper-ratio-table .mt-rt-side-input {
+    display: inline;
+    position: absolute;
+    right: 0;
+    height: 40px;
+    width: 150px;
+    margin-top: -20px;
+}
+
+.mt-wrapper-ratio-table .mt-right-input-container .mt-rt-side-input {
+    left: 75px;
+}
+.mt-wrapper-ratio-table .mt-right-input-container svg {
+    height: 100%;
+    width: 75px;
+    left: 0;
+}
+
+.mt-wrapper-ratio-table .mt-left-input-container svg {
+    height: 100%;
+    width: 75px;
+    right: 0;
+}
+.mt-wrapper-ratio-table .mt-left-input-container .mt-rt-side-input {
+    right: 75px;
+}
+
+.mt-wrapper-ratio-table .mt-right-input-container input {
+    border-bottom-right-radius:20px;
+    border-top-right-radius:20px;
+}
+.mt-wrapper-ratio-table .mt-right-input-container button {
+    border-bottom-left-radius:20px;
+    border-top-left-radius:20px;
+}
+
+.mt-wrapper-ratio-table .mt-rt-table {
+    font-size: 0;
+    top: 0;
+    left: 279px;
+    width: 280px;
+    display: inline-block;
+}
+
+.mt-wrapper-ratio-table .mt-rt-column {
+    display: inline-table;
+    font-size: initial;
+}
+
+.mt-wrapper-ratio-table .mt-input-cell {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	border: 1px solid black;
+	font-size: 1.2em;
+    height: 38px;
+    width: 108px;
+}
+.mt-wrapper-ratio-table .mt-input-button {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	border: 1px solid black;
+	font-size: 1.2em;
+    width: 40px;
+    height: 40px;
+}
+.mt-wrapper-ratio-table .mt-rt-cell {
+    display: block;
+    background: none;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	border: 1px solid #333;
+	font-size: 1.2em;
+    height: 38px;
+    width: 138px;
+}
+.mt-wrapper-ratio-table .mt-cell-selected {
+  	background-color: rgba(0,0,255,0.15) !important;
+}
+.mt-wrapper-ratio-table .mt-cell-correct {
+  	background-color: rgba(0,255,0,0.75) !important;
+}
+.mt-wrapper-ratio-table .mt-cell-close {
+  	background-color: rgba(255,255,0,0.75) !important;
+}
+.mt-wrapper-ratio-table .mt-cell-wrong {
+  	background-color: rgba(255,0,0,0.75) !important;
+}
+.mt-wrapper-ratio-table svg {
+    position: absolute;
+}
+
+.mt-wrapper-ratio-table svg line {
+    fill: none;
+    stroke: #333;
+    stroke-width: 2px;
+}

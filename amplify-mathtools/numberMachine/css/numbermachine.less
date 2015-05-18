@@ -1,0 +1,588 @@
+@import "../../../../common/css/lessLibrary.less";
+
+@keyButtonSize: 50px;
+@keyButtonMargin: @keyButtonSize / 12;
+
+.mt-number-machine {
+    @workScreenWidth: 685px;
+    @workScreenHeight: 335px;
+    @svgHeight: 500px;
+    @titleHeight: 40px;
+    @inventoryWidth: 100px;
+    @buttonsHeight: 65px;
+    @partRoundedEdge: 5px;
+    @partSize: 80px;
+    @valueSize: 36px;
+    @partArrowWidth: 20px;
+    @partArrowHeight: 14px;
+    .setSize(670px + @inventoryWidth; @svgHeight + @titleHeight );
+    // padding: 10px;
+    background-color: #f2f2ed;
+    .mt-number-machine-svg {
+        .setSize(@workScreenWidth; @svgHeight);
+        background-color: white;
+    }
+    .mt-machine-title {
+        font-size: @titleHeight;
+        .setSize(100%; @titleHeight);
+        text-align: center;
+        line-height: @titleHeight;
+        margin-bottom: 16px;
+    }
+    .mt-machine-cube-table{
+        //margin-left: auto;
+        //margin-right: auto;
+        width: @workScreenWidth;
+        .mt-machine-cube-table {
+            height: 65px;
+        }
+        .mt-machine-cube {
+            display: inline-block;
+            vertical-align: top;
+            background-color: black;
+            box-sizing: border-box;
+            color: white;
+            .setBorderRadius(@partRoundedEdge);
+            .setSize(@buttonsHeight - 6; @buttonsHeight - 6);
+            margin: 4px;
+            
+            &.mt-highlight {
+                background-color: lightblue;
+            }
+            &.mt-outline {
+                border: solid 2px red;
+            }
+            &.mt-number-one, &.mt-no-status {
+                background-color: rgb(211, 248, 247);
+                color: #999;
+                line-height: 59px;
+            }
+            &.mt-number-one {
+                background-color: #999;
+                color: #d3f8f7;
+            }
+            .mt-machine-cube-click{
+                position: relative;
+                .setSize(100%; 100%);
+                .mt-machine-value {
+                    position: absolute;
+                    .setSize(100%; auto);
+                    text-align: center;
+                }
+                .mt-machine-status {
+                    text-align: center;
+                    margin: 2px;
+                    .setSize(20px; 20px);
+                    * {
+                        .setBorderRadius(10px);
+                    }
+                    position: absolute;
+                    right: -2px;
+                    top: -2px;
+                    .mt-correct {
+                        background-color: limegreen;
+                    }
+                    .mt-incomplete {
+                        background-color: gray;
+                    }
+                    .mt-error {
+                        background-color: red;
+                    }
+                }
+                .mt-machine-parts {
+                    position: absolute;
+                    width: 65px;
+                    top: 17px;
+                }
+            }
+            .mt-part-row {
+                height: 14px;
+            }
+            .mt-part {
+                margin: 2.5px;
+                font-size: 14px;
+                line-height: 14px;
+                .setSize(14px; 14px);
+                * {
+                    color: black;
+                    .setBorderRadius(2px);
+                }
+                display:inline-block;
+                text-align: center;
+                vertical-align: middle;
+                .mt-plus {
+                    font-weight: bold;
+                    font-size: 16px;
+                    background-color: white;
+                }
+            }
+        }
+    }
+    .mt-number-machine-container {
+        position: relative;
+        width: -webkit-calc(~'100% - 80px');
+        height: 100%;
+        &.mt-selected {
+            background-color: darkgray;
+        }
+        background:
+            url('../img/nm_left_crucher.svg') -91px 56px ~"/" auto 375px no-repeat,
+            url('../img/nm_right_cruncher.svg') 542px 63px ~"/" auto 375px no-repeat;
+            // less treats the '/' as a division operator, the ~"" prevents that
+    }
+    .mt-machine-part {
+        //display: inline-block;
+        background-color: lightgray;
+        .setSize(@partSize; @partSize);
+        position: relative;
+        float: left;
+        //  box-shadow: 0 0 8px #888888;
+        // -moz-box-shadow: 0 0 8px #888888;
+        // -webkit-box-shadow: 0 0 8px #888888;
+        text-align: center;
+        vertical-align: middle;
+        line-height: @partSize;
+        .setBorderRadius(@partRoundedEdge);
+        input {
+            text-align: center;
+            .setSize(@partSize - 2; @partSize - 2);
+            border: 0;
+            background-color: transparent;
+        }
+        &.mt-new-machine-part {
+            background-color: lightgray;
+            float: none;
+            width: 80px !important;
+        }
+    }
+    .mt-machine-part-arrow {
+        //display: inline-block;
+        .setSize(0; 0);
+        //  box-shadow: 0 0 8px #888888;
+        // -moz-box-shadow: 0 0 8px #888888;
+        // -webkit-box-shadow: 0 0 8px #888888;
+
+        border-top: @partArrowHeight solid transparent;
+        border-bottom: @partArrowHeight solid transparent;
+        border-left: @partArrowWidth solid lightgray;
+        position: relative;
+        float: left;
+        top: 25px;
+    }
+    .mt-machine-part-highlight {
+        @partOutline: 8px;
+        position: absolute;
+        .mt-machine-part {
+            background-color: lightblue;
+            .setBorderRadius(@partOutline);
+            .setSize(@partSize + (@partOutline * 2); @partSize + (@partOutline * 2));
+            top: -(@partOutline);
+            left: -(@partOutline);
+        }
+        .mt-machine-part-arrow {
+            position: absolute;
+            border-top: (@partArrowHeight + @partOutline)  solid transparent;
+            border-bottom: (@partArrowHeight + @partOutline) solid transparent;
+            border-left: (@partArrowWidth + @partOutline) solid lightblue;
+            left: @partSize + (@partOutline / 2);
+            top: 17px;
+        }
+    }
+    ::-webkit-scrollbar {
+        display: none;
+    } // chromebook bug
+    .mt-inventory {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 84px;
+        background-color: white;
+        height: 540px;
+        overflow: scroll;
+
+        .mt-machine-inventory-viewport {
+            width: 84px;
+            min-height: 540px;
+            overflow: auto;
+            .mt-machine-inventory-content {
+                position: relative;
+                left: 0;
+                top: 0;
+                text-align: center;
+                padding-bottom: 50px;
+            }
+            .mt-total-value-inventory-text {
+                font-size: .9em;
+            }
+        }
+        .mt-inventory-item {
+            .setSize(@partSize / 2; @partSize / 2);
+            line-height: (@partSize / 2);
+            text-align: center;
+            vertical-align: middle;
+            margin: 6px auto;
+            .setBorderRadius(@partRoundedEdge);
+        }
+        .mt-resize-fix {
+            .setSize(100%;6px);
+        }
+    }
+
+    .mt-svg-element (@width: 50px; @height: 50px) {
+        background-position: center center;
+        background-size: 100%;
+        width:@width;
+        height:@height;
+    }
+
+    .mt-tune-up-button {
+        background-image: url('../img/tuneUpButton.svg');
+        background-color: white;
+        &.mt-selected {
+            background-image: url('../img/tuneUpButtonSelected.svg');
+        }
+        .mt-svg-element;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 0;
+        right: 16px;
+    }
+
+    .mt-delete-button {
+        background-image: url('../img/deleteButton.svg');
+        &.mt-selected {
+            background-image: url('../img/deleteButtonSelected.svg');
+        }
+        .mt-svg-element;
+        position: absolute;
+        top: 36px;
+        left: 70px;
+    }
+
+    .mt-back-button {
+        background-image: url('../img/backButton.svg');
+        .mt-svg-element;
+        position: absolute;
+        top: 36px;
+        left: 10px;
+    }
+
+    .mt-build-button {
+        background-image: url('../img/buildButton.svg');
+        .mt-svg-element(60px;60px);
+        position: absolute;
+        top: 345px;
+        left: 561px;
+    }
+
+    .mt-machine-number {
+        color: black;
+        font-size: 28px;
+        position: absolute;
+        left: 426px;
+        top: 399px;
+        width: 70px;
+        height: 70px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 70px;
+    }
+
+    .mt-machine-totals {
+        position: absolute;
+        left: 93px;
+        font-size: 13px;
+        color: white;
+
+        & span {
+            display: inline-block;
+            margin-left: 4px;
+            width: 50px;
+            text-align: center;
+            color: black;
+            font-size: 16px;
+        }
+    }
+
+    .mt-machine-correct {
+        top: 437px;
+    }
+
+    .mt-new-machine-button {
+
+        &.mt-add-part-keypad{
+            display: -webkit-flex;
+            display: flex;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+        }
+
+        div {
+            background-color: #0085DB;
+            color: white;
+            text-transform: uppercase;
+            height: 95%;
+            width: 95%;
+            .setBorderRadius(@keyButtonSize / 6);
+            font-size: 28px;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+    }
+    .mt-conveyor-belt {
+        background-image: url('../img/nm_main_machine.svg');
+        width: 690px;
+        height: 500px;
+        position: absolute;
+        top: 187px;
+        left: -17px;
+    }
+
+    .mt-part-click {
+        .setSize(100%; 100%);
+    }
+
+    .mt-new-machine-inventory-button {
+        background-color: lightblue;
+        color: white;
+    }
+    .mt-parts-holder {
+        position: absolute;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: flex-start;
+        justify-content: flex-start;
+        background-color: white;
+        left: 63px;
+        top: 200px;
+        width: 540px;
+        height: 106px;
+        padding: 10px;
+        .mt-machine-status {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-family: bentonSansBook;
+            font-size: 48px;
+            line-height: 128px;
+            &.mt-correct {
+                background-color: rgb(149, 255, 4);
+            }
+            &.mt-error {
+                background-color: rgb(254, 255, 69);
+            }
+            &.mt-incomplete {
+                background-color: white;
+            }
+        }
+        .mt-current-part {
+            width: 100px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .mt-current-value-holder {
+            .setBorderRadius(3px);
+            background-color: lightblue;
+            .setSize(@valueSize; @valueSize);
+            position: relative;
+            left: (@partSize / 2) - (@valueSize / 2);
+            top: -((@valueSize * 3 / 2)+ 6);
+            z-index: 2;
+            .mt-current-value {
+                position: absolute;
+                .setSize(100%; 100%);
+                line-height: @valueSize;
+                text-align: center;
+                vertical-align: middle;
+            }
+            .mt-current-value-arrow {
+                position: absolute;
+                .setSize(0; 0);
+                bottom: -(@valueSize / 2);
+                left: 6px;
+
+                border-left: (@valueSize / 2 - 6px) solid transparent;
+                border-right: (@valueSize / 2 - 6px) solid transparent;
+                border-top: (@valueSize / 2) solid lightblue;
+            }
+        }
+    }
+    .mt-machine-table-viewport {
+        background-color: rgb(218,254,255);
+        // border: 1px solid black;
+        .setSize(@workScreenWidth; @workScreenHeight);
+        .setBorderRadius(@partRoundedEdge);
+        overflow: hidden;
+        .mt-machine-table-content{
+            position: relative;
+            left: 0;
+            top: 0;
+            .mt-mass-produce-funnel-container {
+                .setSize(100%; 67px);
+                .mt-mass-produce-funnel {
+                    float: right;
+                    background-color: lightblue;
+                    border: solid black 1px;
+                    .setSize(65px; 65px);
+                    &.mt-selected {
+                        background-color: dodgerblue;
+                    }
+                }
+            }
+        }
+
+    }
+    .mt-total-value {
+        background-color: #808080;
+        color: white;
+        // .setBorderRadius(8px);
+        display: inline-block;
+        margin-top: 3px;
+        margin-right: 10px;
+        padding: 8px;
+        font-size: 16px;
+        span {
+            padding: 2px 12px;
+            display: inline-block;
+            .setBorderRadius(8px);
+        }
+        &.mt-correct span{
+            background-color: darkgreen;
+        }
+        &.mt-error span{
+            background-color: darkred;
+        }
+        &.mt-inventory{
+            position: absolute;
+            right: 22px;
+            margin-right: 0px;
+        }
+    }
+}
+.mt-resize-dialog {
+    left: 10%;
+    top: 10%;
+    width: 80%;
+    //height: 80%;
+    margin-left: inherit;
+    .mt-resizable-cubes {
+        color: white;
+        .setSize(10px; 10px);
+        font-size: 8px;
+        line-height: 10px;
+        text-align: center;
+        vertical-align: middle;
+        margin: 2px;
+        display: inline-block;
+        background-color: blue;
+        position: relative;
+        z-index: 1;
+    }
+    .mt-handle {
+        @handleRadius: 20px;
+        background-color: orange;
+        position: absolute;
+        .setSize(@handleRadius * 2; @handleRadius * 2);
+        right: -@handleRadius/2;
+        bottom: -@handleRadius/2;
+        .setBorderRadius(@handleRadius);
+    }
+}
+
+.mt-add-part-keypad {
+    z-index: 1;
+    left: 50%;
+    margin-left: (((@keyButtonSize * 5) + (@keyButtonMargin * 10)) / -2);
+    position: absolute;
+    .setSize((@keyButtonSize * 5) + (@keyButtonMargin * 10); (@keyButtonSize * 3) + (@keyButtonMargin * 6));
+    background-color: gainsboro;
+    .setBorderRadius(0, 0, @keyButtonSize / 6, @keyButtonSize / 6);
+    padding: @keyButtonMargin;
+
+    .mt-add-part-button {
+        display: inline-block;
+        .setSize(@keyButtonSize; @keyButtonSize);
+        .setBorderRadius(@keyButtonSize / 6);
+        line-height: @keyButtonSize;
+        text-align: center;
+        vertical-align: middle;
+        background-color: darkgray;
+        margin: @keyButtonMargin;
+    }
+    .mt-add-part-keypad-button {
+
+    }
+    .mt-add-part-enter-button {
+        .setSize((@keyButtonSize * 3) + (@keyButtonMargin * 4); @keyButtonSize);
+        color: white;
+        background-color: gray;
+        font-weight: bold;
+
+    }
+    .mt-add-part-cancel-button {
+        .setSize((@keyButtonSize * 2) + (@keyButtonMargin * 2); @keyButtonSize);
+        font-weight: bold;
+    }
+}
+.mt-try-again {
+    .mt-try-again-message {
+        font-size: 30px;
+    }
+}
+.mt-button-holder {
+    @buttonRadius: 8px;
+    margin-right: 6px;
+    margin-bottom: 3px;
+    .setBorderRadius(@buttonRadius);
+    display: inline-block;
+    vertical-align: top;
+    .setSize(180px; 80px);
+    background-color: #808080;
+    &.mt-selected {
+        background-color: lightblue;
+    }
+    .mt-button-text {
+        display: inline-block;
+        color: white;
+        .setSize(98px; 80px);
+        &.mt-two-line-text-middle{
+            top: 20px;
+            position: relative;
+        }
+        &.mt-one-line-text-middle{
+            line-height: 80px;
+            vertical-align: middle;
+        }
+    }
+    .mt-button {
+        display: inline-block;
+        vertical-align: top;
+        .setBorderRadius(@buttonRadius);
+        .setSize(81px;81px);
+    }
+    .mt-resize-button {
+        background: transparent url('../img/nm_resize.png') no-repeat;
+    }
+    .mt-mass-produce-button {
+        background: transparent url('../img/nm_mass_produce.png') no-repeat;
+    }
+    .mt-fit-button {
+        background: transparent url('../img/nm_fit_screen.png') no-repeat;
+    }
+}
+.mt-right-button-holder {
+    margin-right: 0;
+    float: right;
+}

@@ -1,0 +1,80 @@
+@import "../../../common/css/colors.less";
+@import "../../../common/css/constants.less";
+@import "../../../common/css/fonts.less";
+
+.mt-abstract-panel {
+  z-index: 10;
+  position: absolute;
+  left: -23%;
+  top: 0px;
+  background-color: @abstractBgColor;
+  color: black;
+  height: 100%;
+  width: 20%;
+  -webkit-transition: left 1s;
+  padding: 10px;
+  -webkit-box-shadow: 4px 0 4px -2px #888; //TODO causing shadow on ipad
+  overflow-y: scroll;
+  box-sizing: border-box;
+}
+
+.mt-abstract-panel-open {
+  left: 0px;
+}
+
+.mt-abstract-close {
+  padding-top:10px;
+  padding-bottom:20px;
+  font-size: 1.5em;
+}
+
+.mt-abstract-title {
+  padding-top:10px;
+  padding-bottom:10px;
+  font-size: 1.5em;
+}
+
+.mt-abstract-tool-icon {
+  color: white;
+  background-color: @abstractBlue;
+  border-radius: 5px;
+  border: 3px solid @abstractBlue;
+  margin: 5px;
+  display: inline-block;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.mt-abstract-submissions {
+  margin-top: 20px;
+
+  .mt-abstract-submission {
+    margin: 5px;
+    display: inline-block;
+    padding: 5px;
+    font-size:12px;
+    color: white;
+
+    .mt-abstract-submission-cancel {
+      height: 100%;
+      display: inline-block;
+      padding: 5px;
+      background-color: @abstractDarkBlue;
+      border-radius: 5px 0px 0px 5px;
+    }
+
+    .mt-abstract-submission-icon {
+      height: 100%;
+      display: inline-block;
+      padding: 5px;
+      background-color: @abstractBlue;
+      border-radius: 0px 5px 5px 0px;
+    }
+
+    .mt-abstract-submission-icon.toggled {
+      background-color: @abstractIconToggledColor;
+    }
+  }
+}
+
+

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en" ng-app="mtWorkspace">
+<head>
+    <meta charset="utf-8">
+
+    <title>Perf Results</title>
+
+    <!-- for google charts -->
+    <script src="https://www.google.com/jsapi"></script>
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/underscore/underscore-min.js"></script>
+
+
+    <script type="text/javascript">
+
+        var RESULTS_URL = 'http://localhost:8089/perf/results';
+
+        var resultsToDisplay = 6;
+
+        // Load the Visualization API
+        google.load('visualization', '1.0', {'packages':['corechart']});
+        google.setOnLoadCallback(function() {
+            importData('ACC_TEST');
+            //importData('IPAD_CLICK');
+        });
+
+        function importData(targetPlatform) {
+            $('body').empty();
+            $('body').append('<h1>Results for ' + targetPlatform + ' platform</h1>');
+            toolResults = [];
+            if(targetPlatform === undefined) {
+                targetPlatform = 'ACC_TEST';
+            }
+
+            $.get(RESULTS_URL)
+                .success(function (data) {
+                    console.log('successfully retrieved data: ', data);
+                    sortData(data, targetPlatform);
+                    drawCharts();
+                })
+                .error(function () {
+                    console.log('failed to get perf results');
+                });
+        }
+
+        var toolResults = [];
+        function sortData(data, targetPlatform) {
+            //put data into bins
+            _.each(data, function(datum) {
+                if(datum.type === undefined || datum.date === undefined || datum.digestTime === undefined || datum.platform === undefined || datum.platform !== targetPlatform) {
+                    console.log('rejected: ', datum, targetPlatform);
+                    return
+                };
+                var toolBin = _.findWhere(toolResults, {type: datum.type});
+                 if(toolBin === undefined) {
+                    toolBin = {type: datum.type, results: []};
+                    toolResults.push(toolBin);
+                }
+                toolBin.results.push([datum.date, datum.digestTime]);
+            })
+
+            //sort each bin by date
+            _.each(toolResults, function(resultBin) {
+                resultBin.results = _.sortBy(resultBin.results, function(res){ return res[0] });
+                //only display last 6 results
+                resultBin.results = resultBin.results.slice(resultsToDisplay*-1);
+            });
+
+            console.log("sorted results = ", toolResults);
+        }
+
+        function drawCharts() {
+            console.log('loaded google apis');
+            var testData = [
+                ['Tool', 'Digest Time / ms'],
+                ['Table',  10],
+                ['RatioBox',  70],
+                ['NumberLine',  60],
+                ['Graph',  30]
+            ];
+
+            var barChartData = [['Tool', 'Digest Time / ms']];
+            _.each(toolResults, function(resultBin) {
+                barChartData.push([resultBin.type, resultBin.results[resultBin.results.length-1][1]]);
+            });
+
+            var plotData = google.visualization.arrayToDataTable(barChartData);
+            $('body').append('<div id="compPlot"></div>' );
+            var chart = new google.visualization.BarChart($('#compPlot')[0]);
+            chart.draw(plotData, {'title':'Comp Plot', 'width':800, 'height':500});
+
+            _.each(toolResults, function(resultBin) {
+                var scatterData = [['Date', 'Digest Time / ms']];
+                scatterData = scatterData.concat(resultBin.results);
+                $('body').append('<div id=' + resultBin.type + '></div>');
+                var dataTable = google.visualization.arrayToDataTable(scatterData);
+                var cont = $('#'+resultBin.type)[0];
+                var chart = new google.visualization.LineChart(cont);
+                chart.draw(dataTable, {title:resultBin.type, width:1200, height:500, vAxis: {minValue: 0}});
+            });
+        };
+
+    </script>
+
+</head>
+<body>
+</body>
+</html>

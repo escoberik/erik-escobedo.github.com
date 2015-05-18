@@ -1,0 +1,554 @@
+.setCentered {
+  vertical-align: middle;
+  text-align: center;
+}
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.noOutline {
+  outline-color: transparent;
+  outline-style: none;
+  outline: none;
+}
+.alignVertically {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.hideSpinnerButtons {
+  /* hide the spinner buttons on the number inputs */
+}
+.hideSpinnerButtons input::-webkit-outer-spin-button,
+.hideSpinnerButtons input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+.muted {
+  color: #999 !important;
+}
+.text-replacement {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+/* graph css stylesheet */
+body {
+  font-family: amplifyFont;
+}
+.mt-click-rect {
+  fill-opacity: 0;
+  -webkit-text-fill-color: #ffffff;
+  fill: #ffffff;
+}
+.mt-custom-graph-div path,
+.mt-line-arrow,
+.mt-custom-graph-div .mt-line-segment {
+  -webkit-text-fill-color: none;
+  fill: none;
+  -webkit-text-stroke: 2px;
+  -webkit-text-stroke-color: #4682b4;
+  stroke-width: 2px;
+  stroke: #4682b4;
+}
+.mt-graph-wrapper {
+  padding-left: 20px;
+  white-space: nowrap;
+}
+.mt-graph-wrapper input {
+  margin-bottom: 10px;
+}
+.mt-graph-wrapper form {
+  float: left;
+  margin: 20px;
+}
+.mt-graph-wrapper .mt-form-horizontal .controls {
+  margin-left: 140px;
+}
+.mt-graph-wrapper .mt-form-horizontal .control-label {
+  width: 130px;
+}
+.mt-graph-wrapper .mt-click-layer {
+  width: 500px;
+  height: 500px;
+}
+.mt-graph-wrapper .mt-expression-container {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  padding-top: 40px;
+  width: 204px;
+  height: 502px;
+  -webkit-transition: width 0.2s 0.12s linear;
+  -moz-transition: width 0.2s 0.12s linear;
+  -ms-transition: width 0.2s 0.12s linear;
+  -o-transition: width 0.2s 0.12s linear;
+  transition: width 0.2s 0.12s linear;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane {
+  float: left;
+  border: solid 1px;
+  position: relative;
+  width: 202px;
+  height: 500px;
+  -webkit-transition: margin-left 0.4s 0s linear;
+  -moz-transition: margin-left 0.4s 0s linear;
+  -ms-transition: margin-left 0.4s 0s linear;
+  -o-transition: margin-left 0.4s 0s linear;
+  transition: margin-left 0.4s 0s linear;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list {
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  background-color: white;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  height: -webkit-calc(100% - 40px);
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression {
+  width: 100%;
+  border: solid 0 #ddd;
+  border-bottom: 2px solid white;
+  background-color: #EBE9E9;
+  cursor: text;
+  overflow: auto;
+  white-space: nowrap;
+  position: relative;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-expression-type {
+  float: left;
+  text-align: center;
+  color: white;
+  background-color: #969A9A;
+  line-height: 1.75em;
+  border-right: 2px solid white;
+  width: 40px;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  right: auto;
+  bottom: auto;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-expression-type.mt-expression-selected {
+  background-color: #f39121;
+  color: white;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-expression-type.mt-expression-delete {
+  background-color: #FF4242;
+  color: white;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-btn-add-point {
+  margin: 5px 5px 5px 5px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  background-color: #4c4d4d;
+  color: white;
+  background-image: url('../../img/plus.svg');
+  background-size: 10px 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 0;
+  border-radius: 11px;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 22px;
+  height: 22px;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-expression-inputs {
+  margin-left: 40px;
+  width: auto;
+  height: calc(100% - 20px);
+  overflow: hidden;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-expression-inputs .mt-expression-input {
+  height: 25%;
+  border: 0;
+  font-size: 1em;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin: 3px 3px 3px 3px;
+  display: inline;
+  background-color: transparent;
+  padding-left: 2px;
+  padding-right: 2px;
+  text-align: center;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  outline-offset: 0px;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-expression-inputs input:focus {
+  border: 0;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-expression-inputs .mt-point-selected-input {
+  outline: solid 3px #52a8ec !important;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-expression-inputs .mt-point-invalid-input {
+  background-color: #FF4242 !important;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-expression-inputs .mt-point-invalid-input input {
+  color: white;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-expression-inputs .mt-expression-title {
+  background-color: white;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-expression-inputs .mt-point-name-container {
+  width: 46px;
+  float: left;
+  border-right: 2px solid white;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-expression-inputs .mt-point-name {
+  height: 25%;
+  border: 0;
+  font-size: 1em;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin: 3px 3px 3px 3px;
+  display: inline;
+  background-color: transparent;
+  padding-left: 2px;
+  padding-right: 2px;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  outline-offset: 0px;
+  width: 38px;
+  text-align: center;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-expression-inputs .mt-point-expression {
+  float: left;
+  width: 100%;
+  background-color: #EBE9E9;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-expression-inputs .mt-point-expression-display {
+  padding-left: 5px;
+  padding-right: 5px;
+  line-height: 30px;
+  width: 100%;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-expression-inputs .mt-point-expression-input {
+  height: 25%;
+  border: 0;
+  font-size: 1em;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin: 3px 3px 3px 3px;
+  display: inline;
+  background-color: transparent;
+  padding-left: 2px;
+  padding-right: 2px;
+  text-align: center;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  outline-offset: 0px;
+  width: 110px;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-expression-inputs .mt-equation-expression-input {
+  height: 25%;
+  border: 0;
+  font-size: 1em;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin: 3px 3px 3px 3px;
+  display: inline;
+  background-color: transparent;
+  padding-left: 2px;
+  padding-right: 2px;
+  text-align: center;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  outline-offset: 0px;
+  width: 156px;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-expression-inputs .mt-expression-glider-container {
+  float: left;
+  width: 100%;
+  border: 0;
+  border-top: 2px solid white;
+  color: #969A9A;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-expression-inputs .mt-expression-glider-container span {
+  padding-left: 5px;
+  font-size: 75%;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list .mt-expression .mt-expression-inputs .mt-expression-glider-container .mt-glider-expression-display {
+  text-align: center;
+  margin-top: -10px;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list-toolbar {
+  color: white;
+  width: 100%;
+  height: 40px;
+  border: 0;
+  border-bottom: 2px solid white;
+  background: #969A9A;
+  text-align: center;
+  line-height: 2.5em;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list-toolbar > span {
+  margin: auto;
+  font: 1em amplifyFont;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list-toolbar ul {
+  text-align: left;
+  min-width: auto;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list-toolbar button {
+  box-shadow: none;
+  background: #4c4d4d;
+  color: white;
+  border-radius: 0px;
+  border: 0;
+  border-bottom: 2px solid white;
+  -webkit-border-radius: 0px;
+  width: 40px;
+  height: 40px;
+  background-size: 20px 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list-toolbar .mt-minimize-expression-list {
+  float: right;
+  background-image: url('../../img/arrowLeft.svg');
+  border-left: 2px solid white;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list-toolbar .btn-group {
+  float: left;
+  height: 100%;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane .mt-expression-list-toolbar .mt-add-shape-button {
+  background-image: url('../../img/plus.svg');
+  background-size: 15px 15px;
+  background-position: center;
+  border-right: 2px solid white;
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-pane.mt-minimized {
+  margin-left: -230px;
+}
+.mt-graph-wrapper .mt-expression-container .mt-maximize-expression-list {
+  box-shadow: none;
+  background: #4c4d4d;
+  color: white;
+  border-radius: 0px;
+  border: 0;
+  border-bottom: 2px solid white;
+  -webkit-border-radius: 0px;
+  width: 40px;
+  height: 40px;
+  background-size: 20px 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  background-image: url('../../img/arrowRight.svg');
+}
+.mt-graph-wrapper .mt-expression-container .mt-expression-list-icon {
+  box-shadow: none;
+  background: #4c4d4d;
+  color: white;
+  border-radius: 0px;
+  border: 0;
+  border-bottom: 2px solid white;
+  -webkit-border-radius: 0px;
+  width: 40px;
+  height: 40px;
+  background-size: 20px 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.mt-graph-wrapper .mt-expression-container.mt-minimized {
+  width: 40px;
+  overflow: hidden;
+  -webkit-transition: width 0.3s 0.05s linear;
+  -moz-transition: width 0.3s 0.05s linear;
+  -ms-transition: width 0.3s 0.05s linear;
+  -o-transition: width 0.3s 0.05s linear;
+  transition: width 0.3s 0.05s linear;
+}
+.mt-graph-wrapper .mt-custom-graph-div {
+  margin-left: auto;
+}
+.mt-graph-wrapper .mt-custom-graph-div .arrow {
+  -webkit-text-stroke: 2px;
+  -webkit-text-stroke-color: #000000;
+  stroke-width: 2px;
+  stroke: #000000;
+  -webkit-text-fill-color: none;
+  fill: none;
+}
+.mt-graph-wrapper .mt-custom-graph-div line {
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: #000000;
+  stroke-width: 1px;
+  stroke: #000000;
+}
+.mt-graph-wrapper .mt-custom-graph-div .mt-line-segment.mt-selected {
+  -webkit-text-fill-color: none;
+  fill: none;
+  -webkit-text-stroke: 5px;
+  -webkit-text-stroke-color: #ff0000;
+  stroke-width: 5px;
+  stroke: #ff0000;
+}
+.mt-graph-wrapper .mt-custom-graph-div .mt-line-segment-listener {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-text-fill-color: none;
+  fill: none;
+  -webkit-text-stroke: 40px;
+  -webkit-text-stroke-color: #808080;
+  stroke-width: 40px;
+  stroke: #808080;
+}
+.mt-graph-wrapper .mt-custom-graph-div .mt-x-minor-grid-line,
+.mt-graph-wrapper .mt-custom-graph-div .mt-y-minor-grid-line {
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: #e1e1e1;
+  stroke-width: 1px;
+  stroke: #e1e1e1;
+}
+.mt-graph-wrapper .mt-custom-graph-div .mt-x-major-grid-line,
+.mt-graph-wrapper .mt-custom-graph-div .mt-y-major-grid-line {
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: #9d9d9d;
+  stroke-width: 1px;
+  stroke: #9d9d9d;
+}
+.mt-graph-wrapper .mt-custom-graph-div .mt-x-tick-major,
+.mt-graph-wrapper .mt-custom-graph-div .mt-y-tick-major,
+.mt-graph-wrapper .mt-custom-graph-div .mt-x-tick-minor,
+.mt-graph-wrapper .mt-custom-graph-div .mt-y-tick-minor {
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: #434343;
+  stroke-width: 1px;
+  stroke: #434343;
+}
+.mt-graph-wrapper .mt-custom-graph-div text {
+  font: 1em amplifyFont;
+}
+.mt-graph-wrapper .mt-graph {
+  vertical-align: top;
+  padding-top: 10px;
+  display: inline-block;
+  padding-left: 10px;
+}
+.mt-graph-wrapper .mt-graph .mt-graph-svg {
+  width: 500px;
+  height: 500px;
+  background-color: white;
+}
+.mt-graph-wrapper .mt-graph .mt-graph-svg .mt-plot-point {
+  -webkit-text-fill-color: #4682b4;
+  fill: #4682b4;
+  -webkit-text-stroke: 1.5px;
+  -webkit-text-stroke-color: #666666;
+  stroke-width: 1.5px;
+  stroke: #666666;
+}
+.mt-graph-wrapper .mt-graph .mt-graph-svg .mt-plot-point-listener {
+  -webkit-text-fill-color: #808080;
+  fill: #808080;
+  opacity: 0.0;
+}
+.mt-graph-label {
+  padding-right: 10px;
+}
+input.mt-plot-input {
+  width: 30px;
+}
+mt-graph {
+  margin-left: 10px;
+}
+/* hide the spinner buttons on the number inputs */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+:focus {
+  outline-color: transparent;
+  outline-style: none;
+  outline: none;
+}
+.full-size {
+  width: 100%;
+  height: 100%;
+}
+.mt-graph-selected-mode {
+  -moz-box-shadow: inset 0px 0px 4px 2px z36c;
+  -webkit-box-shadow: inset 0px 0px 4px 2px #36c;
+  box-shadow: inset 0px 0px 4px 2px #36c;
+}
+.dropdown-menu div {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 20px;
+  color: #333;
+  white-space: nowrap;
+}
+.dropdown-menu div:active,
+.dropdown-menu div:hover {
+  color: white;
+  background-color: #08c;
+}
+.mt-selecting circle {
+  fill-opacity: .2;
+}
+.mt-selecting circle.mt-selected {
+  stroke: #f00;
+}
+.mt-resize path {
+  fill: #666;
+  fill-opacity: .8;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+.mt-axis path,
+.mt-axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.mt-brush .mt-extent {
+  -webkit-text-fill-color: #ffa500;
+  fill: #ffa500;
+  -webkit-text-stroke: 1;
+  -webkit-text-stroke-color: #4467ff;
+  stroke-width: 1;
+  stroke: #4467ff;
+  fill-opacity: .225;
+  shape-rendering: crispEdges;
+}
+.mt-rule-line {
+  -webkit-text-stroke: 1;
+  -webkit-text-stroke-color: #000000;
+  stroke-width: 1;
+  stroke: #000000;
+}
+.mt-ruler-label-box {
+  fill: #4467ff;
+  fill-opacity: .8;
+}
+.mt-ruler-label {
+  fill: #FFF;
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12"  xml:space="preserve">
+    <defs>
+        <filter id="addCopy11DropShadow-outer" filterUnits="userSpaceOnUse">
+            <feGaussianBlur stdDeviation="0" />
+            <feOffset dx="0.1" dy="1.1" result="blur" />
+            <feFlood flood-color="rgb(255, 255, 255)" flood-opacity="1" />
+            <feComposite in2="blur" operator="in" result="colorShadow" />
+            <feComposite in="SourceGraphic" in2="colorShadow" operator="over" />
+        </filter>
+        <filter id="addCopy11InnerShadow-inner" filterUnits="userSpaceOnUse">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="0.5" result="blur"/>
+            <feOffset dx="-1.1" dy="1.1"/>
+            <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1.15" k3="1.15" result="shadowDiff"/>
+            <feFlood flood-color="rgb(0, 0, 0)" flood-opacity="0.15"/>
+            <feComposite in2="shadowDiff" operator="in"/>
+            <feComposite in2="SourceGraphic" operator="over"/>
+        </filter>
+    </defs>
+    <g filter="url(#addCopy11DropShadow-outer)">
+        <path id="addCopy11" stroke="none" fill="rgb(188, 190, 192)" filter="url(#addCopy11InnerShadow-inner)" d="M 11.99,4.51 L 11.99,7.51 0.01,7.51 0.01,4.51 11.99,4.51 Z M 7.49,0 L 7.49,12.01 4.5,12.01 4.5,0 7.49,0 Z M 7.49,0" />
+    </g>
+</svg>

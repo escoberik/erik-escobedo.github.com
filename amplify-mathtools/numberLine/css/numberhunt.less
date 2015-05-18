@@ -1,0 +1,218 @@
+@import "../../../../common/css/lessLibrary.less";
+
+.mt-number-hunt {
+    background-color: #eee;
+    height: 445px;
+    width: 730px;
+    padding: 16px;
+
+    h4 {
+        margin: 0;
+    }
+}
+
+.mt-map-level {
+    line-height: 32px;
+    height: 32px;
+}
+.mt-level {
+    text-align: center;
+    border-top: 1px solid #CCC;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #CCC;
+    padding: 16px 0;
+    &:first-child{
+        border-top-width: 0;
+        padding-top: 0;
+    }
+
+    &.mt-locked {
+        opacity: .5;
+        background-image: url('../img/numberhunt/lock.svg');
+        background-position: 57% 12px;
+        background-repeat: no-repeat;
+        .mt-stage {
+            display: none;
+        }
+    }
+}
+
+.mt-stage {
+    display:inline-block;
+    text-align: center;
+    margin: 16px;
+    position: relative;
+
+    &.mt-required {
+        background-image: url('../img/numberhunt/key.svg');
+        background-position: right -2px;
+        background-repeat: no-repeat;
+        background-size: 18px 24px;
+    }
+    &.mt-required.mt-completed {
+        background-image: url('../img/numberhunt/key-completed.svg');
+    }
+}
+
+.mt-task-box {
+    background-color: lightgray;
+    box-sizing: border-box;
+    border: 1px solid black;
+    .setSize(56px; 80px);
+    line-height: 80px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0 2px;
+    &:first-child {
+        margin-right: 0;
+        border-right-width: 0;
+    }
+    &:last-child {
+        margin-left: 0;
+        border-left-width: 1px;
+        border-left-style: dashed;
+    }
+
+    &.mt-current-task {
+        border-color: rgb(74, 148, 243);
+        box-shadow: inset 0 0 16px rgb(74, 148, 243);
+    }
+    &.mt-completed {
+        background-image: url('../img/numberhunt/checkmark.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}
+
+.mt-number-hunt-map {
+    .setSize(100%; 100%);
+    .setPosition(absolute);
+    background-color: #eee;
+    text-align: center;
+    overflow: scroll;
+
+    .mt-back-to-map, .mt-next-level, .mt-prev-level { display: none; }
+
+    &.mt-number-hunt-mini-map {
+        .setSize(700px, 48px);
+        padding-left: 32px;
+        overflow: hidden;
+        text-align: left;
+        > div {
+            display: inline-block;
+        }
+
+        .mt-level-label, .mt-stage-label, .mt-task-mode {
+            display: none;
+        }
+
+        .mt-level {
+            padding: 0;
+            display: none;
+            border: none;
+            &.mt-current-level {
+                display: inline-block;
+            }
+        }
+
+        .mt-back-to-map { display: inline-block; }
+        .mt-next-level, .mt-prev-level {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .mt-next-level {
+            top: 16px;
+        }
+
+        .mt-task-box {
+            .setSize(48px; 32px;);
+            line-height: 32px;
+            background-size: 50%;
+        }
+
+        .mt-stage {
+            margin: 2px 8px;
+            background-image: none;
+            &.mt-required .mt-task-box {
+                border-bottom-color: red;
+            }
+        }
+    }
+}
+
+.mt-hunt-point {
+    stroke: black;
+    stroke-width: 1;
+    fill: black;
+}
+
+.mt-hunt-marker {
+    stroke: lightblue;
+    stroke-width: 1;
+    fill: lightblue;
+}
+
+.mt-real-point {
+    stroke: lightblue;
+    stroke-width: 1;
+    fill: white;
+}
+
+.mt-hunt-error {
+    stroke: white;
+    stroke-width: 1;
+    fill: red;
+}
+
+.mt-hunt-message {
+    text-align: center;
+    margin: 8px 16px;
+}
+
+.mt-number-hunt-target {
+    font-size: 32px;
+    text-align: center;
+}
+
+.mt-hunt-task-nav {
+    width: 100%;
+    position: relative;
+    height: 124px;
+    line-height: 124px;
+}
+
+.mt-hunt-task-nav > div {
+    text-align: center;
+}
+
+.mt-back-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.mt-task-title {
+    width: 100%;
+}
+
+.mt-check-task {
+    text-align: center;
+    height: 64px;
+    line-height: 64px;
+    button{
+        width: 95%;
+    }
+}
+
+.mt-hunt-result {
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+}

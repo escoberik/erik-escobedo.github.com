@@ -1,0 +1,985 @@
+.setCentered {
+  vertical-align: middle;
+  text-align: center;
+}
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.noOutline {
+  outline-color: transparent;
+  outline-style: none;
+  outline: none;
+}
+.alignVertically {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.hideSpinnerButtons {
+  /* hide the spinner buttons on the number inputs */
+}
+.hideSpinnerButtons input::-webkit-outer-spin-button,
+.hideSpinnerButtons input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+.muted {
+  color: #999 !important;
+}
+.text-replacement {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+.micDrop {
+  background: url("../img/micdrop/dtm-bkgd-solid.jpg") 0% 0% / 730px 545px no-repeat;
+  width: 730px;
+  height: 545px;
+  font: 1em/150% bentonSansMedium;
+  letter-spacing: 1px;
+}
+.micDrop .mt-numberline-svg-container {
+  width: 100%;
+  height: 100%;
+}
+.micDrop * {
+  box-sizing: border-box;
+}
+.micDrop .micDropTest {
+  display: none;
+}
+.micDrop button {
+  font-family: bentonSansBook;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+.micDrop button[disabled] {
+  background: #8e8e8e;
+}
+/* Player select overlay */
+.micdrop-intro-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-size: 79%;
+  background-repeat: no-repeat;
+  background-position: center 52px;
+  overflow-y: hidden;
+  background: url("../img/micdrop/dtm-foreground-trees.png") 0% 100% / 730px auto no-repeat;
+}
+.micdrop-intro-drone {
+  width: 350px;
+  height: 216px;
+  position: absolute;
+  top: -25px;
+  left: -30px;
+  background-image: url("../img/micdrop/dtm-drone.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.micdrop-intro-mic {
+  width: 38px;
+  height: 73px;
+  position: absolute;
+  top: 179px;
+  left: 149px;
+  background-image: url("../img/micdrop/dtm-mic-large.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.micdrop-intro {
+  position: relative;
+  width: 579px;
+  height: 579px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 15px rgba(255, 255, 255, 0.3);
+  background: url("../img/micdrop/dtm-orange-circle-start-screen.png") 50% 50% / auto auto no-repeat;
+  margin: 52px auto 0;
+  padding: 10px;
+  color: #482f0d;
+}
+.micdrop-intro label {
+  font-size: 1.188rem;
+}
+.micdrop-intro p {
+  font-size: 1.5rem;
+}
+.micdrop-intro select {
+  width: 87px;
+  height: 50px;
+  font-family: bentonSansBook;
+  font-size: 1.4em;
+}
+.micdrop-intro option {
+  font-family: bentonSansBook;
+  font-size: 1.4em;
+}
+.micdrop-intro .micdrop-start-game {
+  font-size: 1.4em;
+  line-height: normal;
+  width: 142px;
+  height: 45px;
+  background-color: #3c9303;
+}
+.micdrop-intro-info {
+  position: absolute;
+  width: 280px;
+  left: 231px;
+  top: 150px;
+}
+/* Game messages modal */
+.micdrop-message-overlay {
+  position: absolute;
+  color: #482f0d;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+.micdrop-message-wrapper {
+  position: relative;
+  width: 579px;
+  height: 579px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 15px rgba(255, 255, 255, 0.3);
+  margin: 52px auto 0;
+  padding: 10px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(86, 255, 187, 0.6), rgba(196, 202, 176, 0.5) 44%) no-repeat;
+}
+.micdrop-message-wrapper.micdropped {
+  background: linear-gradient(180deg, rgba(231, 44, 0, 0.8), rgba(211, 200, 125, 0.6) 44%) no-repeat;
+  color: white;
+}
+.micdrop-message {
+  width: 75%;
+  margin: 150px auto 0;
+  font-size: 2em;
+  text-align: center;
+}
+.micdrop-message .micdrop-close-message {
+  display: block;
+  margin: 20px auto 0;
+}
+/* Players and Turns */
+.micdrop-turns {
+  height: 34px;
+  background: white;
+}
+.micdrop-currentplayer {
+  width: 32px;
+  height: 32px;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin: 0 2px;
+}
+.micdrop-turn-set,
+.micdrop-turn,
+.micdrop-currentplayer {
+  display: inline-block;
+  vertical-align: sub;
+}
+.micdrop-turn-set {
+  margin: 0 5px;
+}
+.micdrop-turn {
+  background-image: url('../img/micdrop/player-mic-sprite-scaled.png');
+  transition: all 0.1s ease-out;
+}
+.blue .micdrop-turn {
+  background-position: -5px -83px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: inline-block;
+  width: 10px;
+  height: 29px;
+}
+.blue .micdrop-turn.micdrop-turn-over,
+.blue .micdrop-turn.micdrop-current-turn {
+  background-position: -5px -122px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: inline-block;
+  width: 10px;
+  height: 29px;
+}
+.red .micdrop-turn {
+  background-position: -5px -239px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: inline-block;
+  width: 10px;
+  height: 29px;
+}
+.red .micdrop-turn.micdrop-turn-over,
+.red .micdrop-turn.micdrop-current-turn {
+  background-position: -5px -278px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: inline-block;
+  width: 10px;
+  height: 29px;
+}
+.green .micdrop-turn {
+  background-position: -5px -161px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: inline-block;
+  width: 10px;
+  height: 29px;
+}
+.green .micdrop-turn.micdrop-turn-over,
+.green .micdrop-turn.micdrop-current-turn {
+  background-position: -5px -200px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: inline-block;
+  width: 10px;
+  height: 29px;
+}
+.black .micdrop-turn {
+  background-position: -5px -5px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: inline-block;
+  width: 10px;
+  height: 29px;
+}
+.black .micdrop-turn.micdrop-turn-over,
+.black .micdrop-turn.micdrop-current-turn {
+  background-position: -5px -44px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: inline-block;
+  width: 10px;
+  height: 29px;
+}
+/* player mic sprites */
+/* Game controls */
+.micdrop-controls {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 70px;
+  padding: 10px 0 20px;
+  text-align: center;
+}
+.micdrop-control {
+  display: inline-block;
+}
+.micdrop-control button {
+  width: 128px;
+  height: 40px;
+  background: #ff7e0b;
+  font-size: 1em;
+}
+.micdrop-control button:active {
+  background: #f76900;
+}
+/* numberline svg styles */
+.micDrop .mt-numberline {
+  background: url("../img/micdrop/dtm-foreground-trees.png") 0% 100% / 730px auto no-repeat;
+  position: relative;
+}
+.micDrop .mt-micdrop-target {
+  opacity: 0.4;
+}
+.micDrop .mt-numberline-svg .mt-y-axis {
+  stroke: white;
+}
+.micDrop .mt-y-axis-endcap {
+  stroke: white;
+  stroke-width: 3px;
+}
+.micDrop .micDropLabel {
+  fill: #ffffff;
+}
+
+.setCentered {
+  vertical-align: middle;
+  text-align: center;
+}
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.noOutline {
+  outline-color: transparent;
+  outline-style: none;
+  outline: none;
+}
+.alignVertically {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.hideSpinnerButtons {
+  /* hide the spinner buttons on the number inputs */
+}
+.hideSpinnerButtons input::-webkit-outer-spin-button,
+.hideSpinnerButtons input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+.muted {
+  color: #999 !important;
+}
+.text-replacement {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+.mt-number-hunt {
+  background-color: #eee;
+  height: 445px;
+  width: 730px;
+  padding: 16px;
+}
+.mt-number-hunt h4 {
+  margin: 0;
+}
+.mt-map-level {
+  line-height: 32px;
+  height: 32px;
+}
+.mt-level {
+  text-align: center;
+  border-top: 1px solid #CCC;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #CCC;
+  padding: 16px 0;
+}
+.mt-level:first-child {
+  border-top-width: 0;
+  padding-top: 0;
+}
+.mt-level.mt-locked {
+  opacity: .5;
+  background-image: url('../img/numberhunt/lock.svg');
+  background-position: 57% 12px;
+  background-repeat: no-repeat;
+}
+.mt-level.mt-locked .mt-stage {
+  display: none;
+}
+.mt-stage {
+  display: inline-block;
+  text-align: center;
+  margin: 16px;
+  position: relative;
+}
+.mt-stage.mt-required {
+  background-image: url('../img/numberhunt/key.svg');
+  background-position: right -2px;
+  background-repeat: no-repeat;
+  background-size: 18px 24px;
+}
+.mt-stage.mt-required.mt-completed {
+  background-image: url('../img/numberhunt/key-completed.svg');
+}
+.mt-task-box {
+  background-color: lightgray;
+  box-sizing: border-box;
+  border: 1px solid black;
+  width: 56px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0 2px;
+}
+.mt-task-box:first-child {
+  margin-right: 0;
+  border-right-width: 0;
+}
+.mt-task-box:last-child {
+  margin-left: 0;
+  border-left-width: 1px;
+  border-left-style: dashed;
+}
+.mt-task-box.mt-current-task {
+  border-color: #4a94f3;
+  box-shadow: inset 0 0 16px #4a94f3;
+}
+.mt-task-box.mt-completed {
+  background-image: url('../img/numberhunt/checkmark.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.mt-number-hunt-map {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  background-color: #eee;
+  text-align: center;
+  overflow: scroll;
+}
+.mt-number-hunt-map .mt-back-to-map,
+.mt-number-hunt-map .mt-next-level,
+.mt-number-hunt-map .mt-prev-level {
+  display: none;
+}
+.mt-number-hunt-map.mt-number-hunt-mini-map {
+  width: 700px;
+  height: 48px;
+  padding-left: 32px;
+  overflow: hidden;
+  text-align: left;
+}
+.mt-number-hunt-map.mt-number-hunt-mini-map > div {
+  display: inline-block;
+}
+.mt-number-hunt-map.mt-number-hunt-mini-map .mt-level-label,
+.mt-number-hunt-map.mt-number-hunt-mini-map .mt-stage-label,
+.mt-number-hunt-map.mt-number-hunt-mini-map .mt-task-mode {
+  display: none;
+}
+.mt-number-hunt-map.mt-number-hunt-mini-map .mt-level {
+  padding: 0;
+  display: none;
+  border: none;
+}
+.mt-number-hunt-map.mt-number-hunt-mini-map .mt-level.mt-current-level {
+  display: inline-block;
+}
+.mt-number-hunt-map.mt-number-hunt-mini-map .mt-back-to-map {
+  display: inline-block;
+}
+.mt-number-hunt-map.mt-number-hunt-mini-map .mt-next-level,
+.mt-number-hunt-map.mt-number-hunt-mini-map .mt-prev-level {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.mt-number-hunt-map.mt-number-hunt-mini-map .mt-next-level {
+  top: 16px;
+}
+.mt-number-hunt-map.mt-number-hunt-mini-map .mt-task-box {
+  width: 48px;
+  height: 32px;
+  line-height: 32px;
+  background-size: 50%;
+}
+.mt-number-hunt-map.mt-number-hunt-mini-map .mt-stage {
+  margin: 2px 8px;
+  background-image: none;
+}
+.mt-number-hunt-map.mt-number-hunt-mini-map .mt-stage.mt-required .mt-task-box {
+  border-bottom-color: red;
+}
+.mt-hunt-point {
+  stroke: black;
+  stroke-width: 1;
+  fill: black;
+}
+.mt-hunt-marker {
+  stroke: lightblue;
+  stroke-width: 1;
+  fill: lightblue;
+}
+.mt-real-point {
+  stroke: lightblue;
+  stroke-width: 1;
+  fill: white;
+}
+.mt-hunt-error {
+  stroke: white;
+  stroke-width: 1;
+  fill: red;
+}
+.mt-hunt-message {
+  text-align: center;
+  margin: 8px 16px;
+}
+.mt-number-hunt-target {
+  font-size: 32px;
+  text-align: center;
+}
+.mt-hunt-task-nav {
+  width: 100%;
+  position: relative;
+  height: 124px;
+  line-height: 124px;
+}
+.mt-hunt-task-nav > div {
+  text-align: center;
+}
+.mt-back-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.mt-task-title {
+  width: 100%;
+}
+.mt-check-task {
+  text-align: center;
+  height: 64px;
+  line-height: 64px;
+}
+.mt-check-task button {
+  width: 95%;
+}
+.mt-hunt-result {
+  height: 64px;
+  line-height: 64px;
+  text-align: center;
+}
+
+.setCentered {
+  vertical-align: middle;
+  text-align: center;
+}
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.noOutline {
+  outline-color: transparent;
+  outline-style: none;
+  outline: none;
+}
+.alignVertically {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.hideSpinnerButtons {
+  /* hide the spinner buttons on the number inputs */
+}
+.hideSpinnerButtons input::-webkit-outer-spin-button,
+.hideSpinnerButtons input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+.muted {
+  color: #999 !important;
+}
+.text-replacement {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+@font-face {
+  src: local('‚ò∫');
+  font-family: amplifyBrandFont;
+  src: url('../font/amplify-light-web/AmplifyLightLight.woff') format('woff'), url('../font/amplify-light-web/AmplifyLightLight.ttf') format('truetype');
+}
+@font-face {
+  font-family: amplifyFont;
+  src: url('../font/proxima-nova-regular/webfonts/proxima-nova-regular.woff') format('woff'), url('../font/proxima-nova-regular/webfonts/proxima-nova-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: amplifyFontLight;
+  src: url('../font/proxima-nova-light/webfonts/proxima-nova-light.woff') format('woff'), url('../font/proxima-nova-light/webfonts/proxima-nova-light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  src: local('‚ò∫');
+  font-family: amplifyFontNumbers;
+  src: url('../font/amplify-numbers-web/AmplifyNumbersLight.woff') format('woff'), url('../font/amplify-numbers-web/AmplifyNumbersLight.ttf') format('truetype');
+}
+@font-face {
+  font-family: bentonSansLight;
+  src: url('../font/bentonSans/BentonSans-Light.woff') format('woff'), url('../font/bentonSans/BentonSans-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: bentonSansMedium;
+  src: url('../font/bentonSans/BentonSans-Medium.woff') format('woff'), url('../font/bentonSans/BentonSans-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: bentonSansBook;
+  src: url('../font/bentonSans/BentonSans-Book.woff') format('woff'), url('../font/bentonSans/BentonSans-Book.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.mt-numberline .mt-numberline-container {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+.mt-numberline .mt-numberline-svg-container {
+  height: inherit;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.mt-fraction-div {
+  display: inline;
+}
+/* hide the spinner buttons on the number inputs */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+.mt-partition-range-vert-center {
+  position: relative;
+  top: 50%;
+  margin-top: -30px;
+}
+.mt-partition-selector {
+  position: absolute;
+  width: 250px;
+  height: 30px;
+  line-height: 30px;
+  background-color: white;
+  border-radius: 5px;
+  z-index: 1000;
+  padding: 25px;
+  border-color: grey;
+  border-width: 2px;
+  border-style: solid;
+}
+.mt-partition-text {
+  padding-top: 10px;
+}
+.mt-partition-selector-dd {
+  width: 60px;
+}
+.mt-numberline-arrow-down {
+  border-style: solid;
+  border-color: #000000 transparent;
+  border-width: 10px 10px 0 10px;
+  position: absolute;
+  bottom: -10px;
+  left: -webkit-calc(50% - 5px);
+  border-top-color: grey;
+}
+.mt-x-axis-partition-block {
+  fill-opacity: 0.1;
+}
+.mt-y-axis-partition-block {
+  fill-opacity: 0.1;
+}
+.mt-percent-bar-container .mt-x-axis-partition-block {
+  fill-opacity: 0.3;
+}
+.mt-percent-bar-container .mt-y-axis-partition-block {
+  fill-opacity: 0.3;
+}
+.mt-x-axis-partition-handles {
+  fill-opacity: 0.0;
+}
+.mt-y-axis-partition-handles-round,
+.mt-y-axis-partition-handles-sqr {
+  fill-opacity: 1;
+}
+.mt-interval-menu {
+  position: absolute;
+  left: -webkit-calc(50% - 100px);
+  color: white;
+  padding: 0 10px;
+  background-color: gray;
+  border-width: 1px;
+  border-color: gray;
+  border-style: solid;
+}
+.mt-interval-menu-ok {
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  top: -1px;
+  right: -50px;
+  background-color: white;
+  border-width: 1px;
+  border-color: gray;
+  border-style: solid;
+}
+.mt-range-touch {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  z-index: 9;
+}
+.mt-range-touch-inner {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  background-color: rgba(255, 233, 212, 0.3);
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #f39121;
+  border-style: solid;
+}
+.mt-range-touch:active .mt-range-touch-inner {
+  background-color: rgba(158, 196, 228, 0.7);
+}
+.mt-range-touch-top {
+  top: 60px;
+}
+.mt-range-touch-bottom {
+  top: 160px;
+}
+.mt-range-touch-left {
+  left: 21px;
+}
+.mt-range-touch-left .mt-range-touch-inner {
+  margin-left: 5px;
+}
+.mt-range-touch-right {
+  right: 28px;
+}
+.mt-range-touch-right .mt-range-touch-inner {
+  margin-right: 5px;
+}
+.mt-range-menu {
+  display: none;
+  font-size: 1em;
+  font-family: amplifyFont;
+  color: white;
+  background-color: gray;
+  width: 130px;
+  height: auto;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+  padding: 15px 0 0 0;
+  border: solid gray 1px;
+}
+.mt-range-menu .mt-button-holder {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  -webkit-border-top-left-radius: 0;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 0;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.mt-range-menu.mt-left {
+  display: block;
+  position: absolute;
+  left: -132px;
+  top: -webkit-calc(50% - 51px);
+}
+.mt-range-menu.mt-right {
+  display: block;
+  position: absolute;
+  right: -132px;
+  top: -webkit-calc(50% - 51px);
+}
+.mt-numberline-svg .mt-y-axis,
+.mt-numberline-svg .mt-x-axis,
+.mt-numberline-svg .mt-y-axis-arrow,
+.mt-numberline-svg .mt-x-axis-arrow,
+.mt-numberline-svg .mt-y-axis-minor-grid-line,
+.mt-numberline-svg .mt-x-axis-minor-grid-line {
+  stroke: #3a4646;
+  stroke-width: 1;
+}
+.mt-numberline-svg .mt-y-axis-minor-grid-line.mt-origin-tick,
+.mt-numberline-svg .mt-x-axis-minor-grid-line.mt-origin-tick {
+  stroke-width: 3;
+}
+.mt-numberline-svg .mt-y-axis,
+.mt-numberline-svg .mt-x-axis,
+.mt-numberline-svg .mt-y-axis-arrow,
+.mt-numberline-svg .mt-x-axis-arrow {
+  stroke-width: 3;
+}
+.mt-numberline-svg .mt-x-axis-tick-label-divider,
+.mt-numberline-svg .mt-y-axis-tick-label-divider {
+  stroke-width: 1;
+  stroke: black;
+}
+.mt-numberline-svg .mt-point-label-stem {
+  stroke-width: 0;
+  fill: #c7ccb6;
+}
+.mt-numberline-svg .mt-point-label-stem.mt-graph-selected {
+  stroke-width: 4;
+  stroke: #f39121;
+  fill: #f39121;
+}
+.mt-numberline-svg .mt-point-label-box {
+  stroke-width: 1;
+  stroke: #c7ccb6;
+  fill: #dcdfd2;
+}
+.mt-numberline-svg .mt-point-label-box.mt-graph-selected {
+  fill: #ffe9d4;
+  stroke: #f39121;
+}
+
+.setCentered {
+  vertical-align: middle;
+  text-align: center;
+}
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.noOutline {
+  outline-color: transparent;
+  outline-style: none;
+  outline: none;
+}
+.alignVertically {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.hideSpinnerButtons {
+  /* hide the spinner buttons on the number inputs */
+}
+.hideSpinnerButtons input::-webkit-outer-spin-button,
+.hideSpinnerButtons input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+.muted {
+  color: #999 !important;
+}
+.text-replacement {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+.mt-percent-bar-math {
+  box-sizing: border-box;
+  position: absolute;
+  left: auto;
+  top: auto;
+  right: auto;
+  bottom: -155px;
+  border: 1px solid #666;
+  background-color: gray;
+  width: 144px;
+  padding-top: 16px;
+  line-height: 48px;
+  z-index: 20;
+}
+.mt-percent-bar-math > div {
+  background-color: white;
+  color: gray;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.mt-percent-constant {
+  float: right;
+  margin-right: 16px;
+  text-align: center;
+  width: 48px;
+  height: 112px;
+}
+.mt-percent-constant input {
+  width: 28px;
+  text-align: center;
+}
+.mt-percent-constant .mt-constant-control {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  line-height: 32px;
+}
+.mt-percent-operator {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  margin-left: 16px;
+  text-align: center;
+  font-size: 24px;
+}
+.mt-percent-operator.mt-active {
+  background-color: lightblue;
+}
+.mt-percent-bar-confirm {
+  background-color: white;
+  width: 100%;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.mt-percent-bar-confirm > div {
+  display: inline-block;
+  width: 48px;
+  height: 32px;
+  color: white;
+  background-color: gray;
+  margin-left: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  text-align: center;
+  line-height: 32px;
+}
+.mt-is-percent-bar-selected {
+  stroke: #0085DB;
+}
+
+/* Icons from directory "" */
+.mt-icon-snl-icon-double-hl{background-image:url('../img/icons.svg');background-position:0 0;background-repeat:no-repeat;width:33px;height:30px}
+.mt-icon-snl-icon-double{background-image:url('../img/icons.svg');background-position:0 -30px;background-repeat:no-repeat;width:32px;height:29px}
+.mt-icon-snl-icon-draw-hl{background-image:url('../img/icons.svg');background-position:0 -59px;background-repeat:no-repeat;width:27px;height:25px}
+.mt-icon-snl-icon-draw{background-image:url('../img/icons.svg');background-position:0 -84px;background-repeat:no-repeat;width:25px;height:25px}
+.mt-icon-snl-icon-partitions-hl{background-image:url('../img/icons.svg');background-position:0 -109px;background-repeat:no-repeat;width:32px;height:10px}
+.mt-icon-snl-icon-partitions{background-image:url('../img/icons.svg');background-position:0 -119px;background-repeat:no-repeat;width:32px;height:10px}
+.mt-icon-snl-icon-single-hl{background-image:url('../img/icons.svg');background-position:0 -129px;background-repeat:no-repeat;width:34px;height:11px}
+.mt-icon-snl-icon-single{background-image:url('../img/icons.svg');background-position:0 -140px;background-repeat:no-repeat;width:32px;height:11px}

@@ -1,0 +1,564 @@
+@import "../../../../common/css/colors.less";
+@import "../../../../common/css/constants.less";
+@import "../../../../common/css/fonts.less";
+
+//functions
+.ngGrid (@cursor; @img; @rotation; @left; @top; @right: auto; @bottom: auto) {
+    cursor: @cursor;
+    background:url(@img) no-repeat;
+    background-size: auto;
+    z-index: 5;
+    overflow: visible;
+    .setSize (45px; 40px);
+    .setTransform (rotate(@rotation));
+    .setPosition (absolute; @left; @top; @right; @bottom);
+}
+.controlsCellLeft (@w; @align) {
+    display: inline-block;
+    width: @w;
+    text-align: @align;
+}
+
+@tableBorder: 1px solid #858C93;
+@tableCellSelection: @selectionOrange;
+@tableFontSize: 14px;
+@tableFontColor: #253842;
+@tableCellFont: bentonSansBook;
+@tableHeaderFont: bentonSansMedium;
+@tableHeaderFill: #D7DCE0;
+//@tableSelectedCellFill: #F9D3C1;
+
+@selectorBarThickness: 18px;
+@selectorBarBorderColor: white; //was #D8DDE3
+@selectorBarFillColor: @blackTeal; //was #F2F3F4
+@selectorBarHandleLength: 20px;
+@selectorBarHandleIconSize: 15px;
+@selectorBarHandleMargin: 7px;
+@selectorBarBorderRadius: 6px;
+@selectorBarOffset: -34px;
+
+@cellSelectorHandleTouchSize: 40px;
+@cellSelectorHandleGripSize: 20px;
+@cellSelectorHandleOffset: -@cellSelectorHandleTouchSize / 2;
+@cellSelectorHandleHalfway: -webkit-calc(~"50% +" @cellSelectorHandleOffset);
+
+@phantomSalmon: fade(@selectionOrangeLite, 70%);
+@activeToolFontColor: #000;
+@inactiveToolFontColor: #999;
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+div[class*='cell-display'], input[class*='cell-input'], div[class*='cell'] {
+  color: @inactiveToolFontColor;
+
+  div.mt-active-tool-instance & {
+    color: @activeToolFontColor;
+  }
+}
+
+.mt-fraction-cell-font {
+  font-family: @tableCellFont;
+  font-size: 14px;
+}
+
+.mt-header-cell-font {
+  font-family: @tableHeaderFont;
+  font-size: 14px;
+}
+
+.mt-fraction-cell {
+    position: relative;
+    .setSize (100%; 100%);
+    .mt-fraction-cell-display-container {
+      line-height: 100%;
+    }
+    .mt-fraction-cell-display {
+        // overflow: hidden; //causes visual cutoff on fractions
+        text-align: center;
+        .setSize (100%; 100%);
+        line-height: 100%;
+    }
+    .mt-fraction-cell-input {
+        position: absolute;
+        border: none;
+        display: inline;
+        .setSize (100%; 100%);
+        .setBoxSizing;
+
+        .mt-fraction-cell-font;
+    }
+    input.mt-fraction-cell-input{
+        position: absolute;
+        margin: none;
+        padding: none;
+        border: none;
+        box-shadow: none;
+    }
+
+    .mathquill-rendered-math {
+      .mt-fraction-cell-font;
+      .mt-text {
+        .mt-fraction-cell-font;
+      }
+    }
+}
+
+input.mt-table-cell-input {
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding: 0;
+  background-color: transparent;
+  text-align: center;
+  margin-bottom: 0px;
+  .setBorderRadius (0);
+  .setSize (100%; 100%);
+
+  &:focus {
+    //outline: 0 !important; // necessary to override previous !important, not good.
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
+.mt-table-header-cell {
+  .mt-table-cell-input {
+    .mt-header-cell-font;
+  }
+}
+
+.mt-table-grid {
+  border: @tableBorder;
+  white-space: nowrap;
+  display: inline-block;
+  margin: 40px 30px 30px 40px;
+  div, input {
+    .setBoxSizing;
+  }
+  .mt-test-tl-corner {
+    background-color: transparent;
+    .setSize (1; 1);
+    .setPosition (fixed; 0; 0);
+  }
+}
+
+.mt-grid-row-selector-bar, .mt-row-selector-bar-selection {
+  cursor: e-resize;
+  position: absolute;
+  margin-left: @selectorBarOffset;
+  width: @selectorBarThickness;
+}
+
+.mt-grid-row-selector-bar {
+  height: 100%;
+}
+
+.mt-grid-column-selector-bar, .mt-column-selector-bar-selection {
+  cursor: s-resize;
+  position: absolute;
+  margin-top: @selectorBarOffset;
+  height: @selectorBarThickness;
+}
+
+.mt-grid-column-selector-bar {
+  width: 200%;
+}
+
+.mt-row-selector-bar-selection, .mt-column-selector-bar-selection {
+  background-color: @tableCellSelection;
+}
+
+.mt-generic-grip {
+  background-size: @selectorBarHandleIconSize;
+  background-position: center center;
+  position: absolute;
+}
+
+.mt-column-selector-bar-selection {
+  .mt-grip {
+    width: 20px;
+    height: 100%;
+    background: url('../img/eastHamburger.svg') no-repeat;
+    right: 0;
+    .mt-generic-grip;
+    cursor: e-resize;
+  }
+}
+
+.mt-row-selector-bar-selection {
+  .mt-grip {
+    width: 100%;
+    height: 20px;
+    background: url('../img/southHamburger.svg') no-repeat;
+    bottom: 0;
+    .mt-generic-grip;
+  }
+}
+.mt-grid-column-selector-bar {
+  .mt-selector-bar-parts {
+    overflow: hidden;
+    display: inline-block;
+    background-color: @selectorBarFillColor;
+    height: 100%;
+    width: auto;
+    border: 1px solid @selectorBarBorderColor;
+    border-top-left-radius: @selectorBarBorderRadius;
+    border-bottom-left-radius: @selectorBarBorderRadius;
+  }
+
+  .mt-selector-bar-part {
+    display: inline-block;
+    border-right: 1px solid @selectorBarBorderColor;
+    height: 100%;
+
+    &:first-of-type {
+      margin-left: -1px; // to get it aligned with the table
+    }
+  }
+
+  .mt-selector-bar-handle {
+    display: inline-block;
+    background:url('../img/eastHamburger.svg') no-repeat;
+    background-size: @selectorBarHandleIconSize;
+    background-color: @selectorBarFillColor;
+    border-top-right-radius: @selectorBarBorderRadius;
+    border-bottom-right-radius: @selectorBarBorderRadius;
+    height: 100%;
+    width: @selectorBarHandleLength;
+    right: inherit;
+    cursor: e-resize;
+  }
+
+  .mt-selector-handle-drag-area {
+    display: inline-block;
+    width:@selectorBarHandleMargin;
+    background-color:@phantomSalmon;
+    visibility: hidden;
+    height:100%;
+  }
+}
+
+.mt-col-drag-area {
+  z-index: -1;
+  position:absolute;
+  top: -1px;
+  left:100%;
+  width:@selectorBarHandleMargin;
+  height:100%;
+  background-color:@phantomSalmon;
+  border-width: 1px;
+  border-style: solid;
+  border-color: @phantomSalmon;
+  visibility: hidden;
+  box-sizing: content-box !important;
+}
+
+.mt-row-drag-area {
+  z-index: -1;
+  position:absolute;
+  top: 100%;
+  left:-2px;
+  width:100%;
+  height:@selectorBarHandleMargin;
+  background-color:@phantomSalmon;
+  border-width: 1px;
+  border-style: solid;
+  border-color: @phantomSalmon;
+  visibility: hidden;
+  box-sizing: content-box !important;
+}
+
+.mt-selector-bar-part{
+  &:last-of-type {
+    border: 0;
+  }
+}
+
+.mt-grid-row-selector-bar {
+  .mt-selector-bar-parts {
+    overflow: hidden;
+    display: block;
+    background-color: @selectorBarFillColor;
+    height: auto;
+    width: 100%;
+    border: 1px solid @selectorBarBorderColor;
+    border-top-left-radius: @selectorBarBorderRadius;
+    border-top-right-radius: @selectorBarBorderRadius;
+  }
+
+  .mt-selector-bar-part {
+    background-color: @selectorBarFillColor;
+
+    display: block;
+    border-bottom: 1px solid @selectorBarBorderColor;
+    width: 100%;
+
+    &:first-of-type {
+      margin-top: -1px; // to get it aligned with the table
+    }
+  }
+
+  .mt-selector-bar-handle {
+    display: block;
+    background:url('../img/southHamburger.svg') no-repeat;
+    background-size: @selectorBarHandleIconSize;
+    background-color: @selectorBarFillColor;
+    margin-top: @selectorBarHandleMargin;
+    border-bottom-left-radius: @selectorBarBorderRadius;
+    border-bottom-right-radius: @selectorBarBorderRadius;
+
+    width: 100%;
+    height: @selectorBarHandleLength;
+    bottom: inherit;
+    cursor: s-resize;
+  }
+
+  .mt-selector-handle-drag-area {
+    display: block;
+    width:100%;
+    height:@selectorBarHandleMargin;
+    background-color:@phantomSalmon;
+    visibility: hidden;
+  }
+}
+
+.modal-body {
+    max-height: 440px;
+}
+
+.mt-controls-dialog {
+    width: 600px;
+    .mt-controls-cell-left {
+        margin-right: 6px;
+        .controlsCellLeft (34%; right);
+    }
+    .mt-controls-cell-right {
+        padding: 3px;
+        .controlsCellLeft (60%; left);
+    }
+    input.mt-controls-input {
+        background-color: transparent;
+    }
+    .mt-controls-input {
+        width: 80px;
+        margin-right: 6px;
+    }
+    .mt-controls-button {
+        margin: 3px;
+    }
+    .mt-controls-row, .mt-control-elements-row {
+        height: 30px;
+    }
+}
+
+.mt-upper-header-block {
+  display: -webkit-box;
+
+  .mt-upper-header {
+    border-right: @tableBorder;
+  }
+
+}
+.mt-table-block {
+  .mt-vertical-upper-header {
+    display: inline-block;
+  }
+}
+.mt-table-header-cell, .mt-upper-header-cell {
+    box-sizing: content-box;
+    background-color: @tableHeaderFill;
+    .setPosition;
+}
+
+.mt-table-header-cell {
+  border-bottom: @tableBorder;
+    .mt-grip-holder {
+        .setPosition (absolute; 0; 50%);
+    }
+    .mt-axis-labels {
+        z-index: 10;
+        padding-left: 5px;
+        .setPosition (absolute; 0; -15px);
+        .mt-axis-label {
+            padding: inherit 5px;
+            border: solid 6px #8FB2FF;
+            background-color: #8FB2FF;
+            .setBorderRadius (10px);
+        }
+        .mt-axis-label.mt-x-axis {
+            float: left;
+        }
+        .mt-axis-label.mt-y-axis {
+            overflow: hidden;
+            float: right;
+        }
+    }
+    .mt-link-label {
+        background-color: transparent;
+        z-index: 10;
+        right: 1%;
+        .setSize (98%; 6%);
+        .setPosition (absolute; auto; 92%);
+    }
+}
+.mt-table-cell {
+  background-color: white;
+  // .setSize (300px; 100px);
+
+  // border-bottom: @tableBorder;
+
+  .ui-resizable-s {
+    bottom: -9px;
+    .setSize (100%; 18px);
+  }
+  .ui-resizable-e {
+    right: -9px;
+    .setSize (18px; 100%);
+  }
+}
+.mt-aggregate-new {
+    background-color: #39E8FF;
+}
+.mt-empty-header-cell {
+    box-sizing: content-box;
+    .setPosition;
+}
+.mt-table-vertical-col {
+  display: inline-table;
+  vertical-align: top;
+  border-right: @tableBorder;
+}
+
+.mt-table-vertical-row {
+    display: block;
+}
+
+.mt-active-tool-instance .mt-header-horizontal-resizing,
+.mt-active-tool-instance .mt-cell-horizontal-resizing .mt-fraction-cell {
+    border-bottom: 2px solid #009FC0;
+}
+
+.mt-grip-holder {
+    .mt-move-grip {
+        margin-left: 10px;
+        border-style: none;
+        background: url('../img/moveIcon.svg') no-repeat;
+        padding: 15px;
+        .setSize (9px; 26px);
+        .setPosition (absolute; 0; 15px; auto; 0);
+        i {
+            margin-left: 4px;
+        }
+    }
+    .mt-move-grip.mt-transform-vertical {
+        top: -5px;
+        .setTransform (rotate(90deg));
+    }
+}
+#placeholderUX {
+   .setPosition (absolute; auto; auto; 0; 0);
+}
+.mt-grid-tool-container {
+    position: relative;
+    .setSize (100%; 100%);
+    .unselectable;
+    .mt-main-content {
+        .unselectable;
+    }
+}
+.mt-active-tool-instance {
+    .mt-cell-vertical-resizing {
+        border-right: 2px solid #009FC0;
+    }
+    .mt-fraction-cell-resizing {
+        border-bottom: 2px solid #009FC0;
+        .setSize (100%; 100%);
+    }
+    .mt-fraction-cell-resizing-horizontal {
+        border-right: 2px solid #009FC0;
+        .setSize (100%; 100%);
+    }
+}
+
+
+.mt-cell-selector {
+  display: inline-block;
+  outline: 2px solid @tableCellSelection;
+  border: 2px solid white;
+  position: absolute;
+  background-color: fade(@selectionOrangeLite, 30%);
+  pointer-events: none; // allow passing events through
+  z-index: 1000;
+}
+
+.mt-selector-handle {
+  width: @cellSelectorHandleTouchSize;
+  height: @cellSelectorHandleTouchSize;
+  border-radius: 50%;
+  position: absolute;
+  text-align: center;
+  line-height: @cellSelectorHandleTouchSize;
+  background-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: auto;
+
+  .mt-grip {
+    background: url('../img/cellSelectorHandle.svg') no-repeat;
+    background-position: 0px 0px;
+    width: @cellSelectorHandleGripSize;
+    height: @cellSelectorHandleGripSize;
+    margin: ((@cellSelectorHandleTouchSize / 2) - (@cellSelectorHandleGripSize / 2)) auto;
+  }
+
+  &.mt-nw {
+    top: @cellSelectorHandleOffset;
+    left: @cellSelectorHandleOffset;
+  }
+
+  &.mt-n {
+    top: @cellSelectorHandleOffset;
+    left: @cellSelectorHandleHalfway;
+  }
+
+  &.mt-ne {
+    top: @cellSelectorHandleOffset;
+    right: @cellSelectorHandleOffset;
+  }
+
+  &.mt-e {
+    top: @cellSelectorHandleHalfway;
+    right: @cellSelectorHandleOffset;
+  }
+
+  &.mt-se {
+    bottom: @cellSelectorHandleOffset;
+    right: @cellSelectorHandleOffset;
+  }
+
+  &.mt-s {
+    bottom: @cellSelectorHandleOffset;
+    left: @cellSelectorHandleHalfway;
+  }
+
+  &.mt-sw {
+    bottom: @cellSelectorHandleOffset;
+    left: @cellSelectorHandleOffset;
+  }
+
+  &.mt-w {
+    top: @cellSelectorHandleHalfway;
+    left: @cellSelectorHandleOffset;
+  }
+}
+
+//might not exist
+.mt-grid-row {
+    clear: both;
+}
+
+.mt-table-link-indicator {
+    right: -35px;
+    bottom: -40px
+}

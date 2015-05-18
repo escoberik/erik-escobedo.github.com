@@ -1,0 +1,279 @@
+.setCentered {
+  vertical-align: middle;
+  text-align: center;
+}
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.noOutline {
+  outline-color: transparent;
+  outline-style: none;
+  outline: none;
+}
+.alignVertically {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.hideSpinnerButtons {
+  /* hide the spinner buttons on the number inputs */
+}
+.hideSpinnerButtons input::-webkit-outer-spin-button,
+.hideSpinnerButtons input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+.muted {
+  color: #999 !important;
+}
+.text-replacement {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+.mt-class-band {
+  width: 900px;
+  height: 650px;
+}
+.mt-class-band .mt-game-screen {
+  width: 900px;
+  height: 450px;
+}
+.mt-class-band .mt-game-screen .mt-game-bar {
+  stroke: none;
+}
+.mt-class-band .mt-game-screen .mt-game-bar.mt-red {
+  fill: red;
+}
+.mt-class-band .mt-game-screen .mt-game-bar.mt-yellow {
+  fill: yellow;
+}
+.mt-class-band .mt-game-screen .mt-game-bar.mt-green {
+  fill: green;
+}
+.mt-class-band .mt-game-screen .mt-game-bar.mt-blue {
+  fill: blue;
+}
+.mt-class-band .mt-tempo-label {
+  height: 60px;
+  line-height: 60px;
+}
+.mt-class-band .mt-tempo-label.mt-tempo-min {
+  margin-left: 30px;
+}
+.mt-class-band .mt-tempo-label.mt-tempo-max {
+  margin-right: 30px;
+}
+.mt-class-band .mt-tempo-slider {
+  margin: 22px;
+  width: 300px;
+}
+.mt-class-band .mt-progress-slider {
+  margin: 22px;
+  width: 450px;
+  display: inline-block;
+}
+.mt-class-band .mt-beat-button-holder {
+  display: inline-block;
+  vertical-align: top;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid gray;
+  background-color: whitesmoke;
+}
+.mt-class-band .mt-beat-button-holder .mt-beat-info {
+  display: inline-block;
+  margin: 4px;
+  font-size: 23px;
+  vertical-align: middle;
+  line-height: 40px;
+}
+.mt-class-band .mt-beat-button-holder .mt-beat-button {
+  background-color: lightgray;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid darkgray;
+  font-size: 40px;
+  vertical-align: middle;
+  text-align: center;
+  color: gray;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+}
+.mt-class-band .mt-control-button {
+  background-color: lightblue;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  vertical-align: middle;
+  text-align: center;
+}
+.mt-class-band .controls div {
+  display: inline-block;
+  vertical-align: top;
+}
+.mt-class-band .controls .mt-instructions {
+  text-align: center;
+  margin-top: 48px;
+}
+.mt-class-band .mt-loop-button,
+.mt-class-band .mt-replay-button {
+  float: right;
+}
+.mt-class-band .mt-clear-button {
+  vertical-align: top;
+  float: right;
+  display: inline-block;
+}
+.mt-class-band .mt-class-band-main-screen-button-holder {
+  -webkit-align-items: center;
+  display: -webkit-flex;
+  display: flex;
+  height: 650px;
+  -webkit-justify-content: center;
+  width: 100%;
+}
+.mt-class-band .mt-class-band-main-screen-button-holder > div {
+  width: 50%;
+  text-align: center;
+}
+.mt-class-band .mt-class-band-main-screen-button {
+  margin: 30px;
+  display: inline-block;
+}
+.mt-class-band .mt-class-band-img-container {
+  position: relative;
+  border: 1px solid black;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+}
+.mt-class-band .mt-instrument-selected {
+  background-color: lightblue;
+}
+.mt-class-band .mt-class-band-img {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: -30px;
+  position: absolute;
+  margin: 50% 0 0 50%;
+}
+.mt-class-band .mt-select-buttons {
+  display: inline-block;
+  margin: 10px;
+}
+.mt-class-band .mt-bottom-right {
+  position: absolute;
+  right: 0;
+  bottom: 45%;
+  margin: 10px;
+}
+.mt-class-band .mt-class-band-select-screen {
+  padding: 93px;
+}
+.mt-class-band .mt-class-band-lesson-screen {
+  position: absolute;
+  left: 375px;
+  top: 100px;
+}
+.mt-class-band .mt-lesson-btn {
+  display: block;
+  margin-bottom: 30px;
+}
+.mt-class-band .mt-add-instrument {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border: 1px dashed #333;
+  text-align: center;
+  cursor: pointer;
+  color: #666;
+}
+.mt-class-band .mt-add-instrument i {
+  display: block;
+  margin: auto;
+  width: 25px;
+  height: 25px;
+  font-style: initial;
+  margin-top: 25px;
+  font-size: 2.5em;
+}
+.mt-mute-info-holder {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid gray;
+  background-color: whitesmoke;
+  width: 112px;
+}
+.mt-mute-info-holder .mt-mute-info {
+  display: inline-block;
+  margin: 4px;
+  font-size: 23px;
+  vertical-align: middle;
+  line-height: 40px;
+}
+.mt-mute-info-holder .mt-mute-button {
+  background-color: lightgray;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid darkgray;
+  width: 40px;
+  height: 40px;
+}
+.mt-mute-info-holder .mt-mute-x {
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  color: red;
+  vertical-align: middle;
+  text-align: center;
+}
+.mt-program-info-holder {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid gray;
+  background-color: whitesmoke;
+}
+.mt-program-info-holder .mt-program-info {
+  display: inline-block;
+  margin: 4px;
+  font-size: 23px;
+  vertical-align: middle;
+  line-height: 40px;
+}
+.mt-delete-info-holder {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid gray;
+  background-color: whitesmoke;
+}
+.mt-delete-info-holder .mt-delete-info {
+  display: inline-block;
+  margin: 4px;
+  font-size: 23px;
+  vertical-align: middle;
+  line-height: 40px;
+}

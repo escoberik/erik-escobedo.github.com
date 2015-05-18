@@ -1,0 +1,180 @@
+/*
+Use 'bentonsans' then change the font-weight: to match the numeric value
+name in design doc.
+
+100 = thin
+200 = extra-light
+300 = light
+400 = normal, book
+500 = medium
+600 = demi-bold
+700 = bold
+800 = heavy
+900 = black
+*/
+
+@charset "utf-8";
+
+
+/*.inactive {
+	border: 1px solid #f0f0f0 !important;
+}*/
+
+#PrimeFactorID {
+	position:relative;
+	overflow: hidden;
+	width:768px;
+	height:500px;
+}
+
+#primefactor_surface{
+	position:absolute;
+/* 	border:2px solid #b3b3b3;  */
+	width:768px;
+	height:500px;
+
+	background-color:#e3e3e3;
+}
+
+.primefactor_containerDiv{
+	position:relative;
+	border:2px solid #b3b3b3;
+	background-color:#e6e6e6;
+    border-radius: 10px;
+	top:50px;
+	left:335px;
+	width:350px;
+	height:200px;
+}
+.primefactor_innerDiv{
+	position:relative;
+	left:1%;
+	width:98%;
+	height:37%;
+	border:1px solid transparent;
+}
+.primefactor_innerTable{
+	width:100%;
+	height:100%;
+	border-top:1px solid #b3b3b3;
+	border-bottom:1px solid #b3b3b3;
+}
+.primefactor_innerDivSize{
+	height:30% !important;
+}
+
+.primefactor_label{
+	color:black !important;
+	font-size:20px;
+	font-weight:bold;
+    /*display: table-cell;
+    vertical-align: middle;
+	border-color:transparent;*/
+}
+
+.primefactor_setupBtn{
+	position:relative;
+	width:80px;
+	height:26px;
+	border:transparent;
+	font-size:18px;
+	background-color:#ffc175;
+	border-radius: 3px;
+	color:#666;
+	margin-bottom:10px;
+}
+.primefactor_cancelBtn{
+	position:relative;
+	top:15%;
+	left:68%;
+	height: 70%;
+	width: 30%;
+	border:transparent;
+	outline: 0;
+	font-size:18px;
+	background-color:#ffc175;
+	border-radius: 3px;
+	color:#666;
+}
+.primefactor_setBtn{
+	position:relative;
+	height:58%;
+	width:70px;
+	border:transparent;
+	outline: 0;
+	font-size:18px;
+	background-color:#82bff0;
+	border-radius: 5px;
+	color:#666;
+	float:right;
+	right:5px;
+}
+
+.primefactor_textField, .primefactor_textField textField:focus{
+    outline: 0 !important;
+	border:none !important;
+	width:66px !important;
+	height:66px !important;
+	padding: 0px !important;
+	margin: 0px !important;
+	position:absolute !important;
+	text-align:center !important;
+	border-style: none !important;
+    border-color: Transparent !important;
+	color:black !important;
+	z-index:2 !important;
+	background-color:transparent !important;
+	font-size:20px !important;
+	/* font-weight: 400 !important; */
+	font-family: bentonSansBank, 'Helvetica Neue', Helvetica, sans-serif!important;
+	box-shadow: none !important;
+}
+#PrimeFactorID input::-webkit-outer-spin-button,
+#PrimeFactorID input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.primefactor_txtField_RN{
+	height: 30px;
+	width: 80%;
+	left:10%;
+	position:relative;
+	text-align:center;
+	font-size:18px;
+	color:#666;
+}
+
+.primefactor_column_table{
+	text-align:right;
+	color:#666;
+	font-size: 18px;
+	width:35%;
+}
+
+/* Settings */
+
+#primefactor_settings{
+	position: absolute;
+	top: 20px;
+	bottom: 20px;
+	right: 20px;
+	width: 180px;
+	background: #eee;
+	padding: 10px;
+	border: 5px solid black;
+}
+
+#primefactor_settings > div{
+	vertical-align: center;
+	padding: 4px 0;
+}
+
+#primefactor_settings > div > *{
+	display: inline-block;
+	vertical-align: center;
+}
+
+#primefactor_settings label{
+	width: 100px;
+}

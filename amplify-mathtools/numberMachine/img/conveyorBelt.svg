@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="570" height="300"  xml:space="preserve">
+    <line x1="30" y1="65" x2="570" y2="65" stroke="gray" stroke-width="4" ></line>
+    <line x1="55" y1="65" x2="270" y2="190" stroke="gray" stroke-width="4" ></line>
+    <line x1="330" y1="190" x2="545" y2="65" stroke="gray" stroke-width="4" ></line>
+
+    <rect x="262.5" y="215" width="75" height="75" fill="transparent" stroke="DarkRed" stroke-width="4"></rect>
+<!--     <text x="300" y="437.5" class="svgCenterText currentMachineText" text-anchor="middle" dominant-baseline="central" font-size="40" fill="darkred" stroke="black">{{getCurrentModeValue()}}</text> -->
+
+    <text x="0" y="55" stroke="dimGray" fill="dimGray" font-size="55px" font-family="verdana">1</text>
+    <path d = "M 35 25 L 35 45 L 55 35 Z" stroke="dimGray" fill="dimGray"></path>
+</svg>

@@ -1,0 +1,716 @@
+@import "../../../common/css/colors.less";
+@import "../../../common/css/constants.less";
+@import "../../../common/css/fonts.less";
+
+html, body {
+  .setFontProps(amplifyFont, 16px);
+  // font-size: 16px; //was: 1em;
+  // font-family: amplifyFont;
+  margin:0;
+  padding:0;
+  height:100%;
+  width:100%;
+  background-color: white;
+  overflow: hidden;
+}
+
+.mt-disable-animations { //used in acceptance tests to disable animations
+  * {
+     /*CSS transitions*/
+     -webkit-transition: all 0ms !important;
+     transition: all 0ms !important;
+     /*CSS animations*/
+     -webkit-animation-duration: 0ms !important;
+     animation-duration: 0ms !important;
+  }
+}
+
+.mt-full-size {
+  width: 100%;
+  height: 100%;
+}
+
+.mt-workspace-component {
+  background-color: white;
+  position: absolute;
+  display: inline-block;
+  .mt-component-disabler{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #D8D8D8;
+    opacity: 0;
+    display: block;
+    z-index: 100;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+  }
+
+  &.mt-inline {
+//    position: static;
+  }
+  &.mt-active-tool-instance.mt-transparent-mode {  // overriding lower declartion for &.mt-active-tool-instance
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+.mt-no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#workspace {
+  width: 100%;
+  height: 100%;
+  //this helped with keyboard issues, but isn't compatible with ng-view
+  //position: fixed;
+  //top: 0px;
+  //left: 0px;
+}
+
+#workspaceHeader {
+  margin-left: 0;
+}
+
+.navbar-inner {
+  -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}
+
+.navbar-inverse .navbar-inner {
+  background-color: #98AFC7; /* background color will be black for all browsers */
+  background-image: none;
+  background-repeat: no-repeat;
+  filter: none;
+  border-color: #98AFC7;
+  color: #fff;
+}
+
+#workspaceNav .navbar-inner {
+  background-color: #0085DB !important;
+  border-color: #0085DB !important;
+}
+
+#workspaceNav {
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-inverse .navbar-inner .brand {
+  color: #fff;
+}
+
+.navbar-inverse .navbar-inner .nav>li>a {
+  color:#fff;
+}
+
+.navbar-inverse .nav li.dropdown>.dropdown-toggle .caret {
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+}
+
+.navbar-inverse .nav li.dropdown.open>.dropdown-toggle{
+  background-color: #13B5EA;
+  border-bottom-color: #fff;
+}
+
+.mt-active-tool-instance .navbar-inner{
+    background-color: #0085DB !important;
+    border-color:  #0085DB!important;
+}
+
+.mt-active-tool-only {
+  display:none;
+}
+
+.mt-active-tool-instance .mt-active-tool-only {
+  display:block;
+}
+
+@borderWidth: 5px;
+@optionsW: 100px;
+
+.mt-tool-container-animation.mt-floating-tool-container {
+  -webkit-transition: 300ms ease-in-out;
+}
+
+.mt-active-tool-instance.mt-workspace-component {
+
+  z-index: 10;
+  .mt-palette-holder {
+    display: block;
+  }
+}
+
+.mt-inline.mt-workspace-component {
+  top: auto; // don't worry about navbar
+  margin-top: 66px; // make room for palette
+  margin-bottom: 66px; // give some room between tools
+  position: static;
+  .mt-palette-holder {
+    display: block;
+    width: auto;
+    left: auto;
+    top: auto;
+    margin-top: -66px;
+    .mt-palette {
+      left: auto;
+    }
+  }
+  .mt-options {
+    top: auto;
+  }
+}
+.mt-options{
+  position: absolute;
+  border: solid 1px gray;
+  left: 0;
+  top: 100%;
+  margin-top: 0px;
+  //display: none;
+  z-index: 11;
+  .mt-buttons{
+    padding: 0;
+    display: table-cell;
+    button{
+      display: block;
+      width: 100%;
+      padding: 15px;
+      .setBorderRadius;
+    }
+    .active{
+      opacity: .5;
+    }
+  }
+  .mt-details{
+    color: white;
+    font-size: .8em;
+    padding: 4px;
+    width: @optionsW;
+    height: 100%;
+    display: table-cell;
+    background-color: gray;
+    .mt-value{
+      background-color: white;
+      border: solid 1px gray;
+      color: black;
+      width: 50px;
+      text-align: center;
+      margin: 10px 0 0 15px;
+    }
+  }
+}
+.mt-details{
+  .mt-arrows{
+    cursor: pointer;
+    background-color: white;
+    outline: solid 1px gray;
+    .setSize(50px;100%);
+    .setPosition(absolute;auto;0;-50px);
+    .mt-arrow-up{
+      display: none;
+      .setPosition(absolute; 10px; 15px);
+      .arrow("up";30px;20px;gray);
+}
+.mt-arrow-dn{
+  display: none;
+  .setPosition(absolute; 10px; 50px);
+  .arrow("down";30px;20px;gray);
+}
+  }
+.mt-arrow-btm{
+  .setPosition(absolute; 42px; auto; auto; 0);
+  .arrow("up";50px;20px;white);
+}
+  }
+.mt-ok-btn{
+  background-color: gray;
+  text-align: center;
+  vertical-align: middle;
+  .setSize(30px;30px);
+  line-height: 30px;
+  .setBorderRadius(5px);
+  display: inline-block;
+  border: white solid 1px;
+  &.mt-center {
+    .setPosition(absolute; 50%; 50%);
+      margin: -15px 0 0 -15px;
+  }
+}
+
+@paletteBtnW: 61px;
+@paletteBtnH: 61px;
+
+.mt-palette-holder {
+  position: absolute;
+  width: 200%;
+  left: -50%;
+  top: -@paletteBtnW - 40px;
+  display:none;
+  .mt-palette{
+    height: @paletteBtnH;
+    left: 28%;
+    display: inline-block;
+    white-space: nowrap;
+    border-radius: 4px;
+    box-shadow: -2.7px 2.7px 6.3px rgba(0,0,0,0.15);
+
+    font-family: bentonSansLight;
+    font-size: 13px;
+
+    .mt-active-button {
+      background-color: #253842;
+      border-left-color: gray;
+      border-left-width: 1px;
+      border-left-style: solid;
+      box-shadow: inset -2px 2px 1px 0px rgba(1,1,1,1);
+    }
+    .mt-tool-button {
+      background-color: white;
+      border-left-color: #f7f7f7;
+      border-left-width: 1px;
+      border-left-style: solid;
+    }
+    .mt-global-button {
+      background-color: #d8dde3;
+      border-left-color: #d8dde3;
+      border-left-width: 1px;
+      border-left-style: solid;
+    }
+
+    .mt-active-text {
+      width: 100%;
+      height: 100%;
+      background-color: #253842;
+      font-family: bentonSansMedium;
+      color: #ff7936
+    }
+
+    .mt-button-arrow-right {
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+      .arrow("right";5px;5px;gray);
+    }
+
+    .mt-button-arrow-left {
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+      .arrow("left";5px;5px;gray);
+    }
+
+    @buttonInputWidth: 200px;
+
+    .mt-button-touch {
+      width:100%;
+      height:100%;
+    }
+
+    .mt-button-input {
+      width: @buttonInputWidth;
+      height: 100%;
+      overflow: scrollable;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .mt-button-text-submit {
+      width: 40px;
+      height: 100%;
+      border: 1px;
+      padding: 2px;
+      line-height: 40px;
+      background-color: lightsteelblue;
+      border-style: solid;
+      border-color: black;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .mt-button-input-types {
+      width: 40px;
+      height: 100%;
+      border: 1px;
+      border-right: 0px;
+      padding: 2px;
+      line-height: 40px;
+      background-color: white;
+      border-style: solid;
+      border-color: black;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .mt-button-input-type {
+      width: 40px;
+      height: 50%;
+      border: 0px;
+      padding: 0px;
+      margin: 0px;
+      line-height: 20px;
+      background-color: white;
+      vertical-align: top;
+
+      &.active {
+        background-color: #253842;
+        color: #ff7936;
+      }
+    }
+
+    .mt-button-input-container {
+      position: absolute;
+      width: @buttonInputWidth + 40px;
+      bottom: -40px;
+      height: 40px;
+      left: 0;
+      box-shadow: -5px 13.5px 40px rgba(0, 0, 0, 0.25);
+      z-index: 1000;
+    }
+
+    .mt-button-options {
+      position: absolute;
+      display:none;
+      background-color: lightsteelblue;
+      top: -1px; //need this for ipad for some reason
+      left: 100%;
+      z-index: 1000;
+      overflow:hidden;
+    }
+
+    //brings the last opened options to the top
+    .mt-button-active-options {
+      z-index: 1001;
+      box-shadow: -3px 3px 3px rgba(0, 0, 0, 0.25);
+    }
+
+    .mt-option-button {
+      display:inline-block;
+      vertical-align: top;
+      min-width: @paletteBtnW;
+      height: 100%;
+      outline-style: solid;
+      outline-color: #f7f7f7;
+      outline-width: 1px;
+    }
+
+    .mt-option-text {
+      height:100%;
+      margin-right:2px;
+      margin-left:2px;
+    }
+
+    .mt-button-text-submit {
+      width: 40px;
+      height: 100%;
+      border: 1px;
+      padding: 2px;
+      line-height: 40px;
+      background-color: lightsteelblue;
+      border-style: solid;
+      border-color: black;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .mt-inactive-text {
+      width: 100%;
+      height: 100%;
+      background-color: white;
+    }
+
+    .mt-palette-button {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      min-width: @paletteBtnW;
+      height: @paletteBtnH;
+      line-height: @paletteBtnH;
+      text-align: center;
+
+      .mt-icon{
+        border: 0px;
+        vertical-align: middle;
+      }
+
+      .mt-button-text {
+        margin-left:2px;
+        margin-right:2px;
+      }
+
+      .mt-icon-broadcast {
+        background-image: url('../img/icons_NB_Send.svg');
+        background-position: center center;
+        width:24px;
+        height:24px;
+      }
+
+      .mt-icon-export {
+        background-image: url('../img/icons_NB_Export-convert.svg');
+        background-position: center center;
+        width:24px;
+        height:24px;
+      }
+    }
+
+    .mt-palette-handle {
+      border:none;
+      height: @paletteBtnH;
+      min-width: 22px;
+      width: 22px;
+      background: url('../img/palette-handle.png') no-repeat;
+      background-position: 0px 0px;
+      background-size: 100%;
+    }
+
+    .mt-palette-input {
+      height: 53px; // get rid of this hardcoding
+      width: 150px;
+      vertical-align: top;
+      text-align: center;
+      font-size: 16px;
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+    }
+  }
+}
+
+.mt-details{
+  &.mt-partition-details{
+    .setPosition(absolute;-0.25 * @paletteBtnW;auto;auto;@paletteBtnW + 21px);
+    .setSize(400px;100px);
+  }
+  &.mt-name-details{
+    .setSize(auto;auto);
+    form {
+      margin: 10px 0 10px 0;
+    }
+    input {
+      margin-left: 10px;
+    }
+  }
+  .setPosition(absolute;auto;auto;-0.25 * @paletteBtnW;@paletteBtnW + 21px);
+  .setSize(100px;100px);
+  color: white;
+  font-size: .8em;
+  padding: 0 10px;
+  background-color: gray;
+  .mt-value{
+    background-color: white;
+    border: solid 1px gray;
+    color: black;
+    width: 50px;
+    text-align: center;
+    margin: 10px 0 0 15px;
+    display: block;
+  }
+}
+
+.mt-zoom-indicator {
+  position: absolute;
+  left: 300px;
+  top: 300px;
+}
+
+.mt-tool-view-port {
+  width: @viewportWidth;
+  height: @viewportHeight;
+  overflow: hidden;
+  position: relative;
+  background-color: @viewportBgColor;
+}
+
+.mt-zoomable-tool-space {
+  .setBorderRadius(11px);
+  position: relative;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-origin:0% 0%;
+  transition-property: top;
+  transition-duration: 1s;
+  -webkit-transition-property: top;
+  -webkit-transition-duration: 1s;
+  width: @canvasWidth;
+  height: @canvasHeight;
+  border: 1px solid white;
+  margin: @canvasMargin;
+  background-color: @canvasBgColor;
+  background-size: 22px 22px, 22px 22px;
+  background-image: -webkit-linear-gradient(@canvasGridLineColor 1px, transparent 1px),
+                    -webkit-linear-gradient(0, @canvasGridLineColor 1px, transparent 1px);
+}
+
+@submisisonBorderWidth: 5px;
+.mt-submission-viewport {
+  position: absolute;
+  top:0px;
+  left:0px;
+  border-width: @submisisonBorderWidth;
+  border-style: solid;
+  border-color: #22c5f9;
+  width: -webkit-calc(~'100% - ' 2 * @submisisonBorderWidth);
+  height: -webkit-calc(~'100% - ' 2 * @submisisonBorderWidth);
+  pointer-events: none;
+
+  @submisisonTextWidth: 300px;
+  .mt-submission-viewport-text {
+    position: absolute;
+    bottom:0px;
+    left: -webkit-calc(~'50% - ' @submisisonTextWidth / 2);
+    width: @submisisonTextWidth;
+    font-size:30px;
+    color:#274b6b;
+  }
+}
+
+.mt-min-content {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 200000;
+}
+
+.mt-tools-repeater {
+  z-index: 10;
+}
+
+.mt-correct-input-item {
+  border-color: lime !important;
+}
+
+.mt-invalid-input-item {
+  border-color: red !important;
+}
+
+.mt-floating-tool-container {
+  display: inline-block;
+  border: 1px solid rgba(153, 153, 153, 1);
+  border-radius: 11px 11px 0 0;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1);
+  background-color: @toolChromeBgColor;
+
+  .mt-floating-tool-container-move{
+    width: 100%;
+    height: @toolChromeMoveHeight;
+
+    .mt-close-tool{
+      background-image: url('../img/xIcon.svg');
+      background-repeat: no-repeat;
+      background-size: 40% 40%;
+      background-position: center;
+      height: 28px;
+      padding: 0 5px 5px;
+      cursor: default;
+      width: 28px;
+      position: absolute;
+    }
+
+    .mt-tool-name{
+      .setFontProps(bentonSansMedium, 16px, @toolChromeTextColor);
+      text-align: center;
+      // height: 32px;
+      line-height: @toolChromeMoveHeight;
+      cursor: default;
+    }
+  }
+  .mt-floating-tool-wrapper{
+    position: relative;
+  }
+
+  &:hover {
+    background-color: @toolChromeBgHoverColor;
+    border: 1px solid @toolChromeBorderHoverColor;
+  }
+
+  &.mt-active-tool-instance {
+    background-color: @toolChromeBgActiveColor;
+    box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.5);
+
+    .mt-floating-tool-container-move {
+      border: none;
+      border-bottom: 1px solid @toolChromeMoveActiveBorderColor;
+      border-radius: 10px 10px 0 0;
+      background-color: @toolChromeMoveActiveBgColor;
+
+      .mt-tool-name {
+        color: @toolChromeActiveTextColor;
+      }
+    }
+  }
+}
+
+.mt-pen-surface {
+  z-index: 100000;
+  position: absolute;
+  left:0px;
+  right:0px;
+  width: @canvasWidth;
+  height: @canvasWidth;
+}
+
+.mt-pen-surface-inactive {
+  pointer-events: none; // allow passing events through
+}
+
+.mt-homescreen-black-bar {
+  .setSize(100%; 20px);
+  background-color: black;
+}
+
+.mt-dd-toolbar {
+  position: absolute;
+  left: -2px;
+  top: -webkit-calc(100% + 2px);
+  width: 115px;
+  z-index: 2001;
+  background-color: white;
+  color: black;
+  border: black;
+  border-style: solid;
+  border-width: 1px;
+  margin:5px;
+  padding:5px;
+  border-radius:5px;
+
+  .mt-dd-item {
+    padding-left: 5px;
+    height: 25px;
+    line-height: 25px;
+    text-align: left;
+
+    &:active {
+      background-color: steelblue;
+      color: white;
+    }
+  }
+}
+
+.mt-help-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: fade(black, 50%);
+  z-index: 1000000;
+}
+
+.mt-help-item {
+  z-index: 1000001;
+}
+
+.mt-help-itemtext {
+  position: absolute;
+  color: white;
+  line-height: 18px;
+  font-size: 18px;
+  white-space: nowrap;
+  margin-top: -9px;
+}

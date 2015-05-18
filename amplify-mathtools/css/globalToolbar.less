@@ -1,0 +1,197 @@
+@import "../../../common/css/colors.less";
+@import "../../../common/css/constants.less";
+@import "../../../common/css/fonts.less";
+
+.mt-global-toolbar {
+    height: @ribbonHeight;
+    width: 100%;
+    background-color: @globalRibbonBgColor;
+    border-bottom: 1px solid @globalRibbonBorderColor;
+    position: relative;
+    z-index: 999;
+
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-flow: row nowrap; //shorthand for flex-direction, flex-wrap
+    flex-flow: row nowrap;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-align-content: space-between;
+    align-content: space-between;
+
+    //deprecated? or just not working?
+    .setTransition(height 300ms);
+
+    * {
+        display: inline-block;
+        position: relative;
+    }
+
+    &.mt-hidden {
+        height: 0;
+    }
+
+    .mt-global-icon {
+        .setSize(66px, 44px);
+        margin: 5px 0 6px 0;
+        position: relative;
+        cursor: default;
+
+        svg {
+            fill: @globalRibbonIconInactiveColor;
+
+            &:hover {
+                fill: @globalRibbonIconHoverColor;
+            }
+
+            &:active {
+                fill: @globalRibbonIconActiveColor;
+            }
+        }
+
+        &-toggled {
+            svg {
+                fill: @globalRibbonIconActiveColor;
+            }
+        }
+    }
+
+    .mt-global-separator {
+        .setSize(2px, 44px);
+        margin: 0 6px;
+        background-color: @globalRibbonSeparatorBgColor;
+    }
+
+    .mt-global-chevron {
+        .setSize(18px, 44px);
+    }
+
+    //revisit
+    .mt-global-dropdown {
+        position: absolute;
+        top: -webkit-calc(~'100% + 2px'); // account for border, move below toolbar
+        background-color: @globalRibbonBgColor;
+        min-width: 150px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        // overflow: hidden;
+        // max-height: 1000px; // update this in code based on number of items, overwrite with more specific heights below
+
+        //revisit these next two
+        &.ng-hide {
+          max-height: 0;
+        }
+
+        &.ng-hide-add, &.ng-hide-remove {
+          /* this needs to be here to make it visible during the animation
+             since the .ng-hide class is already on the element rendering
+             it as hidden. */
+          display:block!important;
+        }
+    }
+
+    .mt-global-settings-container {
+
+        .mt-global-dropdown{
+            right: 0;
+            white-space: nowrap;
+            max-height: 500px;
+        }
+
+        .mt-url-text {
+            width: 90%;
+            margin-left:20px;
+        }
+
+        .mt-settings-clear-workspace, .mt-settings-show-url {
+          padding: 10px;
+        }
+
+        .btn {
+            margin-right: 17px; //centering fix, maybe revisit
+            border: none;
+        }
+    }
+
+    .mt-global-menu-container {
+        max-height: 300px;
+
+        .mt-global-link {
+            height: 44px;
+            line-height: 44px;
+            width: calc(100% - 20px); // account for padding
+            padding-left: 10px;
+            padding-right: 10px;
+
+            &:active {
+            background-color: lighten(@globalRibbonBgColor, 10%);
+            }
+        }
+    }
+
+    .mt-nav-section {
+        height: 100%;
+        vertical-align: top;
+        font-size: 1.2rem;
+        -webkit-order: 1;
+        order: 1;
+
+        .mt-nav-text {
+            .setFontProps(bentonSansBook, 18px, @globalRibbonTextColor);
+            fill: @globalRibbonTextColor;
+            cursor: default;
+            padding-left:10px;
+            padding-top:2px;
+        }
+
+        &-left {
+            text-align: left;
+
+            .mt-global-icon {
+                &:first-of-type {
+                    margin-right: 0;
+                    margin-left: 5px;
+                }
+            }
+        }
+
+        &-center {
+            text-align: center;
+
+            .mt-global-icon {
+                margin-right: 3px;
+                margin-left: 3px;
+
+                &:first-of-type {
+                    margin-right: 3px;
+                    margin-left: 0;
+                }
+
+                &:last-of-type {
+                    margin-right: 0;
+                    margin-left: 3px;
+                }
+            }
+        }
+
+        &-right {
+            text-align: right;
+
+            .mt-global-icon {
+                margin-right: 3px;
+                margin-left: 3px;
+
+                &:first-of-type {
+                    margin-right: 3px;
+                    margin-left: 0;
+                }
+
+                &:last-of-type {
+                    margin-right: 5px;
+                    margin-left: 3px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+@import "../../../../common/css/lessLibrary.less";
+
+@basewidth: 16px;
+
+
+.mt-percent-bar-math {
+    box-sizing: border-box;
+    .setPosition(absolute; auto; auto; auto; -155px);
+    border: 1px solid #666;
+    background-color: gray;
+    width: @basewidth*9;
+    padding-top: @basewidth;
+    line-height: 48px;
+    z-index: 20;
+    >div {
+        background-color: white;
+        color: gray;
+        .setBorderRadius(5px);
+    }
+}
+.mt-percent-constant {
+    float: right;
+    margin-right: @basewidth;
+    text-align: center;
+    .setSize(@basewidth*3; @basewidth*7);
+    input {
+        width: 28px;
+        text-align: center;
+    }
+
+    .mt-constant-control {
+        .setSize(@basewidth*2; @basewidth*2);
+        margin: 0 auto;
+        line-height: 32px;
+    }
+}
+.mt-percent-operator {
+    .setSize(@basewidth*3; @basewidth*3);
+    margin-bottom: @basewidth;
+    margin-left: @basewidth;
+    text-align: center;
+    font-size: 24px;
+    &.mt-active {
+        background-color: lightblue;
+    }
+}
+.mt-percent-bar-confirm {
+    background-color: white;
+    width: 100%;
+    .setBorderRadius(0);
+    >div {
+        display:inline-block;
+        .setSize(@basewidth*3; @basewidth*2);
+        color: white;
+        background-color: gray;
+        margin-left: @basewidth;
+        margin-top: @basewidth;
+        margin-bottom: @basewidth;
+        text-align: center;
+        line-height: @basewidth*2;
+    }
+}
+
+.mt-is-percent-bar-selected {
+    stroke: #0085DB;
+}
+

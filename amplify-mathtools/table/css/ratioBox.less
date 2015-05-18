@@ -1,0 +1,297 @@
+@import "../../../../common/css/colors.less";
+@import "../../../../common/css/constants.less";
+@import "../../../../common/css/fonts.less";
+
+@cellWidth: 100px;
+@cellHeight: 74px;
+@eqnHeight: 40px;
+@eqnWidth: 70px;
+@eqnMargin: 10px;
+@eqnArrowLength: 36px;
+
+@ratioBoxBorder: 1px solid #8e8d8d;
+@rbHeaderBorderColor: #bcbcbc;
+@rbHeaderBackgroundColor: #ebeff1;
+@rbEqnColor: @blackTeal;
+
+// local functions
+.mt-ratio-box-input (@h:100%) {
+    border-color:transparent;
+    box-shadow: none;
+    .setSize (100%; @h);
+    .setBoxSizing;
+    cursor:text;
+}
+.mt-hw-input {
+    .fakeHighlight;
+    z-index: 100;
+}
+
+.mt-ratio-box-background {
+    background-color: white;
+    .setPosition(absolute);
+    .setSize(100%;100%);
+}
+
+.mt-ratio-box {
+    .mt-correctness-indicator {
+        .setPosition(absolute; auto; auto; -17px; -17px);
+        .setSize(34px;34px);
+        z-index: 1;
+
+        [class^="alert-"], [class*=" alert-"] {
+            .setSize(14px; 14px);
+            .setCentered;
+            .setBorderRadius(20px);
+            padding: 10px;
+            span {
+                .text-replacement;
+            }
+        }
+    }
+
+    .mt-ratio-box-eqn-label {
+        width: @eqnWidth;
+        height: @eqnHeight;
+        background-color: @rbEqnColor !important;
+        border-radius: 3px;
+        input {
+            color: white !important;
+            font-style: italic;
+            cursor:text;
+        }
+    }
+
+    .mt-n-container {
+        width: 100%;
+        .mt-rb-arrow-after, .mt-rb-arrow-before, .mt-ratio-box-eqn-label {
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        .mt-ratio-box-eqn-label {
+            margin-bottom: @eqnMargin;
+        }
+
+        .mt-rb-arrow-before.mt-not-mirrored {
+            -webkit-transform:rotate(90deg);
+            background-image: url('../img/rbArrowStart.svg');
+        }
+        .mt-rb-arrow-after.mt-not-mirrored {
+            background-image: url('../img/rbArrowEnd.svg');
+        }
+        .mt-rb-arrow-after.mt-mirrored {
+            -webkit-transform:rotate(-90deg) scaleX(-1);
+            background-image: url('../img/rbArrowStart.svg');
+        }
+        .mt-rb-arrow-before.mt-mirrored {
+            -webkit-transform:scaleX(-1);
+            background-image: url('../img/rbArrowEnd.svg');
+        }
+
+        position:absolute;
+        bottom: 100%;
+        left: 0px;
+        .mt-ratio-box-eqn {
+            margin-left: @cellWidth - @eqnWidth/2 - @eqnArrowLength;
+        }
+
+    }
+    .mt-s-container {
+        width:100%;
+        .mt-rb-arrow-after, .mt-rb-arrow-before, .mt-ratio-box-eqn-label {
+            display: inline-block;
+            vertical-align: top;
+        }
+        .mt-ratio-box-eqn-label {
+            margin-top: @eqnMargin;
+        }
+
+        .mt-rb-arrow-before.mt-not-mirrored {
+            -webkit-transform:rotate(270deg) scaleY(-1);
+            background-image: url('../img/rbArrowStart.svg');
+        }
+        .mt-rb-arrow-after.mt-not-mirrored {
+            -webkit-transform:rotate(180deg) scaleX(-1);
+            background-image: url('../img/rbArrowEnd.svg');
+        }
+        .mt-rb-arrow-after.mt-mirrored {
+            -webkit-transform:rotate(270deg);
+            background-image: url('../img/rbArrowStart.svg');
+        }
+        .mt-rb-arrow-before.mt-mirrored {
+            -webkit-transform:rotate(180deg);
+            background-image: url('../img/rbArrowEnd.svg');
+        }
+
+        position:absolute;
+        top: 100%;
+        left: 0px;
+        .mt-ratio-box-eqn {
+            margin-left: @cellWidth - @eqnWidth/2 - @eqnArrowLength;
+        }
+
+    }
+    .mt-e-container {
+        height:100%;
+        .mt-rb-arrow-after, .mt-rb-arrow-before {
+            margin-left: @eqnWidth + @eqnMargin - @eqnArrowLength;
+        }
+        .mt-ratio-box-eqn-label {
+            margin-right: @eqnMargin;
+        }
+
+        .mt-rb-arrow-after.mt-not-mirrored {
+            background-image: url('../img/rbArrowStart.svg');
+        }
+        .mt-rb-arrow-before.mt-not-mirrored {
+            -webkit-transform:rotate(270deg);
+            background-image: url('../img/rbArrowEnd.svg');
+        }
+        .mt-rb-arrow-before.mt-mirrored {
+            -webkit-transform:rotate(180deg) scaleX(-1);
+            background-image: url('../img/rbArrowStart.svg');
+        }
+        .mt-rb-arrow-after.mt-mirrored {
+            -webkit-transform:rotate(270deg) scaleX(-1);
+            background-image: url('../img/rbArrowEnd.svg');
+        }
+
+        position:absolute;
+        right: 100%;
+        top: 0px;
+        .mt-ratio-box-eqn {
+            margin-top: @cellHeight - @eqnHeight/2 - @eqnArrowLength;
+            display:inline-block;
+            vertical-align: top;
+        }
+        .mt-rb-row-header-col {
+            display:inline-block;
+            vertical-align: top;
+        }
+    }
+    .mt-w-container {
+        height:100%;
+        position:absolute;
+        .mt-ratio-box-eqn-label {
+            margin-left: @eqnMargin;
+        }
+
+        .mt-rb-arrow-after.mt-not-mirrored {
+            -webkit-transform:rotate(180deg) scaleY(-1);
+            background-image: url('../img/rbArrowStart.svg');
+        }
+        .mt-rb-arrow-before.mt-not-mirrored {
+            -webkit-transform:rotate(90deg) scaleX(-1);
+            background-image: url('../img/rbArrowEnd.svg');
+        }
+        .mt-rb-arrow-before.mt-mirrored {
+            -webkit-transform:rotate(180deg);
+            background-image: url('../img/rbArrowStart.svg');
+        }
+        .mt-rb-arrow-after.mt-mirrored {
+            -webkit-transform:rotate(90deg);
+            background-image: url('../img/rbArrowEnd.svg');
+        }
+
+        left: 100%;
+        top: 0px;
+        .mt-ratio-box-eqn {
+            margin-top: @cellHeight - @eqnHeight/2 - @eqnArrowLength;
+        }
+
+    }
+
+    @eqnArrowBackgroundSize: @eqnArrowLength - 2px;
+    .mt-rb-arrow-after, .mt-rb-arrow-before {
+        width: @eqnArrowLength;
+        height: @eqnArrowLength;
+        background-size: @eqnArrowBackgroundSize @eqnArrowBackgroundSize;
+        background-repeat:no-repeat;
+        background-position:center;
+        cursor: pointer;
+    }
+
+    input {
+        width: 100%;
+        height: 100%;
+    }
+
+    position: relative;
+    white-space: nowrap;
+
+    .mt-ratio-box-row-header {
+        display: block;
+        border: 1px solid @rbHeaderBorderColor;
+        border-right: none;
+    }
+    .mt-ratio-box-column-header {
+        vertical-align: top;
+        display: inline-block;
+        border: 1px solid @rbHeaderBorderColor;
+        border-bottom: none;
+        border-right: none;
+    }
+    .mt-ratio-box-column-header:last-of-type {
+        border-right: 1px solid @rbHeaderBorderColor;
+    }
+    .mt-ratio-box-row-header:first-of-type {
+        border-bottom: none;
+    }
+    .mt-ratio-box-row-header, .mt-ratio-box-column-header {
+        background-color: @rbHeaderBackgroundColor;
+    }
+    .mt-ratio-box-cell {
+        background-color: white;
+    }
+    .mt-ratio-box-row-header, .mt-ratio-box-column-header, .mt-ratio-box-cell {
+        width: @cellWidth;
+        height: @cellHeight;
+        input {
+            .mt-ratio-box-input;
+        }
+        .mt-hw-active-input:not(.mt-ratio-box-eqn-input):not(.mt-ratio-box-column-header) {
+            .mt-hw-input;
+        }
+        .mt-hw-active-input .mt-fraction-cell{
+            border-color: #52a8ec !important;
+            .mt-hw-input;
+        }
+    }
+
+    .mt-ratio-box-grid {
+        display: block;
+
+
+        .mt-fraction-cell-display.mathquill-rendered-math *{
+            white-space: nowrap !important;
+        }
+    }
+}
+
+.mt-ratio-box-grid {
+  .mt-table-vertical-col {
+    border: 0;
+  }
+
+  //JMT - this is hacky but the mathquill rendering needs this to position correctly
+  font-size: 3.4em !important;
+
+  .mt-ratio-box-column {
+    border: @ratioBoxBorder;
+    border-right: 0;
+
+    &:last-of-type {
+      border-right: @ratioBoxBorder;
+    }
+
+    .mt-ratio-box-cell {
+      border-bottom: @ratioBoxBorder;
+
+      &:last-of-type {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+

@@ -1,0 +1,149 @@
+[
+  {
+    "Data A":2,
+    "Data B":2,
+    "Data C":2,
+    "Data D":1,
+    "Data E":5
+  },
+  {
+    "Data A":3,
+    "Data B":3,
+    "Data C":3,
+    "Data D":1,
+    "Data E":5
+  },
+  {
+    "Data A":4,
+    "Data B":4,
+    "Data C":1,
+    "Data D":1,
+    "Data E":5
+  },
+  {
+    "Data A":4,
+    "Data B":4,
+    "Data C":6,
+    "Data D":1,
+    "Data E":5
+  },
+  {
+    "Data A":5,
+    "Data B":5,
+    "Data C":6,
+    "Data D":2,
+    "Data E":5
+  },
+  {
+    "Data A":5,
+    "Data B":5,
+    "Data C":7,
+    "Data D":2,
+    "Data E":5
+  },
+  {
+    "Data A":5,
+    "Data B":5,
+    "Data C":7,
+    "Data D":2,
+    "Data E":5
+  },
+  {
+    "Data A":5,
+    "Data B":5,
+    "Data C":7,
+    "Data D":2,
+    "Data E":5
+  },
+  {
+    "Data A":6,
+    "Data B":6,
+    "Data C":8,
+    "Data D":2,
+    "Data E":5
+  },
+  {
+    "Data A":6,
+    "Data B":6,
+    "Data C":8,
+    "Data D":3,
+    "Data E":5
+  },
+  {
+    "Data A":7,
+    "Data B":6,
+    "Data C":8,
+    "Data D":3,
+    "Data E":5
+  },
+  {
+    "Data A":8,
+    "Data B":6,
+    "Data C":8,
+    "Data D":3,
+    "Data E":5
+  },
+  {
+    "Data A":8,
+    "Data B":6,
+    "Data C":9,
+    "Data D":3,
+    "Data E":5
+  },
+  {
+    "Data A":9,
+    "Data B":7,
+    "Data C":9,
+    "Data D":4,
+    "Data E":5
+  },
+  {
+    "Data A":9,
+    "Data B":7,
+    "Data C":9,
+    "Data D":4,
+    "Data E":5
+  },
+  {
+    "Data A":9,
+    "Data B":7,
+    "Data C":9,
+    "Data D":4,
+    "Data E":5
+  },
+  {
+    "Data A":9,
+    "Data B":7,
+    "Data C":9,
+    "Data D":5,
+    "Data E":5
+  },
+  {
+    "Data A":10,
+    "Data B":8,
+    "Data C":10,
+    "Data D":5,
+    "Data E":5
+  },
+  {
+    "Data A":10,
+    "Data B":8,
+    "Data C":10,
+    "Data D":8,
+    "Data E":5
+  },
+  {
+    "Data A":11,
+    "Data B":9,
+    "Data C":10,
+    "Data D":9,
+    "Data E":5
+  },
+  {
+    "Data A":12,
+    "Data B":10,
+    "Data C":10,
+    "Data D":10,
+    "Data E":5
+  }
+]

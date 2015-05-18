@@ -1,0 +1,134 @@
+.setCentered {
+  vertical-align: middle;
+  text-align: center;
+}
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.noOutline {
+  outline-color: transparent;
+  outline-style: none;
+  outline: none;
+}
+.alignVertically {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.hideSpinnerButtons {
+  /* hide the spinner buttons on the number inputs */
+}
+.hideSpinnerButtons input::-webkit-outer-spin-button,
+.hideSpinnerButtons input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+.muted {
+  color: #999 !important;
+}
+.text-replacement {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+.mt-game-builder .desmosContainer {
+  width: 500px;
+  height: 500px;
+}
+.mt-game-builder .controls {
+  height: 100px;
+}
+.mt-game-builder .controls .control-button {
+  width: 33px;
+  height: 33px;
+  background-color: gray;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.mt-game-builder .controls .up {
+  margin: auto;
+}
+.mt-game-builder .controls .leftRight {
+  height: 33px;
+  width: 99px;
+  margin: auto;
+}
+.mt-game-builder .controls .leftRight .left {
+  float: left;
+}
+.mt-game-builder .controls .leftRight .right {
+  float: right;
+}
+.mt-game-builder .controls .down {
+  margin: auto;
+}
+.mt-game-builder-dialog {
+  border-radius: 10px 10px 0 0;
+  font-family: bentonSansMedium;
+}
+.mt-game-builder-dialog .modal-header {
+  border: none;
+  border-bottom: 1px solid #3f8aca;
+  border-radius: 10px 10px 0 0;
+  background-color: #56a8ee;
+  padding: 0;
+}
+.mt-game-builder-dialog .mt-game-builder-monster-paths {
+  list-style: none;
+  margin-left: 0;
+}
+.mt-game-builder-dialog li {
+  height: 40px;
+  line-height: 40px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.mt-game-builder-dialog h4 {
+  font-size: 18px;
+  display: inline-block;
+}
+.mt-game-builder-dialog .mt-game-builder-monster {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  border-bottom: 1px solid #999;
+}
+.mt-game-builder-dialog .monster-starting-path {
+  padding: 10px 0;
+}
+.mt-game-builder-dialog .mt-game-builder-path-validation {
+  text-align: right;
+}
+.mt-game-builder-dialog select {
+  margin-bottom: 0;
+}
+.mt-game-builder-dialog h3 {
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  line-height: 32px;
+}
+.mt-game-builder-dialog .dataSetting .xyOptions {
+  width: 50px;
+}
+.mt-game-builder-dialog .dataSetting input {
+  width: 30px;
+  text-align: center;
+}
+.mt-game-builder-dialog .dataSetting .data {
+  margin-left: 10px;
+  display: inline-block;
+  vertical-align: baseline;
+}

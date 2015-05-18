@@ -1,0 +1,61 @@
+.setCentered {
+  vertical-align: middle;
+  text-align: center;
+}
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.noOutline {
+  outline-color: transparent;
+  outline-style: none;
+  outline: none;
+}
+.alignVertically {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.hideSpinnerButtons {
+  /* hide the spinner buttons on the number inputs */
+}
+.hideSpinnerButtons input::-webkit-outer-spin-button,
+.hideSpinnerButtons input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+.muted {
+  color: #999 !important;
+}
+.text-replacement {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+.mt-lemons-and-cups {
+  width: 768px;
+  height: 576px;
+}
+.mt-lemons-and-cups span {
+  display: block;
+}
+.mt-lemons-and-cups canvas {
+  display: block;
+  position: absolute;
+  background: transparent;
+}
+.mt-lemons-and-cups .mt-lemons-background-canvas {
+  left: 0px;
+  z-index: -2;
+}
+.mt-lemons-and-cups .mt-lemons-canvas {
+  left: 0px;
+  z-index: -1;
+}

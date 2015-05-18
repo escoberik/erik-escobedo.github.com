@@ -1,0 +1,250 @@
+.setCentered {
+  vertical-align: middle;
+  text-align: center;
+}
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.noOutline {
+  outline-color: transparent;
+  outline-style: none;
+  outline: none;
+}
+.alignVertically {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.hideSpinnerButtons {
+  /* hide the spinner buttons on the number inputs */
+}
+.hideSpinnerButtons input::-webkit-outer-spin-button,
+.hideSpinnerButtons input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+.muted {
+  color: #999 !important;
+}
+.text-replacement {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+@font-face {
+  src: local('‚ò∫');
+  font-family: amplifyBrandFont;
+  src: url('../font/amplify-light-web/AmplifyLightLight.woff') format('woff'), url('../font/amplify-light-web/AmplifyLightLight.ttf') format('truetype');
+}
+@font-face {
+  font-family: amplifyFont;
+  src: url('../font/proxima-nova-regular/webfonts/proxima-nova-regular.woff') format('woff'), url('../font/proxima-nova-regular/webfonts/proxima-nova-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: amplifyFontLight;
+  src: url('../font/proxima-nova-light/webfonts/proxima-nova-light.woff') format('woff'), url('../font/proxima-nova-light/webfonts/proxima-nova-light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  src: local('‚ò∫');
+  font-family: amplifyFontNumbers;
+  src: url('../font/amplify-numbers-web/AmplifyNumbersLight.woff') format('woff'), url('../font/amplify-numbers-web/AmplifyNumbersLight.ttf') format('truetype');
+}
+@font-face {
+  font-family: bentonSansLight;
+  src: url('../font/bentonSans/BentonSans-Light.woff') format('woff'), url('../font/bentonSans/BentonSans-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: bentonSansMedium;
+  src: url('../font/bentonSans/BentonSans-Medium.woff') format('woff'), url('../font/bentonSans/BentonSans-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: bentonSansBook;
+  src: url('../font/bentonSans/BentonSans-Book.woff') format('woff'), url('../font/bentonSans/BentonSans-Book.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.mt-global-toolbar {
+  height: 54px;
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #a9c0b8;
+  position: relative;
+  z-index: 999;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-content: space-between;
+  align-content: space-between;
+  -webkit-transition: height 300ms;
+  -moz-transition: height 300ms;
+  -ms-transition: height 300ms;
+  -o-transition: height 300ms;
+  transition: height 300ms;
+}
+.mt-global-toolbar * {
+  display: inline-block;
+  position: relative;
+}
+.mt-global-toolbar.mt-hidden {
+  height: 0;
+}
+.mt-global-toolbar .mt-global-icon {
+  width: 66px;
+  height: 44px;
+  margin: 5px 0 6px 0;
+  position: relative;
+  cursor: default;
+}
+.mt-global-toolbar .mt-global-icon svg {
+  fill: rgba(58, 70, 70, 0.5);
+}
+.mt-global-toolbar .mt-global-icon svg:hover {
+  fill: rgba(58, 70, 70, 0.8);
+}
+.mt-global-toolbar .mt-global-icon svg:active {
+  fill: #3a4646;
+}
+.mt-global-toolbar .mt-global-icon-toggled svg {
+  fill: #3a4646;
+}
+.mt-global-toolbar .mt-global-separator {
+  width: 2px;
+  height: 44px;
+  margin: 0 6px;
+  background-color: rgba(58, 70, 70, 0.1);
+}
+.mt-global-toolbar .mt-global-chevron {
+  width: 18px;
+  height: 44px;
+}
+.mt-global-toolbar .mt-global-dropdown {
+  position: absolute;
+  top: -webkit-calc(100% + 2px);
+  background-color: #ffffff;
+  min-width: 150px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.mt-global-toolbar .mt-global-dropdown.ng-hide {
+  max-height: 0;
+}
+.mt-global-toolbar .mt-global-dropdown.ng-hide-add,
+.mt-global-toolbar .mt-global-dropdown.ng-hide-remove {
+  /* this needs to be here to make it visible during the animation
+             since the .ng-hide class is already on the element rendering
+             it as hidden. */
+  display: block!important;
+}
+.mt-global-toolbar .mt-global-settings-container .mt-global-dropdown {
+  right: 0;
+  white-space: nowrap;
+  max-height: 500px;
+}
+.mt-global-toolbar .mt-global-settings-container .mt-url-text {
+  width: 90%;
+  margin-left: 20px;
+}
+.mt-global-toolbar .mt-global-settings-container .mt-settings-clear-workspace,
+.mt-global-toolbar .mt-global-settings-container .mt-settings-show-url {
+  padding: 10px;
+}
+.mt-global-toolbar .mt-global-settings-container .btn {
+  margin-right: 17px;
+  border: none;
+}
+.mt-global-toolbar .mt-global-menu-container {
+  max-height: 300px;
+}
+.mt-global-toolbar .mt-global-menu-container .mt-global-link {
+  height: 44px;
+  line-height: 44px;
+  width: calc(80%);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.mt-global-toolbar .mt-global-menu-container .mt-global-link:active {
+  background-color: #ffffff;
+}
+.mt-global-toolbar .mt-nav-section {
+  height: 100%;
+  vertical-align: top;
+  font-size: 1.2rem;
+  -webkit-order: 1;
+  order: 1;
+}
+.mt-global-toolbar .mt-nav-section .mt-nav-text {
+  font-family: bentonSansBook;
+  font-size: 18px;
+  color: #3a4646;
+  fill: #3a4646;
+  cursor: default;
+  padding-left: 10px;
+  padding-top: 2px;
+}
+.mt-global-toolbar .mt-nav-section-left {
+  text-align: left;
+}
+.mt-global-toolbar .mt-nav-section-left .mt-global-icon:first-of-type {
+  margin-right: 0;
+  margin-left: 5px;
+}
+.mt-global-toolbar .mt-nav-section-center {
+  text-align: center;
+}
+.mt-global-toolbar .mt-nav-section-center .mt-global-icon {
+  margin-right: 3px;
+  margin-left: 3px;
+}
+.mt-global-toolbar .mt-nav-section-center .mt-global-icon:first-of-type {
+  margin-right: 3px;
+  margin-left: 0;
+}
+.mt-global-toolbar .mt-nav-section-center .mt-global-icon:last-of-type {
+  margin-right: 0;
+  margin-left: 3px;
+}
+.mt-global-toolbar .mt-nav-section-right {
+  text-align: right;
+}
+.mt-global-toolbar .mt-nav-section-right .mt-global-icon {
+  margin-right: 3px;
+  margin-left: 3px;
+}
+.mt-global-toolbar .mt-nav-section-right .mt-global-icon:first-of-type {
+  margin-right: 3px;
+  margin-left: 0;
+}
+.mt-global-toolbar .mt-nav-section-right .mt-global-icon:last-of-type {
+  margin-right: 5px;
+  margin-left: 3px;
+}
+
+.mt-math-app-view {
+  margin: 20px 20px;
+}
+.mt-view-container {
+  width: 100%;
+  height: -webkit-calc(100% - 40px);
+}
+.mt-view-container.mt-nav-minimized {
+  height: 100%;
+}

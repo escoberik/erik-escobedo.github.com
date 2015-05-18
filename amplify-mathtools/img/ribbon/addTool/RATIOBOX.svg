@@ -1,0 +1,22 @@
+<svg width="64" height="44" viewBox="0 0 64 44" xmlns="http://www.w3.org/2000/svg">
+  <g stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none">
+    <!-- Ratiobox -->
+    <rect x="24" y="14" rx="1" ry="1" width="16" height="16" stroke-width="2"></rect>
+    <line x1="24" y1="22" x2="40" y2="22"></line>
+    <line x1="32" y1="14" x2="32" y2="30"></line>
+    
+    <!-- Top, bottom arrows -->
+    <path d="M26,10 C26,2 38,2 38,10"></path>
+    <polyline points="34,7 38,10 40,7"></polyline>
+    
+    <path d="M26,34 C26,42 38,42 38,34"></path>
+    <polyline points="34,37 38,34 40,37"></polyline>
+
+    <!-- Left, right arrows -->
+    <path d="M20,16 C12,16 12,28 20,28"></path>
+    <polyline points="17,24 20,28 17,30"></polyline>
+    
+    <path d="M44,16 C52,16 52,28 44,28"></path>
+    <polyline points="47,24 44,28 47,30"></polyline>
+  </g>
+</svg>

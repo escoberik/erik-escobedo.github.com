@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="165" height="121"  xml:space="preserve">
+    <circle stroke="rgb(255, 255, 255)" cx="82.5" cy="30.25" r="20.25" stroke-width="20" fill="none" />
+    <line stroke="rgb(255, 255, 255)" x1="82.5" y1="50.5" x2="82.5" y2="111" stroke-width="20" stroke-linecap="round"/>
+    <line stroke="rgb(255, 255, 255)" x1="82.5" y1="85" x2="97.5" y2="85" stroke-width="20" stroke-linecap="round"/>
+    <line stroke="rgb(255, 255, 255)" x1="82.5" y1="111" x2="102.5" y2="111" stroke-width="20" stroke-linecap="round"/>
+</svg>

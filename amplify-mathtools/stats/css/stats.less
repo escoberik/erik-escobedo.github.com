@@ -1,0 +1,809 @@
+@import "../../../../common/css/colors.less";
+@import "../../../../common/css/constants.less";
+@import "../../../../common/css/fonts.less";
+
+.mt-stats-waiting {
+  position: absolute;
+  left: 30px;
+  top: 30px;
+}
+
+@cellHeight: 25px;
+@cellHeaderHeight: @cellHeight + 15px;
+@cellWidth: 70px;
+
+@dataHeight: 410px;
+@dataWidth: 470px;
+
+.mt-stats-tool {
+  width: @dataWidth + 20px;
+  height: @dataHeight;
+}
+
+.mt-stats-container {
+  vertical-align: top;
+  display: inline-block;
+}
+
+
+.mt-stats-case-data {
+  white-space: nowrap;
+  border: 1px solid darkgrey;
+  font-size: 0;
+  margin: 10px;
+  margin-right: 5px;
+  overflow: scroll;
+}
+
+.mt-stats-header-row {
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+}
+
+.mt-stats-data-rows {
+  overflow: scroll;
+  max-height: -webkit-calc(@dataHeight - @cellHeaderHeight - 6px); // 6px to deal with header padding and border
+}
+
+.mt-stats-case {
+
+  &.mt-even {
+
+    .mt-stats-cell {
+      background-color: #eee;
+    }
+  }
+
+  &.mt-active {
+
+    .mt-stats-cell {
+      background-color: lightsteelblue;
+    }
+  }
+}
+
+.mt-stats-cell {
+
+  &.mt-invalid {
+    color: red;
+    font-weight: bold;
+  }
+
+  display: inline-block;
+  width: @cellWidth;
+  height: @cellHeight;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 12px;
+  border-radius: 0px;
+  line-height: @cellHeight;
+
+  padding: 2px;
+  border: 0;
+  background-color: transparent;
+}
+
+.mt-stats-index-cell {
+  width: 30px;
+}
+
+.mt-stats-cell-header {
+  height: @cellHeaderHeight;
+  overflow: scroll;
+  cursor: move;
+
+  &.mt-resize {
+    cursor: col-resize;
+  }
+
+  &.mt-dragging {
+    color: white;
+    background-color: steelblue;
+  }
+
+  &.mt-drag-over {
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-right-color: blue;
+  }
+
+  &.mt-vert-center {
+    line-height: @cellHeaderHeight;
+  }
+}
+
+.mt-stats-index-header {
+  .mt-stats-cell;
+  width: auto;
+  height: 40px;
+  cursor: default;
+
+  &.mt-active {
+    background-color: steelblue;
+  }
+}
+
+.mt-stats-draggable-attribute {
+  .mt-stats-cell;
+  .mt-stats-cell-header;
+  position: absolute;
+  color: white;
+  background-color: darkorange;
+  opacity: 0.5;
+  line-height: @cellHeaderHeight;
+}
+
+@graphWidth: @dataWidth;
+@graphHeight: @dataHeight;
+
+.mt-stats-graph {
+  border: 1px solid darkgrey;
+  width: @graphWidth;
+  height: @graphHeight;
+  margin: 10px;
+  margin-left: 5px;
+
+}
+
+.mt-case-data-points {
+  stroke: black;
+  stroke-width: 1px;
+
+  &.mt-active {
+    stroke-width: 3px;
+  }
+}
+
+.mt-stats-graph-targets {
+  .mt-stats-graph;
+  border: 0;
+  display: block;
+  margin-top: -405px; // don't like this
+  margin-left: 0px;
+}
+
+.mt-stats-graph-axis-targets {
+  position: relative;
+  bottom: 75px;
+
+  .mt-stats-axis-x {
+    height: 70px;
+    width: 405px;
+    left: 65px;
+    position: absolute;
+
+    &:hover, &.mt-active {
+      background-color: rgba(176, 196, 222, 0.65);
+    }
+
+  }
+
+  .mt-stats-axis-y {
+    height: 340px;
+    width: 65px;
+    bottom: 0px;
+    position: absolute;
+
+    &:hover, &.mt-active {
+      background-color: rgba(176, 196, 222, 0.65);
+    }
+
+  }
+}
+
+.mt-stats-graph-target {
+  width: 100%;
+  opacity: 0;
+  text-align: center;
+
+  &.mt-active {
+    background-color: rgba(176, 196, 222, 0.65);
+    opacity: 1;
+
+    .mt-message {
+      display: inline-block;
+      white-space: nowrap;
+      font-size: 125%;
+    }
+  }
+}
+
+@targetWidth: 90px;
+
+.mt-stats-graph-target-case {
+  display: inline-block;
+  vertical-align: top;
+  width: @graphWidth - @targetWidth;
+  height: @graphHeight - @targetWidth;
+
+  .mt-message {
+    line-height: @graphHeight - @targetWidth;
+  }
+}
+
+.mt-stats-graph-target-x {
+  display: block;
+  height: @targetWidth;
+
+  .mt-message {
+    line-height: @targetWidth;
+  }
+}
+
+.mt-stats-graph-target-y {
+  display: inline-block;
+  vertical-align: top;
+  width: @targetWidth;
+  height: @graphHeight - @targetWidth;
+
+  .mt-message {
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: rotate(-90deg) translate(@targetWidth - @graphHeight, 0);
+    line-height: @targetWidth;
+    width: @graphHeight - @targetWidth;
+  }
+}
+
+.mt-color-icon-list {
+  position: relative;
+  height: 6px;
+  bottom: 2px;
+  line-height: 6px;
+}
+
+.mt-color-icon {
+  display:inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0px 3px;
+}
+
+.mt-color-range-icon {
+  position: relative;
+  height: 6px;
+  width: 50%;
+  bottom: 2px;
+  left: 25%;
+}
+
+.mt-stats-arrow-up {
+    .arrow ("up"; 20px);
+    position: absolute;
+    top: -10px;
+    left: -webkit-calc(~'50% - 5px');
+    border-top-color: grey;
+}
+
+.mt-axes-adjuster {
+  position: absolute;
+  width: 450px;
+  height: 100px;
+  line-height: 20px;
+  background-color: white;
+  border-radius: 5px;
+  z-index: 1000;
+  padding: 0px 10px 30px 0px;
+  border-color: grey;
+  border-width: 2px;
+  border-style: solid;
+  font-size: 12px;
+
+  input{
+    width: 95%;
+    margin-bottom: 5px;
+    color:black;
+    font-weight: normal;
+
+    &.mt-invalid, &.mt-invalid-add {
+      color: red;
+      font-weight: bold;
+    }
+
+    // to make ng-animate happy. maybe there is a better way..
+    &.mt-invalid-remove {
+      color: black;
+      font-weight: normal;
+    }
+  }
+}
+
+.mt-stats-check-box {
+  display:inline-block;
+  height:22px;
+  background-color:
+  white;border:solid 1px black;
+  box-sizing: border-box;
+  vertical-align:top;
+}
+
+.mt-stats-check-box-label {
+  padding-left:5px;
+  padding-right:5px;
+  white-space: nowrap;
+  display:inline-block;
+  vertical-align:top
+}
+
+.mt-stats-arrow-right {
+    .arrow ("right"; 10px);
+    position: absolute;
+    right: -10px;
+    top: -webkit-calc(~'50% - 5px');
+    border-left-color: grey;
+}
+
+////////////////////////////////////
+//                                //
+//    PROBABILITY WIDGET STYLES   //
+//                                //
+////////////////////////////////////
+
+.mt-probs-tool{
+  padding: 10px;
+}
+
+.mt-probs-sim-trials, .mt-probs-sim-start{
+  display: inline-block;
+  width: 50%;
+  .setCentered();
+
+  label > input {
+    vertical-align: baseline;
+  }
+}
+
+.mt-probs-clear-output {
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.mt-probs-sim-start {
+  display: inline-block;
+  width: 50%;
+  .setCentered();
+
+  .btn {
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    font-size: 2rem;
+  }
+
+  .mt-probs-sim-go-button {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+  }
+}
+
+.mt-replacement {
+  font-size: 12px;
+}
+
+.mt-probs-sim-inputs{
+  padding: 15px 15px 0;
+}
+
+
+.mt-col{
+  height: 100%;
+  width: 700px;
+
+  .mt-left-col{
+    padding: 0px 20px 0px 20px;
+    width: 200px;
+    float: left;
+  }
+
+  .mt-right-col{
+    padding: 0px 20px 0px 20px;
+    width: 400px;
+    float: left;
+  }
+
+  hr{
+    padding: 1px;
+    margin: 5px;
+  }
+
+}
+
+.mt-small-input{
+  width: 80px;
+}
+
+.mt-single-input{
+  width: 28px;
+}
+
+.mt-item-config{
+  margin:0;
+//  width: 300px;
+  .mt-circle{
+    margin: 0px;
+    vertical-align: text-bottom;
+    display: inline-block;
+  }
+
+}
+
+.mt-color-picker{
+  width: 20px;
+}
+
+.mt-remove-item{
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.mt-skip-anis{
+  float: right;
+  margin: 10px;
+  font-size: 12px;
+  display: flex;
+}
+
+
+.mt-speed-slider{
+  width: 100px;
+  float: right;
+  margin: 4px 10px 10px 10px;
+  padding-left: 5px;
+  .mt-slider{
+    float: right;
+    width: 100px;
+  }
+}
+
+/*****************************************************************/
+/*                       WHEEL                                   */
+/*****************************************************************/
+
+/* Sets the background image for the wheel */
+.mt-sum-error {
+  text-align: center;
+}
+
+.mt-spinner{
+  height: 280px;
+  text-align: center;
+}
+
+.mt-the-canvas{
+  margin-top: 75px;
+  height: 434px;
+  width: 434px;
+}
+
+.mt-preview {
+  height:150px;
+  width: 150px;
+  border: 1px black solid;
+}
+
+/*****************/
+/* Playing Cards */
+/*****************/
+
+.mt-probs-sim-output{
+  background-color: rgba(0, 0, 0, .2);
+  height: 145px;
+  max-width: 300px;
+  padding: 5px;
+  overflow: scroll;
+}
+
+.mt-card-thumb{
+  margin: 0 1px -20px 1px;
+  width: 28px;
+  height: 41px;
+  float: left;
+}
+
+/* probability simulator config panel */
+.mt-probs-config-container {
+  height: 300px;
+  width: 200px;
+  position: absolute;
+  top: 16px;
+  right: -190px;
+  overflow: hidden;
+}
+
+.mt-probs-config {
+  height: 300px;
+  width: 200px;
+  position: relative;
+  background-color: lightgray;
+  left: -200px;
+  transition: left 200ms;
+  -webkit-backface-visibility: hidden;
+  
+  &-header {
+    max-height: 34px;
+    line-height: 34px;  
+    padding: 5px;
+    margin: 0;
+    border-bottom: 3px solid black;
+  }
+
+  &-body {
+    height: 174px;
+    padding: 10px;
+    background-color: white;
+    overflow: scroll;
+  }
+
+  &-footer {
+    padding: 5px;
+    margin: 0;
+    border-top: 3px solid black;
+
+    .btn {
+      margin: 8px;
+    }
+  }
+}
+
+.mt-probs-config-open{
+    width: 44px;
+    height: 44px;
+    right: -34px;
+    top: 16px;
+    position: absolute;
+    background-color: white;
+    text-align: center;
+    vertical-align: middle;
+    line-height:44px;
+    cursor: default;
+    box-shadow: 2px 4px 11px fade(black, 40%);
+    box-shadow-left: none;
+    transition: right 200ms;
+  }
+
+.mt-config-slide-right {
+  left: 0;
+}
+
+.mt-config-btn-slide-right {
+  right: -234px;
+}
+
+.mt-probs-slice-btns {
+  width: 100%;
+  padding: 0 10px;
+
+  & button {
+    margin: 0 5px 5px;
+  }
+}
+
+/* entire container, keeps perspective */
+.mt-flip-container {
+  margin: 0px;
+  perspective: 1000;
+  -webkit-perspective: 1000;
+}
+
+.mt-probs-sim-container {
+  width: 300px;
+  height: 310px;
+  background-color: white;
+  border: 1px solid black;
+  overflow: scroll;
+}
+
+.mt-probs-text {
+  text-align: center;
+  line-height: 125px;
+  font-style: italic;
+  color: white;
+}
+
+.mt-flip-it{
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+
+.mt-flip-container, .mt-front, .mt-back {
+  width: 300px;
+  height: 155px;
+}
+
+/* flip speed goes here */
+.mt-flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  -webkit-transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.mt-front, .mt-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+.mt-front {
+  z-index: 2;
+  background: url("../../img/probability/cardback.png") 0 0 no-repeat;
+  background-size: 25%;
+  background-position: 50%;
+}
+
+/* back, initially hidden pane */
+.mt-back {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+
+.mt-card {
+  display: inline-block;
+}
+
+
+
+/**********************************/
+/*   COIN                         */
+/**********************************/
+.mt-coin{
+  display: inline-block;
+  width: 20%;
+  margin: 7px;
+  -webkit-transition-duration:200ms;
+  transition-duration: 200ms;
+}
+
+.mt-flip-up{
+  transform:scale(1.5,1.5) rotateX(360deg);
+  -ms-transform:scale(1.5,1.5) rotateX(360deg); /* IE 9 */
+  -webkit-transform:scale(1.5,1.5) rotateX(360deg); /* Safari and Chrome */
+  -o-transform:scale(1.5,1.5) rotateX(360deg); /* Opera */
+  -moz-transform:scale(1.5,1.5) rotateX(360deg); /* Firefox */
+
+
+}
+
+/**********************************/
+/*   MARBLES                      */
+/**********************************/
+.mt-throwing-canvas-marble {
+  width: 300px;
+  height:155px;
+}
+
+.mt-throwing-canvas-dice {
+  width: 300px;
+  height: 300px;
+}
+
+.mt-ball-holder{
+  display: inline-block;
+}
+
+.mt-circle{
+  width:30px;
+  height:30px;
+  border-radius:15px;
+  margin: 0 0 -15px;
+}
+
+/**********************************/
+/*   DICE                         */
+/**********************************/
+
+.mt-face-input{
+  width: 12px;
+  margin: 0 1px;
+}
+.mt-roll{
+  transform:rotate(180deg);
+  -ms-transform:rotate(180deg); /* IE 9 */
+  -webkit-transform:rotate(180deg); /* Safari and Chrome */
+  -o-transform:rotate(180deg); /* Opera */
+  -moz-transform:rotate(180deg); /* Firefox */
+}
+
+
+.mt-stats-wizard {
+  margin: 10px;
+  // font-size:20px;
+  .mt-stats-wizard-opts-container {
+    width: 480px;
+    line-height: 320px;
+    padding-top: 50px;
+  }
+
+  .mt-stats-wizard-file-container {
+    .mt-stats-wizard .mt-stats-wizard-opts-container;
+    line-height: 125px;
+  }
+
+  .mt-wizard-opts-svg {
+    display: block;
+    margin: 10px auto 0;
+  }
+
+  .mt-stats-wizard-opt {
+    // padding-left: 10px;
+    // margin: 30px;
+    // border-radius:5px;
+    position: relative;
+    height: 120px;
+    line-height: 120px;
+    margin-left: 27px;
+    background-color: @blackTeal;
+    color: white;
+    width: 120px;
+    border-radius: 15px;
+    border: solid black 1px;
+    text-align: center;
+    display: inline-block;
+
+    h5 {
+      bottom: 0;
+      position: absolute;
+      width: 100%;
+      text-align: center;
+    }
+
+  }
+
+  .mt-stats-wizard-msg {
+    color: @blackTeal;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-bottom: 2px solid rgba(0, 0, 0, .5);
+    width: 70%;
+    margin: 0 auto;
+    // margin-left: 50px;
+    // margin-top: 10px;
+    // margin-bottom: 10px;
+  }
+
+  .mt-stats-wizard-back {
+    position:absolute;
+    left: 10px;
+    top: 0px;
+    height: 40px;
+    width: 30px;
+    border-radius: 5px;
+    background-color: @blackTeal;
+    background-image: url('../../img/chevronLeftWhite.svg');
+    background-repeat: no-repeat;
+    background-size: 80% 80%;
+    background-position: center center;
+    border: 1px solid @blackTeal;
+  }
+
+  .mt-stats-wizard-files {
+    // padding-left: 10px;
+    height: 75px;
+    line-height: 75px;
+    margin-left: 60px;
+    // margin-left: 50px;
+    background-color: @blackTeal;
+    color: white;
+    width: 75px;
+    border-radius:15px;
+    border: solid black 1px;
+    display: inline-block;
+    text-align: center;
+  }
+}
+

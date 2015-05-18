@@ -1,0 +1,106 @@
+@import "../../../../common/css/lessLibrary.less";
+
+@button-width: 33px;
+@button-height: 33px;
+.mt-game-builder {
+    .desmosContainer {
+        width:500px;
+        height:500px;
+    }
+    .controls {
+        height: 100px;
+        .control-button {
+            width: @button-width;
+            height: @button-height;
+            background-color: gray;
+            .setBorderRadius(5px);
+        }
+        .up {
+            margin: auto;
+        }
+        .leftRight{
+            height: @button-height;
+            width: @button-width * 3;
+            margin: auto;
+            .left {
+                float: left;
+            }
+            .right {
+                float: right;
+            }
+        }
+        .down {
+            margin: auto;
+        }
+    }
+}
+.mt-game-builder-dialog {
+    border-radius: 10px 10px 0 0;
+    font-family: bentonSansMedium;
+    .modal-header {
+        border: none;
+        border-bottom: 1px solid #3f8aca;
+        border-radius: 10px 10px 0 0;
+        background-color: #56a8ee;
+        padding: 0;
+    }
+
+    .mt-game-builder-monster-paths {
+        list-style: none;
+        margin-left: 0;
+        .pathSetting {
+
+        }
+    }
+    li {
+        height: 40px;
+        line-height: 40px;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+    }
+    h4 {
+        font-size: 18px;
+        display: inline-block;
+    }
+
+    .mt-game-builder-monster {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        border-bottom: 1px solid #999;
+    }
+
+    .monster-starting-path {
+        padding: 10px 0;
+    }
+
+    .mt-game-builder-path-validation {
+        text-align: right;
+    }
+    select {
+        margin-bottom: 0;
+    }
+    h3 {
+        font-size: 15px;
+        color: #fff;
+        text-align: center;
+        line-height: 32px;
+    }
+    .dataSetting {
+        .xyOptions {
+            width: 50px;
+        }
+        input {
+            width: 30px;
+            text-align: center;
+        }
+        .data {
+            margin-left: 10px;
+            display: inline-block;
+            vertical-align: baseline;
+        }
+    }
+}

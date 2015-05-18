@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient id="gradient2-boxOuter" x1="42.01" y1="22.99" x2="3.99" y2="22.99" gradientUnits="userSpaceOnUse" >
+            <stop offset="0" stop-color="rgb(255, 255, 255)" stop-opacity="1" />
+            <stop offset="1" stop-color="rgb(213, 213, 213)" stop-opacity="1" />
+        </linearGradient>
+        <linearGradient id="gradient2-boxInner" x1="23" y1="7.69" x2="23" y2="37.11" gradientUnits="userSpaceOnUse" >
+            <stop offset="0" stop-color="rgb(255, 255, 255)" stop-opacity="1" />
+            <stop offset="1" stop-color="rgb(213, 213, 213)" stop-opacity="1" />
+        </linearGradient>
+    </defs>
+    <path id="boxOuter" stroke="rgb(109, 111, 114)" stroke-opacity="0.26" stroke-miterlimit="10" fill="url(#gradient2-boxOuter)" d="M 3.99,42.99 L 3.99,2.98 42.01,2.98 42.01,42.99 3.99,42.99 Z M 3.99,42.99" />
+    <path id="boxInner" stroke="rgb(183, 183, 183)" stroke-miterlimit="4" fill="url(#gradient2-boxInner)" d="M 7.56,37.11 L 7.56,7.69 38.44,7.69 38.44,37.11 7.56,37.11 Z M 7.56,37.11" />
+    <line id="negativeLine" stroke="rgb(210, 0, 0)" stroke-width="3" fill="none" x1="16.5" y1="23" x2="29.5" y2="23" />
+</svg>

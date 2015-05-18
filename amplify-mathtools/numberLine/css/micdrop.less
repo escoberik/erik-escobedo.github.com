@@ -1,0 +1,285 @@
+@import "../../../../common/css/lessLibrary.less";
+
+@game-width: 730px;
+@game-height: 545px;
+
+.micDrop {
+    .mt-numberline-svg-container {
+        width: 100%;
+        height: 100%;
+    }
+    background: url("../img/micdrop/dtm-bkgd-solid.jpg") 0% 0% ~"/" @game-width @game-height no-repeat;
+    width: @game-width;
+    height: @game-height;
+    font: 1em/150% bentonSansMedium;
+    letter-spacing: 1px;
+    * {
+        box-sizing: border-box;
+    }
+    .micDropTest {
+        display: none;
+    }
+
+    button {
+        font-family: bentonSansBook;
+        letter-spacing: 1px;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        
+        &[disabled]{
+            background: #8e8e8e;
+        }
+    }
+}
+
+/* Player select overlay */
+.micdrop-intro-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    
+    background-size: 79%;
+    background-repeat: no-repeat;
+    background-position: center 52px;
+    overflow-y: hidden;
+    background: url("../img/micdrop/dtm-foreground-trees.png") 0% 100% ~"/" @game-width auto no-repeat;
+}
+
+.micdrop-intro-drone {
+    width: 350px;
+    height: 216px;
+    position: absolute;
+    top: -25px;
+    left: -30px;
+    background-image: url("../img/micdrop/dtm-drone.png");
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+.micdrop-intro-mic {
+    width: 38px;
+    height: 73px;
+    position: absolute;
+    top: 179px;
+    left: 149px;
+    background-image: url("../img/micdrop/dtm-mic-large.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.micdrop-intro {
+    position: relative;
+    width: 579px;
+    height: 579px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 15px rgba(255,255,255, 0.3);
+    background: url("../img/micdrop/dtm-orange-circle-start-screen.png") 50% 50% ~"/" auto auto no-repeat;
+    margin: 52px auto 0;
+    padding: 10px;
+    color: rgb(72,47,13);
+    label {
+        font-size: 1.188rem; // bootstrap override    
+    }
+    p {
+        font-size: 1.5rem;
+    }
+    select {
+        width: 87px;
+        height: 50px;
+        font-family: bentonSansBook;
+        font-size: 1.4em;
+    }
+    option {
+        font-family: bentonSansBook;
+        font-size: 1.4em;
+    }
+    .micdrop-start-game { 
+        font-size: 1.4em;
+        line-height: normal;
+        width: 142px;
+        height: 45px;
+        background-color: #3c9303;
+    }
+}
+
+.micdrop-intro-info {
+    position: absolute;
+    width: 280px;
+    left: 231px;
+    top: 150px;
+}
+
+/* Game messages modal */
+.micdrop-message-overlay {
+    position: absolute;
+    color: rgb(72,47,13);
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+.micdrop-message-wrapper {
+    position: relative;
+    width: 579px;
+    height: 579px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 15px rgba(255,255,255, 0.3);
+    margin: 52px auto 0;
+    padding: 10px;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(86, 255, 187, 0.6), rgba(196,202,176,0.5) 44%) no-repeat;
+    // todo: transistion the gradient... unfortunately requires more than just 'transition'
+
+    &.micdropped {
+        background: linear-gradient(180deg, rgba(231, 44, 0, 0.8), rgba(211, 200, 125, 0.6) 44%) no-repeat;    
+        color: white;     
+    }
+}
+.micdrop-message {
+    width: 75%;
+    margin: 150px auto 0;
+    font-size: 2em;
+    text-align: center;
+
+    .micdrop-close-message {
+        display: block;
+        margin: 20px auto 0;
+    }
+}
+
+/* Players and Turns */
+.micdrop-turns {
+    height: 34px;
+    background: white;
+}
+
+.micdrop-currentplayer {
+    width: 32px;
+    height: 32px;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin: 0 2px;
+}
+
+.micdrop-turn-set, .micdrop-turn, .micdrop-currentplayer {
+    display: inline-block;
+    vertical-align: sub;
+}
+
+.micdrop-turn-set {
+    margin: 0 5px;
+}
+
+.micdrop-turn {
+    background-image: url('../img/micdrop/player-mic-sprite-scaled.png');
+    transition: all 0.1s ease-out;
+}
+
+.blue .micdrop-turn {
+    .sprite(@dtm-mic-blue-fill-small);
+    &.micdrop-turn-over, &.micdrop-current-turn {
+        .sprite(@dtm-mic-blue-small);
+    }
+}
+.red .micdrop-turn {
+    .sprite(@dtm-mic-red-fill-small);
+    &.micdrop-turn-over, &.micdrop-current-turn {
+        .sprite(@dtm-mic-red-small);
+    }
+}
+.green .micdrop-turn {
+    .sprite(@dtm-mic-green-fill-small);
+    &.micdrop-turn-over, &.micdrop-current-turn {
+        .sprite(@dtm-mic-green-small);
+    }
+}
+.black .micdrop-turn {
+    .sprite(@dtm-mic-black-fill-small);
+    &.micdrop-turn-over, &.micdrop-current-turn {
+        .sprite(@dtm-mic-black-small);
+    }
+}
+
+/* player mic sprites */
+@dtm-mic-black-fill-small: -5px, -5px, 10px, 29px;
+@dtm-mic-black-small: -5px, -44px, 10px, 29px;
+@dtm-mic-blue-fill-small: -5px, -83px, 10px, 29px;
+@dtm-mic-blue-small: -5px, -122px, 10px, 29px;
+@dtm-mic-green-fill-small: -5px, -161px, 10px, 29px;
+@dtm-mic-green-small: -5px, -200px, 10px, 29px;
+@dtm-mic-red-fill-small: -5px, -239px, 10px, 29px;
+@dtm-mic-red-small: -5px, -278px, 10px, 29px;
+
+.sprite-width(@sprite) {
+  width: extract(@sprite, 3);
+}
+
+.sprite-height(@sprite) {
+  height: extract(@sprite, 4);
+}
+
+.sprite-position(@sprite) {
+  @sprite-offset-x: extract(@sprite, 1);
+  @sprite-offset-y: extract(@sprite, 2);
+  background-position: @sprite-offset-x  @sprite-offset-y;
+}
+
+.sprite(@sprite) {
+  .sprite-position(@sprite);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: inline-block;
+  .sprite-width(@sprite);
+  .sprite-height(@sprite);
+}
+
+/* Game controls */
+.micdrop-controls {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 70px;
+    padding: 10px 0 20px;
+    text-align: center;
+}
+.micdrop-control {
+    display: inline-block;
+
+    button {
+        width: 128px;
+        height: 40px;
+        background: #ff7e0b;
+        font-size: 1em;
+        &:active {
+            background: #f76900;
+        }
+    }
+}
+
+/* numberline svg styles */
+.micDrop {  // nesting to override numberline styles and prevent accidental styling of other tools
+    .mt-numberline {
+        background: url("../img/micdrop/dtm-foreground-trees.png") 0% 100% ~"/" @game-width auto no-repeat;
+        position: relative;
+    }
+    .mt-micdrop-target {
+        opacity: 0.4;
+    }
+
+    .mt-numberline-svg .mt-y-axis {
+        stroke: white;
+    }
+
+    .mt-y-axis-endcap {
+        stroke: white;
+        stroke-width: 3px;
+    }
+    .micDropLabel {
+        fill: white
+    }
+}

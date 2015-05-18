@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prime Factor - Jasmine Testing</title>
+    
+    <link rel="shortcut icon" type="image/png" href="lib/jasmine-1.1.0/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="lib/jasmine-1.1.0/jasmine.css">
+    <script type="text/javascript" src="lib/jasmine-1.1.0/jasmine.js"></script>
+    <script type="text/javascript" src="lib/jasmine-1.1.0/jasmine-html.js"></script>
+    
+    <link rel="stylesheet" href="css/jquerysctipttop.css" type="text/css">
+    <link rel="stylesheet" href="css/main.css">
+   
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular/angular-mocks.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
+    <script src="lib/kinetic-v5.1.0.min.js" type="text/javascript" > </script>
+    <script src="lib/jquery.js" type="text/javascript" ></script>
+	<script src="lib/jquery.min.js" type="text/javascript" > </script>
+   
+   	<script type="text/javascript" src="lib/scroller/animate.js"> </script>
+    <script type="text/javascript" src="lib/scroller/scroller.js"> </script>
+    
+   	<!-- include source files here...-->
+    <script type="text/javascript" src="src/node.js"></script>
+    <script type="text/javascript" src="src/nodeMenu.js"></script>
+    <script type="text/javascript" src="src/primeFactorCalculator.js"></script>
+	<script type="text/javascript" src="src/controller.js"></script>
+    
+    <!-- include spec files here... -->
+  	<script type="text/javascript" src="spec/controller_spec.js"></script>
+    <script type="text/javascript" src="spec/node_spec.js"></script>
+    <script type="text/javascript" src="spec/nodeMenu_spec.js"></script>    
+	<script type="text/javascript" src="spec/primeFactorCalculator_spec.js"></script>
+    
+	<script type="text/javascript">
+    (function() {
+      var jasmineEnv = jasmine.getEnv();
+      jasmineEnv.updateInterval = 1000;
+
+      var htmlReporter = new jasmine.HtmlReporter();
+
+      jasmineEnv.addReporter(htmlReporter);
+
+      jasmineEnv.specFilter = function(spec) {
+        return htmlReporter.specFilter(spec);
+      };
+
+      var currentWindowOnload = window.onload;
+
+      window.onload = function() {
+        if (currentWindowOnload) {
+          currentWindowOnload();
+        }
+        execJasmine();
+      };
+ssdfsdf
+      function execJasmine() {
+        jasmineEnv.execute();
+      }
+
+    })();
+	</script>
+    
+</head>
+<body ng-app="PrimeFactorApp">
+	<div ng-controller="PrimeFactorCtrl" id="PrimeFactorID" class="hide" ng-show="false">
+        <button class="setupBtn" ng-click="setup()">Setup</button>
+        <div ng-show="isRNMenuOpen" class="containerDiv">
+            <div class="innerDiv innerDivSize label">
+                <p>&nbsp;&nbsp;Prime Factor Controls</p>
+            </div>
+            <div class="innerDiv">
+                <table class="innerTable">
+                    <tr>
+                        <td class="column_table">Starting Value:</td>
+                        <td style="width:20%;"><input type="number" value="0"; class="txtField_RN" ng-model="rootNodeValue"></td>
+                        <td style="width:20%;"><button 
+                                class="setBtn"
+                                ng-click="setRootNode(rootNodeValue)"
+                            >Set </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="innerDiv innerDivSize">
+                <button 
+                    class="cancelBtn"
+                    ng-click="cancel()"
+                >Cancel </button>           
+            </div>
+        </div>
+        <input type="number" name="textfield" id="textfield" class="textField" ng-keyup="keyUp($event)" ng-show="isRootController">
+        <div id="surface" ng-show="isRootController"></div>
+        <div id="settings" ng-show="false">
+            <div><label for="minZoom">Min Zoom: </label><input type="text" id="minZoom" size="5" value="1"/></div>
+            <div><label for="maxZoom">Max Zoom: </label><input type="text" id="maxZoom" size="5" value="1"/></div>
+            
+            <div><label for="bZoomLevel">BZoom Level: </label><input type="text" id="bZoomLevel" size="5"/></div>
+            <div><label for="bScrollLeft">BScroll Left: </label><input type="text" id="bScrollLeft" size="5"/></div>
+            <div><label for="bScrollTop">BScroll Top: </label><input type="text" id="bScrollTop" size="5"/></div>
+		</div>
+    </div>
+    
+</body>
+</html>

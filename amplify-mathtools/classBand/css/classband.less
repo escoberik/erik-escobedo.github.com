@@ -1,0 +1,231 @@
+@import "../../../../common/css/lessLibrary.less";
+
+.mt-class-band {
+    @classBandWidth: 900px;
+    @classBandHeight: 650px;
+    @classBandGameHeight: 450px;
+    .setSize(@classBandWidth; @classBandHeight);
+    .mt-game-screen {
+        .setSize(@classBandWidth; @classBandGameHeight);
+        .mt-game-bar{
+            stroke: none;
+            &.mt-red{
+                fill: red;
+            }
+            &.mt-yellow{
+                fill: yellow;
+            }
+            &.mt-green{
+                fill: green;
+            }
+            &.mt-blue{
+                fill: blue;
+            }
+        }
+    }
+    .mt-tempo-label {
+        height: 60px;
+        line-height: 60px;
+        &.mt-tempo-min {
+            margin-left: 30px;
+        }
+        &.mt-tempo-max {
+            margin-right: 30px;
+        }
+    }
+    .mt-tempo-slider {
+        margin: 22px;
+        width: 300px;
+    }
+    .mt-progress-slider {
+        margin: 22px;
+        width: 450px;
+        display: inline-block;
+    }
+
+    .mt-beat-button-holder {
+        display: inline-block;
+        vertical-align: top;
+        .setBorderRadius(3px);
+        border: 1px solid gray;
+        background-color: whitesmoke;
+        .mt-beat-info {
+            display: inline-block;
+            margin: 4px;
+            font-size: 23px;
+            vertical-align: middle;
+            line-height: 40px;
+        }
+        .mt-beat-button {
+            background-color: lightgray;
+            .setBorderRadius(3px);
+            border: 1px solid darkgray;
+            font-size: 40px;
+            vertical-align: middle;
+            text-align: center;
+            color: gray;
+            .setSize(40px; 40px);
+            line-height: 40px;
+        }
+    }
+    .mt-control-button {
+        background-color: lightblue;
+        .setSize(60px; 60px);
+        line-height: 60px;
+        .setBorderRadius(30px);
+        vertical-align: middle;
+        text-align: center;
+    }
+    .controls {
+        div {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .mt-instructions {
+            text-align: center;
+            margin-top: 48px;
+        }
+    }
+    .mt-loop-button, .mt-replay-button {
+        float: right;
+    }
+    .mt-clear-button {
+        vertical-align: top;
+        float: right;
+        display: inline-block;
+    }
+
+    .mt-class-band-main-screen-button-holder {
+        -webkit-align-items: center;
+        display: -webkit-flex;
+        display: flex;
+        height: 650px;
+        -webkit-justify-content: center;
+        width: 100%;
+        > div {
+            width: 50%;
+            text-align: center;
+        }
+    }
+
+    .mt-class-band-main-screen-button {
+        margin: 30px;
+        display: inline-block;
+    }
+
+    @selectHolderSize: 100px;
+    @selectImgSize: 60px;
+    .mt-class-band-img-container{
+        position: relative;
+        border: 1px solid black;
+        display: inline-block;
+        .setSize(@selectHolderSize; @selectHolderSize);
+        .setBorderRadius(@selectHolderSize/2);
+    }
+    .mt-instrument-selected{
+        background-color: lightblue;
+        //border: 1px solid blue;
+    }
+    .mt-class-band-img {
+        .setSize(@selectImgSize; @selectImgSize);
+        top: -@selectImgSize/2;
+        left: -@selectImgSize/2;
+        position: absolute;
+        margin: 50% 0 0 50%;
+    }
+
+    .mt-select-buttons {
+        display: inline-block;
+        margin: 10px;
+    }
+    .mt-bottom-right {
+        position: absolute;
+        right: 0;
+        bottom: 45%; //was 0, had to adjust due to larger ribbons pushing buttons out of view for acceptance tests
+        margin: 10px;
+    }
+    .mt-class-band-select-screen {
+        padding: 93px;
+    }
+    .mt-class-band-lesson-screen {
+        position: absolute;
+        left: 375px;
+        top: 100px;
+    }
+    .mt-lesson-btn {
+        display: block;
+        margin-bottom: 30px;
+    }
+    .mt-add-instrument {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        border: 1px dashed #333;
+        text-align: center;
+        cursor: pointer;
+        color: #666;
+        i {
+            display: block;
+            margin: auto;
+            width: 25px;
+            height: 25px;
+            font-style: initial;
+            margin-top: 25px;
+            font-size: 2.5em;
+        }
+    }
+}
+.mt-mute-info-holder {
+    .setBorderRadius(3px);
+    border: 1px solid gray;
+    background-color: whitesmoke;
+    width: 112px;
+    .mt-mute-info {
+        display: inline-block;
+        margin: 4px;
+        font-size: 23px;
+        vertical-align: middle;
+        line-height: 40px;
+    }
+    .mt-mute-button {
+        background-color: lightgray;
+        .setBorderRadius(3px);
+        border: 1px solid darkgray;
+        .setSize(40px; 40px);
+    }
+    .mt-mute-x {
+        font-size: 40px;
+        .setSize(40px; 40px);
+        line-height: 40px;
+        color: red;
+        vertical-align: middle;
+        text-align: center;
+    }
+}
+.mt-program-info-holder {
+    .setBorderRadius(3px);
+    border: 1px solid gray;
+    background-color: whitesmoke;
+
+    .mt-program-info {
+        display: inline-block;
+        margin: 4px;
+        font-size: 23px;
+        vertical-align: middle;
+        line-height: 40px;
+    }
+}
+.mt-delete-info-holder {
+    .setBorderRadius(3px);
+    border: 1px solid gray;
+    background-color: whitesmoke;
+
+    .mt-delete-info {
+        display: inline-block;
+        margin: 4px;
+        font-size: 23px;
+        vertical-align: middle;
+        line-height: 40px;
+    }
+}

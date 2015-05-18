@@ -1,0 +1,43 @@
+angular.module('mtGraph').run(['$templateCache', function($templateCache) {
+  'use strict';
+
+  $templateCache.put('templates/equationExpressionTemplate.html',
+    "<div class=mt-equation-expression><input class=\"mt-equation-expression-input mt-new-input\" ng-readonly=isReadOnly() ng-init=\"inputInit(model, 'editText', 'equation')\" ng-model=model.editText ng-click=\"selectObject($event, model, 'editText', 'equation')\" ng-change=updateFromEditText() ng-blur=\"deselectIfKeyboard()\"></div>"
+  );
+
+
+  $templateCache.put('templates/expressionEntryTemplate.html',
+    "<div id={{model.id}}Expression class=mt-expression hm-swipe=onExpressionSwipe($event) hm-tap=selectExpression()><div class=mt-expression-type ng-class=\"{'mt-expression-selected': expressionApi.isActive(), 'mt-expression-delete': showDelete}\" ng-bind=getTypeLabel() hm-tap=selectIndicator()></div><div class=mt-expression-inputs ng-switch on=model.type()><mt-point-expression ng-switch-when=\"point type\"></mt-point-expression><mt-point-set-expression ng-switch-when=\"point set type\"></mt-point-set-expression><mt-line-expression ng-switch-when=\"line type\"></mt-line-expression><mt-equation-expression ng-switch-when=\"equation type\"></mt-equation-expression></div></div>"
+  );
+
+
+  $templateCache.put('templates/expressionListPanelTemplate.html',
+    "<div class=mt-expression-container ng-class=\"{'mt-minimized': !visible}\"><button type=button class=\"btn mt-maximize-expression-list\" ng-click=show() ng-class=\"{'mt-minimized': visible}\"></button><div class=mt-expression-list-pane ng-class=\"{'mt-minimized': !visible}\"><div class=mt-expression-list-toolbar><div class=btn-group><button class=\"btn dropdown-toggle mt-add-shape-button\" data-toggle=dropdown></button><ul class=dropdown-menu role=menu aria-labelledby=dLabel><li><div class=mt-add-point-expression ng-click=addPoint()>Point</div><div class=mt-add-point-set-expression ng-click=addPointSet()>Point Set</div><div class=mt-add-eqn-expression ng-click=addEquation()>Equation</div></li></ul></div>Expression List <button type=button class=\"btn mt-minimize-expression-list\" ng-click=hide()></button></div><div class=mt-expression-list hm-drag=handleDrag($event)><div ng-repeat=\"modelId in graphModel.uniqueObjects() | reverse\"><mt-expression-entry model=graphModel.getObject(modelId) expression-list-api=expressionListApi></mt-expression-entry></div></div></div></div>"
+  );
+
+
+  $templateCache.put('templates/graphControlsTemplate.html',
+    "<div modal=controlsOpen><div class=modal-header><h4>Graph Controls</h4></div><div class=modal-body><div class=row><div class=span3><form class=mt-form-horizontal><fieldset><div class=control-group><label class=\"mt-graph-label control-label\">Minor tick interval X:</label><div class=mt-controls><mt-input keypad=keypad model=settings.tickXMinor class=\"input-mini mt-id-input-tick-x-minor\" placeholder=interval required></mt-input><br></div></div><div class=control-group><label class=\"mt-graph-label control-label\">Minor tick interval Y:</label><div class=controls><mt-input keypad=keypad model=settings.tickYMinor class=\"input-mini mt-id-input-tick-y-minor\" placeholder=interval required><br></mt-input></div></div><div class=control-group><label class=\"mt-graph-label control-label\">Major tick interval X:</label><div class=controls><mt-input keypad=keypad model=settings.tickXMajor class=\"input-mini mt-id-input-tick-x-major\" placeholder=interval required><br></mt-input></div></div><div class=control-group><label class=\"mt-graph-label control-label\">Major tick interval Y:</label><div class=controls><mt-input keypad=keypad model=settings.tickYMajor class=\"input-mini mt-id-input-tick-y-major\" placeholder=interval required><br></mt-input></div></div></fieldset></form></div><div class=span3><form class=mt-form-horizontal><fieldset><div class=control-group><label class=\"mt-graph-label control-label\">Max X:</label><div class=controls><mt-input keypad=keypad model=settings.maxX class=\"input-mini mt-id-input-max-x\" placeholder=value required><br></mt-input></div></div><div class=control-group><label class=\"mt-graph-label control-label\">Max Y:</label><div class=controls><mt-input keypad=keypad model=settings.maxY class=\"input-mini mt-id-input-max-y\" placeholder=value required><br></mt-input></div></div><div class=control-group><label class=\"mt-graph-label control-label\">Min X:</label><div class=controls><mt-input keypad=keypad model=settings.minX class=\"input-mini mt-id-input-min-x\" placeholder=value required><br></mt-input></div></div><div class=control-group><label class=\"mt-graph-label control-label\">Min Y:</label><div class=controls><mt-input keypad=keypad model=settings.minY class=\"input-mini mt-id-input-min-y\" placeholder=value required><br></mt-input></div></div></fieldset></form></div><div class=span6><fieldset><div class=control-group><div id=labelControls><button id=onPointLabelsButton class=btn ng-click=toggleShowPointLabels()><label ng-show=!settings.showPointLabels>Turn On Point Labels</label><label ng-show=settings.showPointLabels>Turn Off Point Labels</label></button></div></div><div class=control-group><label class=control-label>Label X - Axis:</label><div class=controls><mt-input model=settings.xAxisLabel class=\"input-xlarge mt-id-input-x-axis-label\" placeholder=value required><br></mt-input></div></div><div class=control-group><label class=control-label>Label Y - Axis:</label><div class=controls><mt-input model=settings.yAxisLabel class=\"input-xlarge mt-id-input-y-axis-label\" placeholder=value required><br></mt-input></div></div></fieldset></div></div></div><div class=modal-footer><button class=\"btn btn-warning mt-cancel mt-cancel-graph-controls-button\" ng-click=toggleControls(false)>Close</button></div></div>"
+  );
+
+
+  $templateCache.put('templates/graphToolTemplate.html',
+    "<div class=mt-graph-wrapper><div class=row><mt-expression-list-panel expression-list=expressionList graph-model=graphModel></mt-expression-list-panel><mt-graph graph-model=graphModel tool-id=toolId container-api=containerApi></mt-graph></div><br><mt-graph-controls></mt-graph-controls><mt-link-indicator eventineer=eventineer></mt-link-indicator></div>"
+  );
+
+
+  $templateCache.put('templates/lineExpressionTemplate.html',
+    "<div><div class=mt-point-expression ng-repeat=\"point in [model.start, model.end] track by $index\"><span class=mt-point-name-container ng-class=\"{'mt-point-invalid-input': !point.hasValidName}\"><input class=mt-point-name ng-readonly=isReadOnly() ng-model=point.name ng-change=updateName() ng-click=\"selectObject($event, point, 'name', 'text')\" ng-blur=deselectIfKeyboard() ng-disabled=\"disableNameInput(point)\"></span> <input class=mt-point-expression-input ng-readonly=isReadOnly() ng-model=point.editText ng-click=\"selectObject($event, point, 'editText', 'point')\" ng-change=updateFromEditText() ng-blur=\"deselectIfKeyboard()\"></div><div class=mt-expression-glider-container ng-show=hasGliders()><span>Gliders</span><div class=\"mt-point-expression mt-point-expression-display mt-glider-expression-display\" ng-repeat=\"glider in getGliders()\" ng-bind=glider.toString()></div></div></div>"
+  );
+
+
+  $templateCache.put('templates/pointExpressionTemplate.html',
+    "<div class=mt-point-expression><span class=mt-point-name-container ng-class=\"{'mt-point-invalid-input': !model.hasValidName}\"><input class=mt-point-name ng-readonly=isReadOnly() ng-model=model.name ng-change=updateName() ng-click=\"selectObject($event, model, 'name', 'text')\" ng-blur=\"deselectIfKeyboard()\"></span> <input class=\"mt-point-expression-input mt-new-input\" ng-readonly=isReadOnly() ng-init=\"inputInit(model, 'editText', 'point')\" ng-model=model.editText ng-click=\"selectObject($event, model, 'editText', 'point')\" ng-change=updateFromEditText() ng-blur=\"deselectIfKeyboard()\"></div>"
+  );
+
+
+  $templateCache.put('templates/pointSetExpressionTemplate.html',
+    "<div><div class=mt-point-expression ng-repeat=\"point in model.points\"><span class=mt-point-name-container ng-class=\"{'mt-point-invalid-input': !point.hasValidName}\"><input class=mt-point-name ng-readonly=isReadOnly() ng-model=point.name ng-change=updateName() ng-click=\"selectObject($event, point, 'name', 'text')\" ng-blur=\"deselectIfKeyboard()\"></span> <input class=\"mt-point-expression-input mt-new-input\" ng-readonly=isReadOnly() ng-init=\"inputInit(point, 'editText', 'point')\" ng-model=point.editText ng-click=\"selectObject($event, point, 'editText', 'point')\" ng-change=updateFromEditText() ng-blur=\"deselectIfKeyboard()\"></div><input type=button class=mt-btn-add-point ng-show=showAddPoint() ng-click=\"addPoint()\"></div>"
+  );
+
+}]);
