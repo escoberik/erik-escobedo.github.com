@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #929292;
+  background: #d6d6d6;
 }
 
 .clearBoth {
@@ -17,23 +17,20 @@ body {
   width: 800px;
   margin: 5px auto 0;
   background: #fff;
-  padding-top: 70px;
+  padding-top: 35px;
 }
 
 h1 {
   font-weight: normal;
   font-size: 35px;
   text-align: center;
-  background: #222;
   padding: 3px 0;
   letter-spacing: 8px;
-  font-family: Georgia;
   text-transform: uppercase;
-  color: #fff;
 }
 
 h2 {
-  margin: 20px 0;
+  margin: 10px 0 15px;
   text-align: center;
   color: #222;
   font-weight: normal;
@@ -42,7 +39,7 @@ h2 {
 }
 
 section {
-  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 section h3 {
@@ -50,9 +47,8 @@ section h3 {
   text-align: center;
   text-transform: uppercase;
   padding: 5px 0;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: normal;
-  font-family: 'Myriad Pro,Calibri,Lucida Grande,Helvetica,sans-serif';
   letter-spacing: 2px;
 }
 
@@ -92,11 +88,12 @@ section h3 {
   color: #111;
 }
 section#experience {
-  background: #F9D9D8;
+  background: #fcecec;
 }
 
 section#experience h3 {
   background: #C52F24;
+  border-bottom: #C52F24 solid 1px;
 }
 
 section#experience .item .period {
@@ -105,11 +102,12 @@ section#experience .item .period {
 }
 
 section#education {
-  background: #D9F9D9;
+  background: #ecfcec;
 }
 
 section#education h3 {
   background: #55AF03;
+  border-bottom: #55AF03 solid 1px;
 }
 
 section#education .item .period {
@@ -123,6 +121,7 @@ section#skills {
 
 section#skills h3 {
   background: #3B5998;
+  border-bottom: #3B5998 solid 1px;
 }
 
 section#skills .item .period {
@@ -131,11 +130,12 @@ section#skills .item .period {
 }
 
 section#involvment {
-  background: #FFF9D8;
+  background: #fffcec;
 }
 
 section#involvment h3 {
   background: #F99106;
+  border-bottom: #F99106 solid 1px;
 }
 
 section#involvment .item .period {
